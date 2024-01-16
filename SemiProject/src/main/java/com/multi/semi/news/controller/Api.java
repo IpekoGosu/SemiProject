@@ -1,4 +1,4 @@
-package com.multi.navernews.news.controller;
+package com.multi.semi.news.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.json.simple.parser.ParseException;
 
-import com.multi.navernews.news.vo.News;
+import com.multi.semi.news.vo.News;
 
 public class Api {
 	

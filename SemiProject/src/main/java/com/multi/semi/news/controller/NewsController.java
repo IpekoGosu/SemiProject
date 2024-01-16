@@ -1,4 +1,4 @@
-package com.multi.navernews.news.controller;
+package com.multi.semi.news.controller;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.multi.navernews.news.vo.News;
+import com.multi.semi.news.vo.News;
 
 @Controller
 public class NewsController {

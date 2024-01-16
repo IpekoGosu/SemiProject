@@ -1,4 +1,4 @@
-package com.multi.navernews.news.vo;
+package com.multi.semi.news.vo;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;

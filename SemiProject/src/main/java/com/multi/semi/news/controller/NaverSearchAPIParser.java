@@ -1,4 +1,4 @@
-package com.multi.navernews.news.controller;
+package com.multi.semi.news.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.multi.navernews.news.vo.News;
+import com.multi.semi.news.vo.News;
 
 public class NaverSearchAPIParser {
 	private static String removeTag(String text) {

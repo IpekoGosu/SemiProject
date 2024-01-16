@@ -1,4 +1,4 @@
-package com.multi.navernews.news.controller;
+package com.multi.semi.news.controller;
 
 import org.springframework.stereotype.Service;
 
