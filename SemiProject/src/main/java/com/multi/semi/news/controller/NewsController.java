@@ -13,7 +13,10 @@ import com.multi.semi.news.vo.News;
 public class NewsController {
 	
 	@GetMapping("/news/search")
-	public String searchN(Model model, @RequestParam String query) {
+	public String searchN(Model model, @RequestParam(required = false) String query) {
+		if(query == null) {
+			query = "API";
+		}
 		List<News> nlist = NaverSearchApi.getNewsList(query);
 		model.addAttribute("nlist", nlist);
 		
