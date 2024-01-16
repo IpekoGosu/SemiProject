@@ -8,7 +8,7 @@
 <html>
 	<h3><a href="${path}/news/search">뉴스검색</a></h3>
 	<hr><br>
-	<h3><a href="${path}/news/search">카카오페이</a></h3>
+	<h3><a href="${path}/news/search">카카오로</a></h3>
 	<hr><br>
 	
 
