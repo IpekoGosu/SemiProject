@@ -18,6 +18,6 @@ public class NewsController {
 		model.addAttribute("nlist", nlist);
 		
 		
-		return "home";
+		return "/testnews/testnews";
 	}
 }
