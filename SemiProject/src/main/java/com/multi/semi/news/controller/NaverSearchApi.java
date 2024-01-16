@@ -17,7 +17,7 @@ import org.json.simple.parser.ParseException;
 
 import com.multi.semi.news.vo.News;
 
-public class Api {
+public class NaverSearchApi {
 	
 	public static List<News> getNewsList(String query){
 		String clientId = "sR7e9agRVrran0oy1CO1";

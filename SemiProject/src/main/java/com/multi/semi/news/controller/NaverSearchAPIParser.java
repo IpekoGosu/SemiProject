@@ -17,6 +17,7 @@ public class NaverSearchAPIParser {
 		if (text == null || text.length() == 0) {
 			return text;
 		}
+		System.out.println(text);
 		text = text.replaceAll("<br>", "\n");
 		text = text.replaceAll("&gt;", ">");
 		text = text.replaceAll("&lt;", "<");

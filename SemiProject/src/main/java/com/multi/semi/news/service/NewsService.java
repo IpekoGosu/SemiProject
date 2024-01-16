@@ -1,4 +1,4 @@
-package com.multi.semi.news.controller;
+package com.multi.semi.news.service;
 
 import org.springframework.stereotype.Service;
 

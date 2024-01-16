@@ -14,7 +14,7 @@ public class NewsController {
 	
 	@GetMapping("/news/search")
 	public String searchN(Model model, @RequestParam String query) {
-		List<News> nlist = Api.getNewsList(query);
+		List<News> nlist = NaverSearchApi.getNewsList(query);
 		model.addAttribute("nlist", nlist);
 		
 		
