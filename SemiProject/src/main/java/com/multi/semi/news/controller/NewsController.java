@@ -21,6 +21,6 @@ public class NewsController {
 		model.addAttribute("nlist", nlist);
 		
 		
-		return "/testnews/testnews";
+		return "/testpages/testnews";
 	}
 }
