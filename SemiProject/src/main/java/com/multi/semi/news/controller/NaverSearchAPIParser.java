@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.multi.semi.news.vo.News;
+import com.multi.semi.news.model.vo.News;
 
 public class NaverSearchAPIParser {
 	private static String removeTag(String text) {

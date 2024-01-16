@@ -15,7 +15,7 @@ import java.util.Map;
 
 import org.json.simple.parser.ParseException;
 
-import com.multi.semi.news.vo.News;
+import com.multi.semi.news.model.vo.News;
 
 public class NaverSearchApi {
 	

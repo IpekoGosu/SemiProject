@@ -1,4 +1,4 @@
-package com.multi.semi.news.vo;
+package com.multi.semi.news.model.vo;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;

@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.multi.semi.news.vo.News;
+import com.multi.semi.news.model.vo.News;
 
 @Controller
 public class NewsController {
