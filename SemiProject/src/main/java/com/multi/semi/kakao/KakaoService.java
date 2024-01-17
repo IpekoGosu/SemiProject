@@ -1,4 +1,4 @@
-package com.multi.semi.member.model.service;
+package com.multi.semi.kakao;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -118,6 +120,38 @@ public class KakaoService {
             e.printStackTrace();
         }
 
+        return result;
+    }
+	
+	public String getAgreementInfo(String access_token) {
+        String result = "";
+        String host = "https://kapi.kakao.com/v2/user/scopes";
+        try{
+            URL url = new URL(host);
+            HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setRequestProperty("Authorization", "Bearer "+access_token);
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            String line = "";
+            while((line=br.readLine())!=null)
+            {
+                result+=line;
+            }
+
+            int responseCode = urlConnection.getResponseCode();
+            System.out.println("responseCode = " + responseCode);
+
+            // result is json format
+            br.close();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return result;
     }
 	
