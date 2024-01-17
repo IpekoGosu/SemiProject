@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class News {
-	private int nno;
+	private int nid;
 	private String title;
 	private String originallink;
 	private String link;

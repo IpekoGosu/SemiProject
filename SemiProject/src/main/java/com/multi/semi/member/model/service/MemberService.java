@@ -9,17 +9,15 @@ import com.multi.semi.member.model.vo.Member;
 @Service
 public class MemberService {
 	
-	@Autowired
-	private MemberMapper mapper;
 	
-	public Member loginKakao(String kakaoToken) {
-		Member member = mapper.selectMemberByKakaoToken(kakaoToken);
-		if (member == null) {
-			return null;
-		} else {
-			return member;
-		}
-	}
+//	public Member loginKakao(String kakaoToken) {
+//		Member member = mapper.selectMemberByKakaoToken(kakaoToken);
+//		if (member == null) {
+//			return null;
+//		} else {
+//			return member;
+//		}
+//	}
 	
 	
 }
