@@ -19,7 +19,6 @@ public class NewsController {
 	public String newsPrf(Model model, NewsParam param){
 		List<News> nlist = new ArrayList<News>();
 		int searchCount = 0;
-		System.out.println("PPPPPPPPPPPPPPPPPPPP"+param);
 		if(param.getSearchValue() == null) {
 			param.setSearchValue("공연");
 		}
@@ -31,6 +30,7 @@ public class NewsController {
 		param.setLimit(pageInfo.getListLimit());
 		param.setOffset(pageInfo.getStartList() - 1);
 		param.setSearchType(searchType);
+		System.out.println("PPPPPPPPPPPPPPPPPPPP"+param);
 		
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("nlist", nlist);

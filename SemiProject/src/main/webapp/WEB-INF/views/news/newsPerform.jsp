@@ -91,8 +91,12 @@
       </div>
 </section>
 <c:set var="searchType" value="${param.searchType}" />
+<c:set var="searchValue" value="${param.searchValue}" />
 <c:if test="${empty searchType}">
 	<c:set var="searchType" value="sim" />
+</c:if>
+<c:if test="${empty searchValue}">
+	<c:set var="searchValue" value="공연" />
 </c:if>
 <div class="container">
    <form name="searchPrfForm" action="${path}/news/perform" method="get">
@@ -100,7 +104,7 @@
     <div class="search-bar rounded p-4 mt-n5 position-relative z-index-20">
         <div class="row">
             <div class="col-10 d-flex align-items-center">
-              <input class="form-control border-0 shadow-0" type="search" value="${param.searchValue}" name="searchValue" placeholder="원하는 뉴스를 검색해주세요">
+              <input class="form-control border-0 shadow-0" type="search" value="${searchValue}" name="searchValue" placeholder="원하는 뉴스를 검색해주세요">
             </div>
             <div class="col-2 d-grid mb-0">
               <button class="btn btn-primary h-100" type="submit" style="background-color: #ef4562; border: none;">검색</button>
@@ -113,11 +117,11 @@
         <!-- 검색된 결과 수 끝 -->
         <!-- 정렬 선택 영역 시작 -->
         <span class="nav nav-pills-custom" style="justify-content: end;">
-        <input type="radio" value="sim" class="btn-check" name="searchType" id="success-outlined" ${searchType == 'sim' ? checked : ''} />
-		<label class="btn btn-outline-danger" for="success-outlined">정확도순</label>
+        <input type="radio" value="sim" class="btn-check" name="searchType" id="success-outlined" ${searchType == 'sim' ? 'checked' : ''} />
+		<label class="btn btn-outline-danger mx-3" style="width: 9rem;" for="success-outlined">정확도순</label>
 		
-		<input type="radio" value="date" class="btn-check" name="searchType" id="danger-outlined" ${searchType == 'date' ? checked : ''} />
-		<label class="btn btn-outline-danger" for="danger-outlined">날짜순</label>
+		<input type="radio" value="date" class="btn-check" name="searchType" id="danger-outlined" ${searchType == 'date' ? 'checked' : ''} />
+		<label class="btn btn-outline-danger" style="width: 9rem;" for="danger-outlined">날짜순</label>
         </span>
         <!-- 정렬 선택 영역 끝 -->
     </div>
@@ -136,11 +140,13 @@
 	                    <div class="col-6">
 	                        <div class="card-body">
 	                            <h5 class="card-title"><c:out value="${item.title}"/></h5>
-	                            <p class="card-text" style="height: 250px; overflow: hidden; text-overflow: ellipsis;">
+	                            <div class="card-text" style="height: 270px; overflow: hidden; text-overflow: ellipsis;">
 	                            	<c:out value="${item.description}"/>
-	                            </p>
-	                            <p class="text-md mb-2 text-sm" style="color: gray;">기사 일자 : <span><c:out value="${item.pubDate}"/></span></p>
-	                            <a href="${item.originallink}" style="text-decoration: none;">기사 링크로 가기</a>
+	                            	<div class="mt-4">
+			                            <p class="text-md mb-2 text-sm" style="color: gray;">기사 일자 : <span><c:out value="${item.pubDate}"/></span></p>
+			                            <a href="${item.originallink}" style="text-decoration: none;">기사 링크로 가기<i class="fa fa-long-arrow-alt-right"></i></a>
+	                            	</div>
+	                            </div>
 	                        </div>
 	                    </div>
 	                    <div class="col-auto">
@@ -280,6 +286,11 @@
 		searchPrfForm.page.value = page;
 		searchPrfForm.submit();
 	}
+	$(()=>{
+		$('#success-outlined, #danger-outlined').click((e)=>{
+	        searchPrfForm.submit();
+	    })
+	});
 
 </script>
 </html>
