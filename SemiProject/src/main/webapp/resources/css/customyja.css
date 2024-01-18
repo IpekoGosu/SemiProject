@@ -1,0 +1,95 @@
+.show-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-banner .show-bannerimg {
+  margin-right: 20px;
+}
+
+.show-banner .show-bannertext {
+  margin-left: 20px;
+  text-align: left;
+  height: 300px;
+}
+
+.show-bannertext p {
+  color: black;
+}
+
+.show-bannertext p:first-child {
+  color: #ef4562;
+}
+
+.show-bannertext p:nth-child(3) {
+  margin-bottom: 0px;
+}
+
+.footer-container {
+  position: relative;
+}
+
+.footer-container .footer-sns {
+  position: absolute;
+  top: 200px;
+  right: 55px;
+}
+
+.footer-container .footer-sns:hover {
+  cursor: pointer;
+  fill: #1e3050;
+}
+
+.footer-container .instagram {
+  right: 130px;
+}
+
+.footer-container .youtube {
+  right: 105px;
+  top: 202px;
+}
+
+.footer-container .facebook {
+  right: 80px;
+}
+
+.footer-left {
+  width: 590px;
+}
+
+.footer-section {
+  width: 200px;
+  font-size: 13px;
+}
+
+.footer-section:last-child {
+  width: 150px;
+}
+
+.nav-link {
+  color: #717070;
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.footer-section h5 {
+  color: #ef4562;
+  font-size: 18px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title h2 {
+  margin-right: 10px;
+  color: #ef4562;
+}
+
+.title .subtitle {
+  color: black;
+}

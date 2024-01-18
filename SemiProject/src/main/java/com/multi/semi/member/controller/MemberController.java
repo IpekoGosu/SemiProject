@@ -28,6 +28,10 @@ public class MemberController {
 	@Autowired
 	private KakaoService kakaoService;
 	
+	@RequestMapping("/login/test")
+	public String logintest() {
+		return "/testpages/logintest";
+	}
 	
 	@RequestMapping("/logout")
 	public String logout(SessionStatus status) { // status: 세션의 상태를 확인하는 인자

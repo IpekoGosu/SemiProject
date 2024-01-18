@@ -1,0 +1,28 @@
+.user-show {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.show-nearby {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.go-ticketing {
+  color: rgb(236, 119, 138);
+  border-bottom: rgb(236, 119, 138);
+  text-decoration: none;
+}
+
+.go-ticketing:hover {
+  color: #ef4562;
+  text-decoration-color: #ef4562;
+}
+
+.best-review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

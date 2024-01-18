@@ -1,0 +1,84 @@
+/* your styles go here */
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
+/* 기본 폰트로 사용할 폰트 지정 */
+body {
+  font-family: "GmarketSansMedium", sans-serif;
+}
+
+footer .nav-item a {
+  color: gray !important;
+}
+
+footer .nav-item a:hover {
+  color: #ef4562 !important;
+  background-color: inherit !important;
+}
+
+footer .text-body-secondary {
+  color: gray !important;
+}
+
+header .dropdown .nav-link:hover {
+  color: #ef4562 !important;
+  background-color: inherit !important;
+}
+
+header .dropdown .nav-link:focus {
+  color: #ef4562 !important;
+  background-color: inherit !important;
+}
+
+header .dropdown .dropdown-item:hover {
+  color: #ef4562 !important;
+  background-color: inherit !important;
+}
+
+header .login-button a {
+  background-color: #ef4562 !important;
+  color: white !important;
+}
+
+.nav-link {
+  color: #ef4562 !important;
+  border: none !important;
+}
+
+.nav-link:hover {
+  color: white !important;
+  background-color: #ef4562 !important;
+}
+
+.nav-link:focus {
+  color: white !important;
+  background-color: #ef4562 !important;
+}
+
+.nav-link.active {
+  color: white !important;
+  background-color: #ef4562 !important;
+  border: none !important;
+}
+
+/* 페이지네이션 영역 (1, 2, 3, 4, 5) */
+.page-link {
+  color: #ef4562 !important;
+  box-shadow: none;
+}
+.page-link.active, .active > .page-link {
+  color: white !important;
+  background-color: #ef4562 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.page-link:focus {
+  box-shadow: none !important;
+}
