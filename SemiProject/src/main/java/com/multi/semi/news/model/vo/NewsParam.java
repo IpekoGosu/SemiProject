@@ -24,7 +24,7 @@ public class NewsParam {
 
 	public NewsParam(String searchType, String searchValue, int page, int limit, int offset) {
 		super();
-		setSearchType(searchType);
+		this.searchType = searchType;
 		this.searchValue = searchValue;
 		this.page = page;
 		this.limit = limit;

@@ -19,7 +19,7 @@ import com.multi.semi.news.model.vo.News;
 
 public class NaverSearchApi {
 	
-	public static List<News> getNewsList(String query, String searchType){
+	public static List<News> getNewsList(String query, String searchType, int page){
 		String clientId = "sR7e9agRVrran0oy1CO1";
 		String clientSecret = "MadPis5VIy";
 		String apiURL = "https://openapi.naver.com/v1/search/news.json";
@@ -33,9 +33,9 @@ public class NaverSearchApi {
 		StringBuilder url = new  StringBuilder();
 		url.append(apiURL);
 		url.append("?query=" + query);
-		url.append("?display=" + 10);
+		url.append("&display=" + 10);
 		url.append("&sort=" + searchType);
-		url.append("&start=" + "1");
+		url.append("&start=" + page);
 		
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("X-Naver-Client-Id", clientId);

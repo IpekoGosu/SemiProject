@@ -72,18 +72,30 @@
         .page-link:focus {
             box-shadow: none !important;
         }
-        .btn-secondary {
+        .btn-outline-danger:checked {
             background-color: #ef4562 !important;
             border-color: #ef4562 !important;
       	}
+      	.gmarketfontM{
+        font-family: 'GmarketSansMedium';
+      }
     </style>
 </head>
 <body class="reward" style="padding-top: 72px;">
 <!-- 공연 검색 폼 영역 시작 -->
-<img src="${path}/resources/img/myImages/newBanner.png" alt="" style="object-fit: cover; width: 1920px; height: 400px;">
+<section class="hero-home dark-overlay"><img class="bg-image" src="${path}/resources/img/myImages/waitingforGodotHero.jpg" alt="">
+      <div class="container py-7">
+        <div class="overlay-content text-center text-white">
+          <h1 class="display-3 text-shadow gmarketfontM bold" style="position: relative; top: 9rem; font-size: 7rem;">뉴스 검색하기</h1>
+        </div>
+      </div>
+</section>
+<c:set var="searchType" value="${param.searchType}" />
+<c:if test="${empty searchType}">
+	<c:set var="searchType" value="sim" />
+</c:if>
 <div class="container">
    <form name="searchPrfForm" action="${path}/news/perform" method="get">
-   	<input type="hidden" name="searchType" value="sim">
    	<input type="hidden" name="page" value="1">
     <div class="search-bar rounded p-4 mt-n5 position-relative z-index-20">
         <div class="row">
@@ -101,18 +113,11 @@
         <!-- 검색된 결과 수 끝 -->
         <!-- 정렬 선택 영역 시작 -->
         <span class="nav nav-pills-custom" style="justify-content: end;">
-        <table>
-            <tbody>
-              <tr>
-                <td>
-                  <button onclick="setType(sim)" class="btn btn-secondary w-auto">정확도순</button>
-                </td>
-                <td>
-                  <button onclick="setType(date)" class="btn btn-secondary w-auto">날짜순</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <input type="radio" value="sim" class="btn-check" name="searchType" id="success-outlined" ${searchType == 'sim' ? checked : ''} />
+		<label class="btn btn-outline-danger" for="success-outlined">정확도순</label>
+		
+		<input type="radio" value="date" class="btn-check" name="searchType" id="danger-outlined" ${searchType == 'date' ? checked : ''} />
+		<label class="btn btn-outline-danger" for="danger-outlined">날짜순</label>
         </span>
         <!-- 정렬 선택 영역 끝 -->
     </div>
@@ -152,13 +157,18 @@
     <div class="mt-5 mb-5">
       <nav aria-label="Page navigation example">
           <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item"><a class="page-link" href="#">5</a></li>
-              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
+              <li class="page-item page-link" onclick="movePage(1);"><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
+              <li class="page-item page-link" onclick="movePage(${pageInfo.prevPage});"><i class="fa fa-angle-left"></i></li>
+              <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" varStatus="status" step="1">
+              	<c:if test="${status.current == pageInfo.currentPage}">
+              		<li class="page-item page-link active">${status.current}</li>
+              	</c:if>
+              	<c:if test="${status.current != pageInfo.currentPage}">
+              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+              	</c:if>
+              </c:forEach>
+              <li class="page-item page-link" onclick="movePage(${pageInfo.nextPage});"><i class="fa fa-angle-right"></i></li>
+              <li class="page-item page-link" onclick="movePage(${pageInfo.maxPage});"><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
           </ul>
       </nav>
     </div>
@@ -266,10 +276,11 @@
     </script>
 </body>
 <script type="text/javascript">
-	function setType(type){
-		searchPrfForm.searchType.value = type;
+	function movePage(page){
+		searchPrfForm.page.value = page;
 		searchPrfForm.submit();
 	}
+
 </script>
 </html>
 
