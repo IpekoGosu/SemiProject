@@ -76,6 +76,10 @@
             background-color: #ef4562 !important;
             border-color: #ef4562 !important;
       	}
+      	@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Gowun+Dodum&family=Stylish&display=swap');
+      .donglefont{
+        font-family: 'Dongle';
+      }
       	.gmarketfontM{
         font-family: 'GmarketSansMedium';
       }
@@ -86,7 +90,7 @@
 <section class="hero-home dark-overlay"><img class="bg-image" src="${path}/resources/img/myImages/waitingforGodotHero.jpg" alt="">
       <div class="container py-7">
         <div class="overlay-content text-center text-white">
-          <h1 class="display-3 text-shadow gmarketfontM bold" style="position: relative; top: 9rem; font-size: 7rem;">뉴스 검색하기</h1>
+          <h1 class="display-3 text-shadow donglefont bold" style="position: relative; top: 9rem; font-size: 10rem;">뉴스 검색하기</h1>
         </div>
       </div>
 </section>
@@ -163,7 +167,8 @@
     <div class="mt-5 mb-5">
       <nav aria-label="Page navigation example">
           <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-              <li class="page-item page-link" onclick="movePage(1);"><i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
+              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
               <li class="page-item page-link" onclick="movePage(${pageInfo.prevPage});"><i class="fa fa-angle-left"></i></li>
               <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" varStatus="status" step="1">
               	<c:if test="${status.current == pageInfo.currentPage}">
@@ -174,7 +179,8 @@
               	</c:if>
               </c:forEach>
               <li class="page-item page-link" onclick="movePage(${pageInfo.nextPage});"><i class="fa fa-angle-right"></i></li>
-              <li class="page-item page-link" onclick="movePage(${pageInfo.maxPage});"><i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
+              <li class="page-item page-link" onclick="movePage(${pageInfo.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
           </ul>
       </nav>
     </div>

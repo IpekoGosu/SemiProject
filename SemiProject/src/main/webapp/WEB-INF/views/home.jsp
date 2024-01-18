@@ -8,7 +8,7 @@
 <html>
 	<h3>이것은 테스트하기 위한 것입니다. 차후 메인페이지로 대체해야합니다</h3>
 	<br><br><br><br><hr><br>
-	<h3><a href="${path}/news/search">뉴스검색</a></h3>
+	<h3><a href="${path}/news/perform">공연뉴스검색</a></h3>
 	<hr><br>
 	<h3><a href="${path}/login/test">로그인실험페이지</a></h3>
 	<hr><br>

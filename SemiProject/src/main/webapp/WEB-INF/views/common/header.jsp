@@ -102,7 +102,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
               <a class="dropdown-item" href="news-tour.html" style="font-size: 18px;">관광지 뉴스</a>
-              <a class="dropdown-item" href="news-show.html" style="font-size: 18px;">공연 뉴스</a>
+              <a class="dropdown-item" style="font-size: 18px;">공연 뉴스</a>
             </div>
           </li>
           <!-- 뉴스 끝 -->
@@ -148,7 +148,8 @@
 <script>var basePath = ''</script>
 <!-- Main Theme JS file    -->
 <script src="${path}/resources/js/theme.js"></script>
-	
+
+
 	
 
 
