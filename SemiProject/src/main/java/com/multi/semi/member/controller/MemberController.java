@@ -28,9 +28,15 @@ public class MemberController {
 	@Autowired
 	private KakaoService kakaoService;
 	
+	// test!!!!!!!!!!!
 	@RequestMapping("/login/test")
 	public String logintest() {
 		return "/testpages/logintest";
+	}
+	// test!!!!!!!!!!!
+	@RequestMapping("/htest/test")
+	public String htesttest() {
+		return "/testpages/htest";
 	}
 	
 	@RequestMapping("/logout")
