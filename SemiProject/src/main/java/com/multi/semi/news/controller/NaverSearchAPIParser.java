@@ -77,7 +77,18 @@ public class NaverSearchAPIParser {
 			News news = new News(0, title, originallink, link, description, pubDate);
 			list.add(news);
 		}
+		
 		return list;
+	}
+	
+	public static int getTotal(String json) throws ParseException {
+		int result = 0;
+		JSONParser jsonParser = new JSONParser();
+		JSONObject rootObj = (JSONObject) jsonParser.parse(json);
+		System.out.println("@@@@@@@@@@@@@@"+rootObj.get("total"));
+		result = (int)(long) rootObj.get("total");
+
+		return result;
 	}
 	
 	
