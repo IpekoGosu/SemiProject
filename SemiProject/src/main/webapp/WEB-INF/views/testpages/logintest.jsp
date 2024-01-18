@@ -4,6 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
+<jsp:include page="/WEB-INF/views/common/header.jsp">
+	<jsp:param value="로그인" name="title"/>
+</jsp:include>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,93 +73,6 @@
     </style>
   </head>
   <body style="padding-top: 72px">
-<!-- 헤더 영역 시작 -->
-<header class="header">
-  <!-- Navbar-->
-  <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
-    <div class="container-fluid">
-      <!-- 로고 영역 -->
-      <div class="d-flex align-items-center header-logo">
-        <a class="navbar-brand py-1" href="index.html">
-          <img width="90px" height="60px" style="object-fit: cover" src="${path}/resources/img/yja/myseoullogo4.png" alt="Directory logo"/>
-        </a>
-        <a href="index.html" style="font-size: 30px; color: #ef4562; font-weight: bold; text-decoration: none;">마이서울</a>
-      </div>
-      <!-- 로고 영역 끝 -->
-      <!-- 메뉴 영역 시작 -->
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ms-auto">
-          <!-- 관광지 시작 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="index.html"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px; color: #ef4562;">
-              관광지
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="tour-search.html" style="font-size: 18px;">관광지</a>
-              <a class="dropdown-item" href="#" style="font-size: 18px;">맛집</a>
-              <a class="dropdown-item" href="tour-best.html" style="font-size: 18px;">관광지 추천</a>
-              <a class="dropdown-item" href="tour-realtime.html" style="font-size: 18px;">도시 데이터</a>
-            </div>
-          </li>
-          <!-- 관광지 끝 -->
-          <!-- 공연 시작 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="index.html"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px; color: #ef4562;">
-              공연
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="show-search-1.html" style="font-size: 18px;">음악</a>
-              <a class="dropdown-item" href="show-search-2.html" style="font-size: 18px;">연극, 뮤지컬</a
-              ><a class="dropdown-item" href="show-search-3.html" style="font-size: 18px;">무용, 서커스/마술</a>
-              <a class="dropdown-item" href="show-inform.html" style="font-size: 18px;">공연 정보</a>
-              <a class="dropdown-item" href="show-recommendations.html" style="font-size: 18px;">공연 추천</a>
-              <a class="dropdown-item" href="show-award.html" style="font-size: 18px;">수상작</a>
-            </div>
-          </li>
-          <!-- 공연 끝 -->
-          <!-- 커뮤니티 시작 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="index.html"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px; color: #ef4562;">
-              커뮤니티
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="community-tour.html" style="font-size: 18px;">관광지 게시판</a>
-              <a class="dropdown-item" href="community-show.html" style="font-size: 18px;">공연 게시판</a>
-              <a class="dropdown-item" href="#" style="font-size: 18px;">지역 행사 게시판</a>
-            </div>
-          </li>
-          <!-- 커뮤니티 끝 -->
-          <!-- 뉴스 시작 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="index.html"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px; color: #ef4562;">
-              뉴스
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="news-tour.html" style="font-size: 18px;">관광지 뉴스</a>
-              <a class="dropdown-item" href="news-show.html" style="font-size: 18px;">공연 뉴스</a>
-            </div>
-          </li>
-          <!-- 뉴스 끝 -->
-          <!-- 로그인 영역 -->
-          <li class="nav-item login-button" style="display: flex; align-items: center;">
-            <a class="btn btn-primary" href="login.html"
-              style="background-color: #ef4562; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
-              Log in
-            </a>
-          </li>
-          <!-- 로그인 영역 끝 -->
-        </ul>
-      </div>
-      <!-- 메뉴 영역 끝 -->
-    </div>
-  </nav>
-  <!-- /Navbar -->
-</header>
-<!-- 헤더 영역 끝 -->
     <div class="container-fluid px-3">
       <div class="row min-vh-100">
         <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
@@ -204,99 +120,6 @@
         </div>
       </div>
     </div>
-<!-- 푸터 영역 시작 -->
-<footer style="background-color: #fff1f1">
-  <div class="container footer-container" style="padding: 0;">
-    <div class="row row-cols-5 pt-3">
-      <!-- 로고 영역 -->
-      <div class="col footer-left">
-        <a href="index.html" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-          <img width="80px" height="80px" src="${path}/resources/img/yja/myseoullogo3.png" alt="Directory logo" style="border-radius: 30px; margin-left: -10px"/>
-        </a>
-        <p class="text-body-secondary">&copy; 2024</p>
-        <img class="footer-sns instagram" src="${path}/resources/img/yja/instagram-1.svg" style="width: 20px"/>
-        <img class="footer-sns youtube" src="${path}/resources/img/yja/youtube-1.svg" style="width: 20px"/>
-        <img class="footer-sns facebook" src="${path}/resources/img/yja/facebook-square.svg" style="width: 20px"/>
-        <img class="footer-sns twitter" src="${path}/resources/img/yja/twitter-1.svg" style="width: 20px"/>
-      </div>
-      <!-- 로고 영역 끝 -->
-      <!-- 관광지 영역 -->
-      <div class="col footer-section">
-        <h5><strong style="color: #ef4562;">관광지</strong></h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="tour-search.html" class="nav-link p-0 text-body-secondary">관광지</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">맛집</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="tour-best.html" class="nav-link p-0 text-body-secondary">관광지 추천</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="tour-realtime.html" class="nav-link p-0 text-body-secondary">도시 데이터</a>
-          </li>
-        </ul>
-      </div>
-      <!-- 관광지 영역 끝 -->
-      <!-- 공연 영역 시작 -->
-      <div class="col footer-section">
-        <h5><strong style="color: #ef4562;">공연</strong></h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="show-search-1.html" class="nav-link p-0 text-body-secondary">음악</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-search-2.html" class="nav-link p-0 text-body-secondary">연극, 뮤지컬</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-search-3.html" class="nav-link p-0 text-body-secondary">무용, 서커스/마술</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-inform.html" class="nav-link p-0 text-body-secondary">공연 정보</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-recommendations.html" class="nav-link p-0 text-body-secondary">공연 추천</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-award.html" class="nav-link p-0 text-body-secondary">수상작</a>
-          </li>
-        </ul>
-      </div>
-      <!-- 공연 영역 끝 -->
-      <!-- 커뮤니티 영역 시작 -->
-      <div class="col footer-section">
-        <h5><strong style="color: #ef4562;">커뮤니티</strong></h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="community-tour.html" class="nav-link p-0 text-body-secondary">관광지 게시판</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="community-show.html" class="nav-link p-0 text-body-secondary">공연 게시판</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="#" class="nav-link p-0 text-body-secondary">지역 행사 게시판</a>
-          </li>
-        </ul>
-      </div>
-      <!-- 커뮤니티 영역 끝 -->
-      <!-- 뉴스 영역 시작 -->
-      <div class="col footer-section">
-        <h5><strong style="color: #ef4562;">뉴스</strong></h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2">
-            <a href="news-tour.html" class="nav-link p-0 text-body-secondary">관광지 뉴스</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="news-show.html" class="nav-link p-0 text-body-secondary">공연 뉴스</a>
-          </li>
-        </ul>
-      </div>
-      <!-- 뉴스 영역 끝 -->
-    </div>
-  </div>
-</footer>
-<!-- 푸터 영역 끝 -->
     <!-- JavaScript files-->
     <script>
       
@@ -320,3 +143,5 @@
     <script src="${path}/resources/js/theme.js"></script>
   </body>
 </html>
+
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
