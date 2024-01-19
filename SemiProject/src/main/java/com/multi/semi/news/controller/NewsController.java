@@ -20,7 +20,7 @@ public class NewsController {
 		List<News> nlist = new ArrayList<News>();
 		int searchCount = 0;
 		if(param.getSearchValue() == null) {
-			param.setSearchValue("공연");
+			param.setSearchValue("서울공연");
 		}
 		String searchType = param.getSearchType();
 		nlist = NaverSearchApi.getNewsList(param.getSearchValue(), searchType, param.getPage());
@@ -38,6 +38,32 @@ public class NewsController {
 		model.addAttribute("param", param);
 		
 		return "/news/newsPerform";
+	}
+	
+	// 관광지검색
+	@RequestMapping("/news/tour")
+	public String newsTour(Model model, NewsParam param){
+		List<News> nlist = new ArrayList<News>();
+		int searchCount = 0;
+		if(param.getSearchValue() == null) {
+			param.setSearchValue("서울관광");
+		}
+		String searchType = param.getSearchType();
+		nlist = NaverSearchApi.getNewsList(param.getSearchValue(), searchType, param.getPage());
+		searchCount = NaverSearchApi.getNewsCount(param.getSearchValue(), param.getSearchType());
+		
+		PageInfo pageInfo = new PageInfo(param.getPage(), 6, searchCount, 10);
+		param.setLimit(pageInfo.getListLimit());
+		param.setOffset(pageInfo.getStartList() - 1);
+		param.setSearchType(searchType);
+		System.out.println("PPPPPPPPPPPPPPPPPPPP"+param);
+		
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("nlist", nlist);
+		model.addAttribute("searchCount", searchCount);
+		model.addAttribute("param", param);
+		
+		return "/news/newsTour";
 	}
 	
 	

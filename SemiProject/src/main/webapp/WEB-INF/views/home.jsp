@@ -10,6 +10,8 @@
 	<br><br><br><br><hr><br>
 	<h3><a href="${path}/news/perform">공연뉴스검색</a></h3>
 	<hr><br>
+	<h3><a href="${path}/news/tour">관광지뉴스검색</a></h3>
+	<hr><br>
 	<h3><a href="${path}/login/test">로그인실험페이지</a></h3>
 	<hr><br>
 	

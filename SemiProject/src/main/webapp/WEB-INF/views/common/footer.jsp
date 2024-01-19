@@ -87,10 +87,10 @@
         <h5><strong style="color: #ef4562;">뉴스</strong></h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2">
-            <a href="news-tour.html" class="nav-link p-0 text-body-secondary">관광지 뉴스</a>
+            <a href="${path}/news/tour" class="nav-link p-0 text-body-secondary">관광지 뉴스</a>
           </li>
           <li class="nav-item mb-2">
-            <a href="news-show.html" class="nav-link p-0 text-body-secondary">공연 뉴스</a>
+            <a href="${path}/news/perform" class="nav-link p-0 text-body-secondary">공연 뉴스</a>
           </li>
         </ul>
       </div>

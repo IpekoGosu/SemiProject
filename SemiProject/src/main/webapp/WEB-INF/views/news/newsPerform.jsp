@@ -99,9 +99,6 @@
 <c:if test="${empty searchType}">
 	<c:set var="searchType" value="sim" />
 </c:if>
-<c:if test="${empty searchValue}">
-	<c:set var="searchValue" value="공연" />
-</c:if>
 <div class="container">
    <form name="searchPrfForm" action="${path}/news/perform" method="get">
    	<input type="hidden" name="page" value="1">
