@@ -57,7 +57,7 @@
 	        <h1 class="display-3 fw-bold mb-5 gmarketfontM">문제가 발생했습니다</h1>
 	        <p class="h4 text-shadow mb-5">${Data}</p>
 	        <p class="mb-6"> <a class="btn btn-outline-light" href="${path}/"><i class="fa fa-home me-2"></i>홈으로 돌아가기</a></p>
-	        <p class="fw-light">Error</p>
+	        <p class="fw-light">에러페이지</p>
 	      </div>
     	</div>
     	
