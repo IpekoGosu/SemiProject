@@ -13,3 +13,8 @@
 ```
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 ```
+
+## DB 참고사항
+
+- SEMIPROJECT_DB.sql파일에서 db내용 확인 가능합니다.
+- driver.properties 파일에서 db연결설정 확인 가능합니다.
