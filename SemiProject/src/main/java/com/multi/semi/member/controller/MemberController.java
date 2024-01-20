@@ -43,12 +43,12 @@ public class MemberController {
 		return "/testpages/htest";
 	}
 	
+	// 일반회원가입
 	@GetMapping("/member/enroll")
 	public String enrollPage() { // xxxPage = 단순 html/jsp view로 연결하는 핸들러 메소드 패턴
 		log.debug("회원 가입 페이지 요청");
 		return "/member/enroll";
 	}
-	
 	@PostMapping("/member/enroll")
 	public String enroll(Model model, Member member) {
 		log.debug("회원가입 요청 member : " + member.toString());
@@ -66,7 +66,7 @@ public class MemberController {
 		return "common/msg";
 	}
 	
-	
+	// 로그아웃
 	@RequestMapping("/logout")
 	public String logout(SessionStatus status) { // status: 세션의 상태를 확인하는 인자
 		log.debug("status : " + status.isComplete()); // isComplete : 세션이 완료 되었는지
@@ -75,9 +75,29 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	// 카카오회원가입
 	@GetMapping("/member/enroll/kakao")
 	public String enrollKakao(Model model, String code) {
-		log.info("로그인요청");
+		log.info("카카오회원가입요청");
+		if(code != null) {
+			try {
+				String enrollUrl = "http://localhost/semi/member/enroll/kakao";
+				System.out.println("code : " + code);
+				String token = kakaoService.getToken(code, enrollUrl);
+				Map<String, Object> map = kakaoService.getUserInfo(token);
+				System.out.println("map : " + map);
+				model.addAttribute("kakaoMap", map);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return "member/enroll";
+	}
+	
+	// 카카오로그인
+	@GetMapping("/kakaoLogin")
+	public String kakaoLogin(Model model, String code) {
+		log.info("로그인 요청");
 		if(code != null) {
 			try {
 				String loginUrl = "http://localhost/semi/kakaoLogin";
@@ -87,21 +107,19 @@ public class MemberController {
 				Member loginMember = service.loginKakao(kakaoToken);
 
 				if(loginMember != null) { // 로그인 성공
-					model.addAttribute("loginMember", loginMember); // 세션으로 저장되는 코드
+					model.addAttribute("loginMember", loginMember); // 세션으로 저장되는 코드, 이유: @SessionAttributes
 					return "redirect:/";
 				}
-				
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
-		
-		
-		return "member/enroll";
+		model.addAttribute("msg", "로그인에 실패하였습니다.");
+		model.addAttribute("location","/");
+		return "common/msg";
 	}
 	
+	// 일반로그인
 	@PostMapping("/login")
 	public String login(Model model, String memberId, String memberPwd) {
 		log.debug("@@@@@ Login : " + memberId + ", " + memberPwd);
@@ -122,6 +140,7 @@ public class MemberController {
 	public String loginPage() {
 		return "/member/login";
 	}
+	
 	
 	
 	

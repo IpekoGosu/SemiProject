@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script>
       function checkcount(obj){
-        var box = document.getElementsByName("loginFavoriteGenre");
+        var box = document.getElementsByName("favoriteGenre");
         var count = 0;
         for (var i = 0; i < box.length; i++){
           if (box[i].checked){
@@ -92,13 +92,14 @@
               <h2 class="gmarketfontM">회원가입</h2>
             </div>
             <form class="form-validate" name="enrollform" action="${path}/member/enroll" method="post">
+              <input type="hidden" name="kakaoToken" value="${kakaoMap.id}">
               <div class="row mb-4">
               	<div class="col-sm-8">
 	                <label class="form-label" for="id"> 아이디</label>
-	                <input class="form-control" name="id" id="id" type="text" placeholder="awesomeId" autocomplete="off">
+	                <input class="form-control" name="id" id="id" type="text" value="${kakaoMap.email}" placeholder="awesomeId" autocomplete="off">
               	</div>
               	<div class="col-sm-4">
-              		<button id="checkDuplicate" class="btn btn btn-secondary" style="position: relative; top: 21pt;">중복확인</button>
+              		<input type="button" id="checkDuplicate" class="btn btn btn-secondary" style="position: relative; top: 21pt;" value="중복확인">
               	</div>
               </div>
               <div class="mb-4">
@@ -115,7 +116,7 @@
               </div>
               <div class="mb-4">
                 <label class="form-label" for="name"> 닉네임</label>
-                <input class="form-control" name="name" id="name" type="text" placeholder="fancyNickname" autocomplete="off">
+                <input class="form-control" name="name" id="name" type="text" value="${kakaoMap.nickname}" placeholder="fancyNickname" autocomplete="off">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="phone"> 전화번호</label>
@@ -170,10 +171,10 @@
               </div>
               <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
               <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-primary">
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=4a7766104b3cf93fd69ec1b6c662f2d3&redirect_uri=http://localhost/semi/member/enroll/kakao" class="btn btn-lg btn-primary">
                   <img src="${path}/resources/img/myImages/kakotalk.png" alt="" width="30" style="position: relative; left: -50pt;">
                   <span class="" style="text-align: center; font-size: 14pt;">카카오톡 회원가입</span>
-                </button>
+                </a>
               </div>
             </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html"> 
               <svg class="svg-icon w-3rem h-3rem">

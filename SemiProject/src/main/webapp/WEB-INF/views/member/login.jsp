@@ -83,7 +83,7 @@
             <form id="loginform" name="loginform" action="${path}/login" method="post" class="form-validate">
               <div class="mb-4">
                 <label class="form-label" for="memberId"> 아이디</label>
-                <input class="form-control" name="memberId" id="memberId" type="text" placeholder="아이디 입력" autocomplete="off" required data-msg="아이디를 입력하세요">
+                <input class="form-control" name="memberId" id="memberId" type="text" placeholder="아이디 입력" autocomplete="off">
               </div>
               <div class="mb-4">
                 <div class="row">
@@ -91,7 +91,7 @@
                     <label class="form-label" for="memberPwd"> 비밀번호</label>
                   </div>
                 </div>
-                <input class="form-control" name="memberPwd" id="memberPwd" placeholder="비밀번호 입력" type="password" required data-msg="비밀번호를 입력하세요">
+                <input class="form-control" name="memberPwd" id="memberPwd" placeholder="비밀번호 입력" type="password">
               </div>
               <div class="mb-4">
               </div>
@@ -100,14 +100,14 @@
                 <input class="btn btn-lg btn-secondary" value="로그인" type="submit" style="font-size: 14pt;"/>
               </div>
               <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
-              <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-primary">
+              <div class="d-grid">
+                <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=4a7766104b3cf93fd69ec1b6c662f2d3&redirect_uri=http://localhost/semi/kakaoLogin" class="btn btn-lg btn-primary">
                   <img src="${path}/resources/img/myImages/kakotalk.png" alt="" width="30" style="position: relative; left: -50pt;">
-                  <span class="" style="text-align: center; font-size: 14pt;">카카오톡 </span>
-                </button>
+                  <span class="" style="text-align: center; font-size: 14pt;">카카오톡 로그인</span>
+                </a>
               </div>
               <hr class="my-4">
-              <p class="text-center"><small class="text-muted text-center">아이디가 없으신가요? <a href="enroll.html">회원가입                </a></small></p>
+              <p class="text-center"><small class="text-muted text-center">아이디가 없으신가요? <a href="${path}/member/enroll">회원가입</a></small></p>
             </form><a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html"> 
               <svg class="svg-icon w-3rem h-3rem">
                 <use xlink:href="#close-1"> </use>
@@ -122,9 +122,6 @@
     </div>
     <!-- JavaScript files-->
     <script>
-      $(()=>{
-    	 
-      });
     </script>
     <!-- jQuery-->
     <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
