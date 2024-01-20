@@ -12,10 +12,16 @@
 	<hr><br>
 	<h3><a href="${path}/news/tour">관광지뉴스검색</a></h3>
 	<hr><br>
-	<h3><a href="${path}/login/test">로그인실험페이지</a></h3>
+	<h3><a href="${path}/loginpage">로그인실험페이지</a></h3>
 	<hr><br>
 	<h3><a href="${path}/member/enroll">회원가입페이지</a></h3>
 	<hr><br>
+	<c:if test="${loginMember != null}"><h3>
+		로그인 상태. <br>
+		아이디 : ${loginMember.id}<br>
+		닉네임 : ${loginMember.name}<br>
+	</h3></c:if>
+	
 	
 	
 

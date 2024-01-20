@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@SessionAttributes("loginMember")
+@SessionAttributes("loginMember") // loginMember는 세션데이터로 취급
 public class MemberController {
 	
 	@Autowired
@@ -98,6 +98,32 @@ public class MemberController {
 		
 		return "member/enroll";
 	}
+	
+	@PostMapping("/login")
+	public String login(Model model, String memberId, String memberPwd) {
+		log.debug("@@@@@ Login : " + memberId + ", " + memberPwd);
+		
+		Member loginMember = service.login(memberId, memberPwd);
+		
+		if(loginMember != null) { // 로그인이 성공한 경우
+			model.addAttribute("loginMember", loginMember); // 세션에 저장하는 로직 @SessionAttributes 사용
+			return "redirect:/"; // index로 보내는 리다이렉트문
+		} else { // 로그인이 실패한 경우
+			model.addAttribute("msg", "아이디와 패스워드를 확인해주세요.");
+			model.addAttribute("location", "/");
+			return "common/msg";
+		}
+	}
+	
+	@RequestMapping("/loginpage")
+	public String loginPage() {
+		return "/member/login";
+	}
+	
+	
+	
+	
+	
 }
 
 

@@ -115,14 +115,26 @@
             </a>
           </li> -->
           <!-- 프로필(마이페이지) 영역 끝 -->
+          <c:if test="${loginMember == null}">
           <!-- 로그인 영역 -->
           <li class="nav-item login-button" id="login-button" style="display: flex; align-items: center;">
-            <a class="btn btn-primary" href="login.html"
+            <a class="btn btn-primary" href="${path}/loginpage"
               style="background-color: #ef4562; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
               Log in
             </a>
           </li>
           <!-- 로그인 영역 끝 -->
+          </c:if>
+          <c:if test="${loginMember != null}">
+          <!-- 로그아웃 영역 -->
+          <li class="nav-item login-button" id="login-button" style="display: flex; align-items: center;">
+            <a class="btn btn-primary" href="${path}/logout"
+              style="background-color: #ef4562; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
+              Logout
+            </a>
+          </li>
+          <!-- 로그아웃 영역 끝 -->
+          </c:if>
         </ul>
       </div>
       <!-- 메뉴 영역 끝 -->
