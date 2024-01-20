@@ -18,3 +18,4 @@
 
 - SEMIPROJECT_DB.sql파일에서 db내용 확인 가능합니다.
 - driver.properties 파일에서 db연결설정 확인 가능합니다.
+- 회원데이터 중 admin, test1~5 비밀번호: 1234 test6~9 비밀번호: 4321
