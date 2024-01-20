@@ -1,9 +1,12 @@
 package com.multi.semi.member.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -120,6 +123,23 @@ public class MemberController {
 		return "/member/login";
 	}
 	
+	
+	
+	
+	
+	
+	
+	// AJAX로 ID 중복검사하는 핸들러
+	@RequestMapping("/member/idCheck")
+	public ResponseEntity<Map<String, Object>> idCheck(String id){
+		log.debug("아이디 중복 확인 : " + id);
+		
+		boolean validate = service.validate(id);
+		Map<String, Object> map = new HashMap<>();
+		map.put("validate", validate);
+		
+		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
+	}
 	
 	
 	

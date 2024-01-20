@@ -92,29 +92,34 @@
               <h2 class="gmarketfontM">회원가입</h2>
             </div>
             <form class="form-validate" name="enrollform" action="${path}/member/enroll" method="post">
-              <div class="mb-4">
-                <label class="form-label" for="id"> 아이디</label>
-                <input class="form-control" name="id" id="id" type="text" placeholder="awesomeId" autocomplete="off" required data-msg="아이디를 입력하세요">
+              <div class="row mb-4">
+              	<div class="col-sm-8">
+	                <label class="form-label" for="id"> 아이디</label>
+	                <input class="form-control" name="id" id="id" type="text" placeholder="awesomeId" autocomplete="off">
+              	</div>
+              	<div class="col-sm-4">
+              		<button id="checkDuplicate" class="btn btn btn-secondary" style="position: relative; top: 21pt;">중복확인</button>
+              	</div>
               </div>
               <div class="mb-4">
                 <label class="form-label" for="email"> 이메일</label>
-                <input class="form-control" name="email" id="email" type="email" placeholder="name@address.com" autocomplete="off" required data-msg="이메일를 입력하세요">
+                <input class="form-control" name="email" id="email" type="email" placeholder="name@address.com" autocomplete="off">
               </div>
               <div class="mb-4">
-                <label class="form-label" for="password"> 비밀번호</label>
-                <input class="form-control" name="password" id="password" placeholder="Password" type="password" required data-msg="비밀번호를 입력하세요">
+                <label class="form-label" for="password1"> 비밀번호</label>
+                <input class="form-control" name="password" id="password1" placeholder="Password" type="password">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="password2"> 비밀번호 확인</label>
-                <input class="form-control" name="password2" id="password2" placeholder="Password" type="password" required data-msg="비밀번호를 입력하세요">
+                <input class="form-control" id="password2" placeholder="Password" type="password">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="name"> 닉네임</label>
-                <input class="form-control" name="name" id="name" type="text" placeholder="fancyNickname" autocomplete="off" required data-msg="닉네임을 입력하세요">
+                <input class="form-control" name="name" id="name" type="text" placeholder="fancyNickname" autocomplete="off">
               </div>
               <div class="mb-4">
                 <label class="form-label" for="phone"> 전화번호</label>
-                <input class="form-control" name="phone" id="phone" type="text" placeholder="010-1234-5678" autocomplete="off" required data-msg="전화번호를 입력하세요">
+                <input class="form-control" name="phone" id="phone" type="text" placeholder="010-1234-5678" autocomplete="off">
               </div>
               <div class="form-label"> 주소</div>
               <div class="row mb-4">
@@ -161,7 +166,7 @@
                 </div>
               </div>
               <div class="d-grid gap-2">
-                <button id="enrollsubmit" class="btn btn-lg btn-secondary" style="font-size: 14pt;">가입하기</button>
+                <input id="enrollsubmit" type="submit" class="btn btn-lg btn-secondary" value="가입하기" style="font-size: 14pt;"/>
               </div>
               <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
               <div class="d-grid gap-2">
@@ -228,9 +233,66 @@
         console.log("관광 지역코드 : " + $('#addressCodeTour').val());
       });
       
-      $('#enrollsubmit').click(function(){
-    	  enrollform.submit();
-      });
+      $('#enrollSubmit').click((e)=>{
+			// 서버에 보내기 전에 유효성 확인하는 로직부
+			let id = $('#id').val();
+			if(id.length < 4){
+				alert('아이디가 4글자 보다 적습니다.');
+				$('#id').focus();
+				return false; // submit을 취소하는 방법, 실제 서버로 전달되지 않음
+			}
+			
+			let password1 = $('#password1').val();
+			if(password1.length < 4){
+				alert('비밀번호가 4글자 보다 적습니다.');
+				$('#password1').focus();
+				return false; // submit을 취소하는 방법, 실제 서버로 전달되지 않음
+			}
+			
+			// 유효성 검사로직을 추가하는 부분
+			
+			return true; // submit이 전송되는 부분			
+		});
+      
+      $('#checkDuplicate').click((e)=>{
+			let id = $('#id').val().trim();
+			
+			if(id.length < 4){
+				alert('아이디가 4글자보다 적습니다.');
+				return;
+			}
+			
+			$.ajax({
+				type:'get',
+				url:'${path}/member/idCheck',
+				data:{id},
+				success:(result)=>{
+						if(result.validate === true){
+							alert('이미 사용중인 아이디 입니다.');
+							$('#id').focus();
+						}else{
+							alert('사용 가능한 아이디 입니다.');
+						}
+					},
+				error:(e)=>{
+					alert('중복을 확인할수 없습니다.');
+					console.log(e);
+				},
+			});
+		});
+      
+      $('#password2').blur((e)=>{
+			let password1 = $('#password1').val();
+			let password2 = $('#password2').val();
+			
+			if(password1.trim() != password2.trim()){
+				alert('패스워드가 일치하지 않습니다.');
+				$('#password1').val('');
+				$('#password2').val('');
+				$('#password1').focus();
+				
+			}
+		});
       
     });    
  	</script>
