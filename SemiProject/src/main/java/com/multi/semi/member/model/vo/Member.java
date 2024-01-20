@@ -18,6 +18,8 @@ public class Member {
 	private String phone;
 	private String email;
 	private String address;
+	private int addressCodePrf;
+	private int addressCodeTour;
 	private String favoriteGenre;
     private String kakaoToken; // 카카오에서 인증된 token을 저장하는 장소 
 	private String status;
