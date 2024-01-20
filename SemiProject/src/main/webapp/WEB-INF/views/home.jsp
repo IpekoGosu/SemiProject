@@ -14,6 +14,8 @@
 	<hr><br>
 	<h3><a href="${path}/login/test">로그인실험페이지</a></h3>
 	<hr><br>
+	<h3><a href="${path}/member/enroll">회원가입페이지</a></h3>
+	<hr><br>
 	
 	
 

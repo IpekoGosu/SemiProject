@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -38,6 +39,30 @@ public class MemberController {
 	public String htesttest() {
 		return "/testpages/htest";
 	}
+	
+	@GetMapping("/member/enroll")
+	public String enrollPage() { // xxxPage = 단순 html/jsp view로 연결하는 핸들러 메소드 패턴
+		log.debug("회원 가입 페이지 요청");
+		return "/member/enroll";
+	}
+	
+	@PostMapping("/member/enroll")
+	public String enroll(Model model, Member member) {
+		log.debug("회원가입 요청 member : " + member.toString());
+		int result = 0;
+		try {
+			result = service.save(member);
+		} catch (Exception e) {}
+		if (result > 0) {
+			model.addAttribute("msg", "회원가입 성공");
+			model.addAttribute("location", "/");
+		} else {
+			model.addAttribute("msg", "회원가입에 실패하였습니다. 입력정보를 확인하세요.");
+			model.addAttribute("location", "/member/enroll");
+		}
+		return "common/msg";
+	}
+	
 	
 	@RequestMapping("/logout")
 	public String logout(SessionStatus status) { // status: 세션의 상태를 확인하는 인자
