@@ -9,6 +9,7 @@ package com.multi.semi.board.model.vo;
 public class BoardParamPrf {
 	// html - form의 name과 일치하는 파라메터
 	private String searchType;
+	private String orderType;
 	private String searchValue;
 
 	// 페이징 인자
@@ -21,18 +22,19 @@ public class BoardParamPrf {
 		page = 1;
 	}
 
-	public BoardParamPrf(String searchType, String searchValue, int page, int limit, int offset) {
+	public BoardParamPrf(String searchType, String searchValue, int page, int limit, int offset, String orderType) {
 		super();
 		this.searchType = searchType;
 		this.searchValue = searchValue;
 		this.page = page;
 		this.limit = limit;
 		this.offset = offset;
+		this.orderType = orderType;
 	}
 
 	@Override
 	public String toString() {
-		return "BoardParamPrf [searchType=" + searchType + ", searchValue=" + searchValue + ", page=" + page
+		return "BoardParamPrf [searchType=" + searchType + ", orderType=" + orderType + ", searchValue=" + searchValue + ", page=" + page
 				+ ", limit=" + limit + ", offset=" + offset + "]";
 	}
 
@@ -74,6 +76,14 @@ public class BoardParamPrf {
 
 	public void setOffset(int offset) {
 		this.offset = offset;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
 	}
 
 }

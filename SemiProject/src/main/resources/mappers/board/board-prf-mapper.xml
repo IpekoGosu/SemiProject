@@ -13,6 +13,7 @@
 		<result property="memberName" column="NAME"/>
 		<result property="attachCount" column="ATTACHCOUNT"/>
 		<result property="readCount" column="READCOUNT"/>
+		<result property="replyCount" column="REPLYCOUNT"/>
 		<result property="status" column="STATUS"/>
 		<result property="createDate" column="CREATE_DATE"/>
 		<result property="modifyDate" column="MODIFY_DATE"/>
@@ -47,21 +48,32 @@
 	-->
 	
 	<select id="selectBoardListPrf" parameterType="BoardParamPrf" resultMap="boardResultMap">
-		SELECT  B.BNO, B.RATINGS, B.PNAME, B.TITLE, M.ID, M.NAME, B.READCOUNT, B.ATTACHCOUNT, B.CREATE_DATE
+		SELECT  B.BNO, B.RATINGS, B.PNAME, B.TITLE, M.ID, M.NAME, B.CONTENT, 
+			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE
 		FROM PRFBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE 
 			B.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
 			<if test="searchType == 'writer'">
-			    AND M.ID LIKE '%${searchValue}%' 
+			    AND M.NAME LIKE '%${searchValue}%' 
 			</if>
 			<if test="searchType == 'title'">
 			    AND B.TITLE LIKE '%${searchValue}%' 
 			</if>
-			<if test="searchType == 'content'">
-			    AND B.CONTENT LIKE '%${searchValue}%' 
+			<if test="searchType == 'pname'">
+			    AND B.PNAME LIKE '%${searchValue}%' 
 			</if>
-		ORDER BY B.BNO DESC LIMIT ${limit} OFFSET ${offset};
+			
+			<if test="orderType == 'time'">
+				ORDER BY B.BNO DESC 
+			</if>
+			<if test="orderType == 'read'">
+				ORDER BY B.READCOUNT DESC 
+			</if>
+			<if test="orderType == 'reply'">
+				ORDER BY B.REPLYCOUNT DESC 
+			</if>
+		LIMIT ${limit} OFFSET ${offset};
 	</select>
 	
 	<select id="selectBoardCountPrf" parameterType="BoardParamPrf" resultType="int">
@@ -76,8 +88,8 @@
 			<if test="searchType == 'title'">
 			    AND B.TITLE LIKE '%${searchValue}%' 
 			</if>
-			<if test="searchType == 'content'">
-			    AND B.CONTENT LIKE '%${searchValue}%' 
+			<if test="searchType == 'pname'">
+			    AND B.PNAME LIKE '%${searchValue}%' 
 			</if>
 	</select>
 	
@@ -85,7 +97,7 @@
 	<select id="selectBoardByNoPrf" parameterType="int" resultMap="boardResultMap">
 		SELECT  
 			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, 
-			B.READCOUNT, B.ATTACHCOUNT, B.CREATE_DATE, B.MODIFY_DATE
+			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE
 		FROM PRFBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE B.STATUS = 'Y' AND B.BNO = #{bno}
@@ -111,6 +123,13 @@
 		UPDATE PRFBOARD SET 
 			READCOUNT = #{readCount}
 		WHERE bNO = #{bno}
+	</update>
+	
+	<!-- 댓글 작성시 replyCount 갱신 -->
+	<update id="updateReplyCountPrf" parameterType="BoardReplyPrf">
+		UPDATE PRFBOARD SET 
+			REPLYCOUNT = (SELECT COUNT(*) FROM PRFREPLY WHERE BNO = #{bno}) 
+		WHERE bNO = #{bno};
 	</update>
 	
 	<!-- 게시글 삭제용 update문 -->

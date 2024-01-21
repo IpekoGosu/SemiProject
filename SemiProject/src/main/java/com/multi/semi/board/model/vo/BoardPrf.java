@@ -21,6 +21,7 @@ public class BoardPrf {
 	private String memberName;
 	private int attachCount;
 	private int readCount;
+	private int replyCount;
 	private String status;
 	private Date createDate;
 	private Date modifyDate;

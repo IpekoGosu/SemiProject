@@ -105,7 +105,8 @@
     <div class="search-bar rounded p-4 mt-n5 position-relative z-index-20">
         <div class="row">
             <div class="col-10 d-flex align-items-center">
-              <input class="form-control border-0 shadow-0" type="search" value="${searchValue}" name="searchValue" placeholder="원하는 뉴스를 검색해주세요">
+              <input class="form-control border-0 shadow-0" type="search"
+              	 value="${searchValue}" name="searchValue" placeholder="원하는 뉴스를 검색해주세요" style="font-size: 20pt">
             </div>
             <div class="col-2 d-grid mb-0">
               <button class="btn btn-primary h-100" type="submit" style="background-color: #ef4562; border: none;">검색</button>
@@ -144,7 +145,7 @@
 	                            <div class="card-text" style="height: 270px; overflow: hidden; text-overflow: ellipsis;">
 	                            	<c:out value="${item.description}"/>
 	                            	<div class="mt-4">
-			                            <p class="text-md mb-2 text-sm" style="color: gray;">기사 일자 : <span><c:out value="${item.pubDate}"/></span></p>
+			                            <p class="text-md mb-2 text-sm" style="color: gray;">기사 일자 : <span><fmt:formatDate type="date" value="${item.pubDate}"/></span></p>
 			                            <a href="${item.originallink}" style="text-decoration: none;">기사 링크로 가기<i class="fa fa-long-arrow-alt-right"></i></a>
 	                            	</div>
 	                            </div>
