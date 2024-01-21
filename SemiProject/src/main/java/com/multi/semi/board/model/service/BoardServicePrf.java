@@ -45,12 +45,16 @@ public class BoardServicePrf {
 	
 	@Transactional(rollbackFor = Exception.class)
 	public int saveBoardReply(BoardReplyPrf reply) {
-		return mapper.insertReplyPrf(reply);
+		int result = mapper.insertReplyPrf(reply);
+		mapper.updateReplyCountPrf(reply.getBno());
+		return result;
 	}
 	
 	@Transactional(rollbackFor = Exception.class)
-	public int deleteBoardReply(int rno) {
-		return mapper.deleteReplyPrf(rno);
+	public int deleteBoardReply(int rno, int bno) {
+		int result = mapper.deleteReplyPrf(rno);
+		mapper.updateReplyCountPrf(bno);
+		return result;
 	}
 	
 }

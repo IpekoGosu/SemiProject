@@ -17,7 +17,7 @@ public interface BoardMapperPrf {
 	int insertBoardPrf(BoardPrf board);
 	int updateBoardPrf(BoardPrf board);
 	int updateReadCountPrf(BoardPrf board);
-	int updateReplyCountPrf(BoardReplyPrf reply);
+	int updateReplyCountPrf(int bno);
 	int deleteBoardPrf(int bno);
 	AttachFilePrf selectAttachFileByFnoPrf(int fno);
 	List<AttachFilePrf> selectAttachFileByBnoPrf(int bno);

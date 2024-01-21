@@ -207,11 +207,18 @@
 	        <c:forEach items="${list}" var="item">
 	          <!-- blog item-->
 	          <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
-	            <div class="card shadow border-0 h-100"><a href="post.html"><img class="img-fluid card-img-top" src="${path}/resources/img/myImages/lesMiserable.jpg" alt="${path}/resources."/></a>
-	              <div class="card-body"><a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="#">
-	              		<c:out value="[${item.pname}]"/></a>
-	                <h5 class="my-2" style="height: 30px; overflow: hidden; text-overflow: ellipsis;"><a class="text-dark gmarketfontM" href="post.html">
-	                	${item.title}</a></h5>
+	            <div class="card shadow border-0 h-100">
+	              <a href="${path}/boardprf/view?no=${item.bno}">
+	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/lesMiserable.jpg" alt=""/>
+	              </a>
+	              <div class="card-body">
+	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="#">
+	              		<c:out value="[${item.pname}]"/>
+	              	</a>
+	                <h5 class="my-2" style="height: 30px; overflow: hidden; text-overflow: ellipsis;">
+	                	<a class="text-dark gmarketfontM" href="${path}/boardprf/view?no=${item.bno}">
+	                	<c:out value="${item.title}"/></a>
+	                </h5>
 	                <table class="w-100 gmarketfontM">
 	                  <tr>
 	                    <td><fmt:formatDate type="date" value="${item.createDate}"/></td>
@@ -229,8 +236,16 @@
 	                <p class="my-2 text-muted text-sm gdodumfont" style="height: 120px; overflow: hidden; text-overflow: ellipsis;">
 	                	<c:out value="${item.content}"/>
 	                </p>
-	                <div class="float-right"><c:out value="작성자 : ${item.memberName}"/></div>
-	                <a class="btn btn-link ps-0 gmarketfontM" href="post.html">계속 읽기<i class="fa fa-long-arrow-alt-right ms-2"></i></a>
+	                <div class="row">
+	                	<span class="col-sm-6"><c:out value="no.  ${item.bno}"/></span>
+		                <span class="col-sm-6" style="text-align: right">
+		                	<img class="mx-1" src="${path}/resources/img/myImages/iconfile-person.png" alt="">
+		                	<c:out value="${item.memberName}"/>
+		                </span>
+	                </div>
+		                <a class="btn btn-link ps-0 gmarketfontM" href="${path}/boardprf/view?no=${item.bno}">
+		                	계속 읽기<i class="fa fa-long-arrow-alt-right ms-2"></i>
+		                </a>
 	              </div>
 	            </div>
 	          </div>

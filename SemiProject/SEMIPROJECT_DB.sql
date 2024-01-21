@@ -4,6 +4,7 @@ USE SEMIPROJECT;
 
 
 
+
 ------------------------------------------------
 --------------- MEMBER 관련 테이블 ----------------
 ------------------------------------------------
@@ -483,8 +484,8 @@ INSERT INTO PRFREPLY(
 			default, 10, 5, 'test reply', 
 			default, default, default
 		);
-        
-SELECT 
+    
+SELECT
 			R.RNO, R.BNO, R.CONTENT, M.ID, M.NAME, R.CREATE_DATE, R.MODIFY_DATE
 		FROM PRFREPLY R
 		JOIN MEMBER M ON(R.MNO = M.MNO)

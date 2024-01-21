@@ -5,44 +5,14 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 
-<html>
-	<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>${param.title}</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <!-- Price Slider Stylesheets -->
-  <link rel="stylesheet" href="${path}/resources/vendor/nouislider/nouislider.css">
-  <!-- Google fonts - Playfair Display-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
-  <!-- Google fonts - Poppins-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,400i,700">
-  <!-- swiper-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
-  <!-- Magnigic Popup-->
-  <link rel="stylesheet" href="${path}/resources/vendor/magnific-popup/magnific-popup.css">
-  <!-- theme stylesheet-->
-  <link rel="stylesheet" href="${path}/resources/css/style.default.css" id="theme-stylesheet">
-  <!-- Custom stylesheet - for your changes-->
-  <link rel="stylesheet" href="${path}/resources/css/custom.css">
-  <!-- Favicon-->
-  <link rel="shortcut icon" href="${path}/resources/img/favicon.png">
-  <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  <!-- Font Awesome CSS-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-</head>
-
+<body>
 <header class="header">
   <!-- Navbar-->
   <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white">
     <div class="container-fluid">
       <!-- 로고 영역 -->
       <div class="d-flex align-items-center header-logo">
-        <a class="navbar-brand py-1" href="index.html">
+        <a class="navbar-brand py-1" href="${path}/">
           <img width="90px" height="60px" style="object-fit: cover" src="${path}/resources/img/yja/myseoullogo4.png" alt="Directory logo"/>
         </a>
         <a href="index.html" style="font-size: 30px; color: #ef4562; font-weight: bold; text-decoration: none;">마이서울</a>
@@ -108,12 +78,14 @@
           <!-- 뉴스 끝 -->
           <!-- 프로필(마이페이지) 영역 -->
           <!-- 로그인/아웃/프로필(마이페이지) 서버측 구현 필요 -->
-          <!-- <li class="nav-item profile" id="profile-button" style="display: flex; align-items: center; margin-right: 20px;">
-            <a class="btn btn-primary" href="profile.html"
-              style="background-color: #ef4562; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
-              My
-            </a>
-          </li> -->
+          <c:if test="${loginMember != null}">
+	          <li class="nav-item profile" id="profile-button" style="display: flex; align-items: center; margin-right: 20px;">
+	            <a class="btn btn-primary" href="profile.html"
+	              style="background-color: #ef4562 !important; color: white !important; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
+		          <c:out value="${loginMember.name}"></c:out>의 Page
+	            </a>
+	          </li>
+          </c:if>
           <!-- 프로필(마이페이지) 영역 끝 -->
           <c:if test="${loginMember == null}">
           <!-- 로그인 영역 -->
@@ -142,24 +114,8 @@
   </nav>
   <!-- /Navbar -->
 </header>
+</body>
 
-<!-- jQuery-->
-<script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
-<!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-<script src="${path}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Magnific Popup - Lightbox for the gallery-->
-<script src="${path}/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<!-- Smooth scroll-->
-<script src="${path}/resources/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
-<!-- Bootstrap Select-->
-<script src="${path}/resources/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-<!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-<script src="${path}/resources/vendor/object-fit-images/ofi.min.js"></script>
-<!-- Swiper Carousel                       -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-<script>var basePath = ''</script>
-<!-- Main Theme JS file    -->
-<script src="${path}/resources/js/theme.js"></script>
 
 
 	
