@@ -58,7 +58,7 @@
               커뮤니티
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="community-tour.html" style="font-size: 18px;">관광지 게시판</a>
+              <a class="dropdown-item" href="${path}/boardTour/list" style="font-size: 18px;">관광지 게시판</a>
               <a class="dropdown-item" href="${path}/boardprf/list" style="font-size: 18px;">공연 게시판</a>
               <a class="dropdown-item" href="#" style="font-size: 18px;">지역 행사 게시판</a>
             </div>

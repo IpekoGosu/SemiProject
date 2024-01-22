@@ -71,7 +71,7 @@
         <h5><strong style="color: #ef4562;">커뮤니티</strong></h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2">
-            <a href="community-tour.html" class="nav-link p-0 text-body-secondary">관광지 게시판</a>
+            <a href="${path}/boardTour/list" class="nav-link p-0 text-body-secondary">관광지 게시판</a>
           </li>
           <li class="nav-item mb-2">
             <a href="${path}/boardprf/list" class="nav-link p-0 text-body-secondary">공연 게시판</a>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.multi.semi.board.model.mapper.BoardMapperPrf">
+<mapper namespace="com.multi.semi.board.model.mapper.BoardMapperTour">
 
-	<resultMap type="BoardPrf" id="boardResultMap">
+	<resultMap type="BoardTour" id="boardResultMap">
 		<result property="bno" column="BNO"/>
 		<result property="mno" column="MNO"/>
-		<result property="pname" column="PNAME"/>
+		<result property="tname" column="T_TITLE"/>
 		<result property="title" column="TITLE"/>
 		<result property="content" column="CONTENT"/>
 		<result property="memberId" column="ID"/>
@@ -19,7 +19,7 @@
 		<result property="modifyDate" column="MODIFY_DATE"/>
 	</resultMap>
 	
-	<resultMap type="AttachFilePrf" id="attachFileResultMap">
+	<resultMap type="AttachFileTour" id="attachFileResultMap">
 		<result property="fno" column="FNO"/>
 		<result property="bno" column="BNO"/>
 		<result property="originalFilename" column="ORIGINAL_FILENAME"/>
@@ -27,7 +27,7 @@
 		<result property="createDate" column="CREATE_DATE"/>
 	</resultMap>
 
-	<resultMap type="BoardReplyPrf" id="boardReplyResultMap">
+	<resultMap type="BoardReplyTour" id="boardReplyResultMap">
 		<result property="rno" column="RNO" />
 		<result property="bno" column="BNO" />
 		<result property="mno" column="MNO" />
@@ -47,10 +47,10 @@
 	selectBoardCount : selectBoardList와 쌍으로 갯수를 세오는 Count문, 검색조건이 selectBoardList 일치 해야함
 	-->
 	
-	<select id="selectBoardListPrf" parameterType="BoardParamPrf" resultMap="boardResultMap">
-		SELECT  B.BNO, B.RATINGS, B.PNAME, B.TITLE, M.ID, M.NAME, B.CONTENT, 
+	<select id="selectBoardListTour" parameterType="BoardParamTour" resultMap="boardResultMap">
+		SELECT  B.BNO, B.RATINGS, B.T_TITLE, B.TITLE, M.ID, M.NAME, B.CONTENT, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE
-		FROM PRFBOARD B
+		FROM TOURBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE 
 			B.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
@@ -60,8 +60,8 @@
 			<if test="searchType == 'title'">
 			    AND B.TITLE LIKE '%${searchValue}%' 
 			</if>
-			<if test="searchType == 'pname'">
-			    AND B.PNAME LIKE '%${searchValue}%' 
+			<if test="searchType == 'tname'">
+			    AND B.T_TITLE LIKE '%${searchValue}%' 
 			</if>
 			
 			<if test="orderType == 'time'">
@@ -76,9 +76,9 @@
 		LIMIT ${limit} OFFSET ${offset};
 	</select>
 	
-	<select id="selectBoardCountPrf" parameterType="BoardParamPrf" resultType="int">
+	<select id="selectBoardCountTour" parameterType="BoardParamTour" resultType="int">
 		SELECT COUNT(*)
-		FROM PRFBOARD B
+		FROM TOURBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE 
 			B.STATUS = 'Y' <!-- 1=1을 사용해도 무관  -->
@@ -88,69 +88,69 @@
 			<if test="searchType == 'title'">
 			    AND B.TITLE LIKE '%${searchValue}%' 
 			</if>
-			<if test="searchType == 'pname'">
-			    AND B.PNAME LIKE '%${searchValue}%' 
+			<if test="searchType == 'tname'">
+			    AND B.T_TITLE LIKE '%${searchValue}%' 
 			</if>
 	</select>
 	
 	<!-- 상단에 나올 조회수1위 글 -->
-	<select id="selectBoardFirstPrf" resultMap="boardResultMap">
+	<select id="selectBoardFirstTour" resultMap="boardResultMap">
 		SELECT * FROM (
 			SELECT 
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE, 
 	        ROW_NUMBER() OVER (ORDER BY B.READCOUNT DESC) AS 'RANKING'
-			FROM PRFBOARD B
+			FROM TOURBOARD B
 			JOIN MEMBER M ON (B.MNO = M.MNO)
 			WHERE B.STATUS = 'Y') RANKED
 		WHERE RANKED.RANKING = 1;
 	</select>
 	
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
-	<select id="selectBoardByNoPrf" parameterType="int" resultMap="boardResultMap">
+	<select id="selectBoardByNoTour" parameterType="int" resultMap="boardResultMap">
 		SELECT  
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE
-		FROM PRFBOARD B
+		FROM TOURBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE B.STATUS = 'Y' AND B.BNO = #{bno}
 	</select>
 	
 	<!-- 게시판 insert용, selectKey(insert 이후의 key를 받아오는 쿼리문) 추가한 버전 -->
-	<insert id="insertBoardPrf" parameterType="BoardPrf">
+	<insert id="insertBoardTour" parameterType="BoardTour">
 		<selectKey keyProperty="bno" resultType="int" order="AFTER">
 			SELECT @@IDENTITY AS bno
 		</selectKey>
-		INSERT INTO PRFBOARD (bNO, mNO, PNAME, TITLE, CONTENT, RATINGS)  
-			VALUES(0, #{mno}, #{pname}, #{title}, #{content}, #{ratings})
+		INSERT INTO TOURBOARD (bNO, mNO, T_TITLE, TITLE, CONTENT, RATINGS)  
+			VALUES(0, #{mno}, #{tname}, #{title}, #{content}, #{ratings})
 	</insert>
 	
-	<update id="updateBoardPrf" parameterType="BoardPrf">
-		UPDATE PRFBOARD SET 
+	<update id="updateBoardTour" parameterType="BoardTour">
+		UPDATE TOURBOARD SET 
 			TYPE=#{type}, CONTENT=#{content}, RATINGS=#{ratings}, MODIFY_DATE = CURRENT_TIMESTAMP
 		WHERE bNO = #{bno}
 	</update>
 	
 	<!-- 게시글 조회시 readCount 갱신용 -->
-	<update id="updateReadCountPrf" parameterType="BoardPrf">
-		UPDATE PRFBOARD SET 
+	<update id="updateReadCountTour" parameterType="BoardTour">
+		UPDATE TOURBOARD SET 
 			READCOUNT = #{readCount}
 		WHERE bNO = #{bno}
 	</update>
 	
 	<!-- 댓글 작성/삭제시 replyCount 갱신 -->
-	<update id="updateReplyCountPrf" parameterType="int">
-		UPDATE PRFBOARD SET 
-			REPLYCOUNT = (SELECT COUNT(*) FROM PRFREPLY WHERE BNO = #{bno}) 
+	<update id="updateReplyCountTour" parameterType="int">
+		UPDATE TOURBOARD SET 
+			REPLYCOUNT = (SELECT COUNT(*) FROM TOURREPLY WHERE BNO = #{bno}) 
 		WHERE bNO = #{bno};
 	</update>
 	
 	<!-- 게시물 작성/삭제시 공연의 평균평점 갱신 -->
-	<!-- <update id="updatePrfRate"></update> -->
+	<!-- <update id="updateTourRate"></update> -->
 	
 	<!-- 게시글 삭제용 update문 -->
-	<update id="deleteBoardPrf" parameterType="int">
-		UPDATE PRFBOARD SET 
+	<update id="deleteBoardTour" parameterType="int">
+		UPDATE TOURBOARD SET 
 			STATUS = 'N' 
 		WHERE bNO = #{bno}
 	</update>
@@ -159,41 +159,41 @@
 	<!-- 파일 첨부 관련 DML -->
 	
 	<!-- 파일 가져오기 -->
-	<select id="selectAttachFileByFnoPrf" parameterType="int" resultMap="attachFileResultMap">
+	<select id="selectAttachFileByFnoTour" parameterType="int" resultMap="attachFileResultMap">
 		SELECT 
-			fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE FROM PRFBOARD_ATTACH_FILE
+			fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE FROM TOURBOARD_ATTACH_FILE
 		WHERE FNO = #{fno}
 	</select>
 	
 	<!-- 파일 리스트 -->
-	<select id="selectAttachFileByBnoPrf" parameterType="int" resultMap="attachFileResultMap">
+	<select id="selectAttachFileByBnoTour" parameterType="int" resultMap="attachFileResultMap">
 		SELECT 
-			fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE FROM PRFBOARD_ATTACH_FILE
+			fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE FROM TOURBOARD_ATTACH_FILE
 		WHERE BNO = #{bno}
 	</select>
 	
 	<!-- 파일 첨부 -->
-	<insert id="insertAttachFilePrf" parameterType="AttachFilePrf">
-		INSERT INTO PRFBOARD_ATTACH_FILE (fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) 
+	<insert id="insertAttachFileTour" parameterType="AttachFileTour">
+		INSERT INTO TOURBOARD_ATTACH_FILE (fNO, bNO, ORIGINAL_FILENAME, RENAMED_FILENAME, CREATE_DATE) 
 		VALUES(#{fno}, #{bno}, #{originalFilename}, #{renamedFilename}, DEFAULT)
 	</insert>
 	
 	<!-- 파일 첨부된 숫자 게시판 반영 -->
-	<update id="updateAttachFileCounterPrf" parameterType="int">
-		UPDATE PRFBOARD 
+	<update id="updateAttachFileCounterTour" parameterType="int">
+		UPDATE TOURBOARD 
 		SET 
-			ATTACHCOUNT = (SELECT COUNT(*) FROM PRFBOARD_ATTACH_FILE WHERE BNO = #{bno}) 
+			ATTACHCOUNT = (SELECT COUNT(*) FROM TourBOARD_ATTACH_FILE WHERE BNO = #{bno}) 
 		WHERE BNO = #{bno}
 	</update>
 	
 	<!-- 파일 삭제 -->
-	<delete id="deleteAttachFilePrf" parameterType="int">
-		DELETE FROM PRFBOARD_ATTACH_FILE WHERE FNO = #{fno}
+	<delete id="deleteAttachFileTour" parameterType="int">
+		DELETE FROM TOURBOARD_ATTACH_FILE WHERE FNO = #{fno}
 	</delete>
 	
 	<!-- 댓글 등록 -->
-	<insert id="insertReplyPrf" parameterType="BoardReplyPrf">
-		INSERT INTO PRFREPLY(
+	<insert id="insertReplyTour" parameterType="BoardReplyTour">
+		INSERT INTO TOURREPLY(
 			RNO, BNO, MNO, 
 			CONTENT, STATUS, CREATE_DATE, MODIFY_DATE) 
 		VALUES(
@@ -203,18 +203,18 @@
 	</insert>
 	
 	<!-- 댓글 리스트 -->
-	<select id="selectReplyByBnoPrf" resultMap="boardReplyResultMap" parameterType="int">
+	<select id="selectReplyByBnoTour" resultMap="boardReplyResultMap" parameterType="int">
 		SELECT 
 			R.RNO, R.BNO, R.CONTENT, M.ID, M.NAME, R.CREATE_DATE, R.MODIFY_DATE
-		FROM PRFREPLY R
+		FROM TOURREPLY R
 		JOIN MEMBER M ON(R.MNO = M.MNO)
 		WHERE R.STATUS='Y' AND BNO = ${bno}
 		ORDER BY R.RNO DESC
 	</select>
 	
 	<!-- 댓글 삭제 -->
-	<delete id="deleteReplyPrf" parameterType="int">
-		DELETE FROM PRFREPLY WHERE RNO = #{rno}
+	<delete id="deleteReplyTour" parameterType="int">
+		DELETE FROM TOURREPLY WHERE RNO = #{rno}
 	</delete>
 
 </mapper>

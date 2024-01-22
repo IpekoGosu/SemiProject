@@ -135,7 +135,7 @@
 <div class="container">
     <!-- 검색된 리스트 영역 시작 -->
     <div class="row gx-5 gy-4">
-    	<c:forEach var="item" items="${nlist}">
+    	<c:forEach var="item" items="${nlist}" varStatus="status">
 	        <div class="col-6">
 	            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
 	                <div class="row g-0">

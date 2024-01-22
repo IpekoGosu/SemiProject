@@ -5,7 +5,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp">
-      <jsp:param value="공연 포스트" name="title"/>
+      <jsp:param value="관광지 포스트" name="title"/>
     </jsp:include>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>공연 포스트</title>
+    <title>관광지 포스트</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -79,7 +79,7 @@
   </head>
   <body>
 
-    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="${path}/resources/img/myImages/musicalmageHero.jpg" alt="">
+    <section class="hero-home dark-overlay mb-5"><img class="bg-image" src="${path}/resources/img/myImages/boardTourHero.jpg" alt="">
       <div class="container py-7">
         <div class="overlay-content text-center text-white">
           <!-- 후기 제목 -->
@@ -99,9 +99,9 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-8 col-lg-10 mx-auto">
-            <!-- 관람한 공연 이름 -->
+            <!-- 관람한 관광지 이름 -->
             <!-- 후기 정보 -->
-            <div class="gmarketfontM text-center mb-1" style="font-size: 20pt;"><c:out value="[${board.pname}]"/></div>
+            <div class="gmarketfontM text-center mb-1" style="font-size: 20pt;"><c:out value="[${board.tname}]"/></div>
             <div>
               <p class="mb-5 gmarketfontM text-center" style="font-size: 15pt;">
                 <!-- 작성자 -->
@@ -179,7 +179,7 @@
 	            <!-- 댓글 작성하기 -->
 	            <div class="mb-5">
 	              <div>댓글을 남겨보세요</div>
-	              <form method="post" action="${path}/boardprf/reply">
+	              <form method="post" action="${path}/boardTour/reply">
 	              	<input type="hidden" name="bno" value="${board.bno}" />
 	    			<input type="hidden" name="memberId" value="${loginMember.id}" />
 	                <textarea name="content" class="form-control mb-3 gdodumfont" rows="5"></textarea>
@@ -199,23 +199,23 @@
 	<script type="text/javascript">
 		$(()=>{
 			$("#btnUpdate").click((e) => {
-				location.href = "${path}/boardprf/update?no=${board.bno}";
+				location.href = "${path}/boardTour/update?no=${board.bno}";
 			});
 			
 			$("#btnDelete").click((e) => {
 				if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
-					location.replace("${path}/boardprf/delete?no=${board.bno}");
+					location.replace("${path}/boardTour/delete?no=${board.bno}");
 				}
 			});
 		});
 		
 		function fileDownload(fno) {
-			const url = '${path}/boardprf/fileDown?fno=' + fno;
+			const url = '${path}/boardTour/fileDown?fno=' + fno;
 			location.href = url;
 		}
 
 		function deleteReply(rno, bno) {
-			const url = '${path}/boardprf/replyDel?rno=' + rno + '&bno=' + bno;
+			const url = '${path}/boardTour/replyDel?rno=' + rno + '&bno=' + bno;
 			location.href = url;
 		}
 		
