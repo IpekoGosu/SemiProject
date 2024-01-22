@@ -20,6 +20,7 @@ public class BoardParamPrf {
 	public BoardParamPrf() {
 		super();
 		page = 1;
+		orderType = "time";
 	}
 
 	public BoardParamPrf(String searchType, String searchValue, int page, int limit, int offset, String orderType) {

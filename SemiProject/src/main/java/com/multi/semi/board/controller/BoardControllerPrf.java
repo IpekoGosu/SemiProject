@@ -40,7 +40,9 @@ public class BoardControllerPrf {
 		param.setLimit(pageInfo.getListLimit());
 		param.setOffset(pageInfo.getStartList() - 1);
 		List<BoardPrf> list = service.getBoardList(param);
+		BoardPrf firstBoard = service.getBoardFirst();
 		
+		model.addAttribute("firstBoard", firstBoard);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);

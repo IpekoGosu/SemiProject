@@ -12,7 +12,7 @@
     <div class="row row-cols-5 pt-3">
       <!-- 로고 영역 -->
       <div class="col footer-left">
-        <a href="index.html" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+        <a href="${path}/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
           <img width="80px" height="80px" src="${path}/resources/img/yja/myseoullogo3.png" alt="Directory logo" style="border-radius: 30px; margin-left: -10px"/>
         </a>
         <p class="text-body-secondary">&copy; 2024</p>
@@ -74,7 +74,7 @@
             <a href="community-tour.html" class="nav-link p-0 text-body-secondary">관광지 게시판</a>
           </li>
           <li class="nav-item mb-2">
-            <a href="community-show.html" class="nav-link p-0 text-body-secondary">공연 게시판</a>
+            <a href="${path}/boardprf/list" class="nav-link p-0 text-body-secondary">공연 게시판</a>
           </li>
           <li class="nav-item mb-2">
             <a href="#" class="nav-link p-0 text-body-secondary">지역 행사 게시판</a>

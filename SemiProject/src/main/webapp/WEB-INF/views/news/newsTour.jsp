@@ -152,7 +152,7 @@
 	                        </div>
 	                    </div>
 	                    <div class="col-auto">
-	                        <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
+	                        <img src="${path}/resources/img/myImages/newsPrfImg${status.index}.png" class="card-img rounded-start" alt="">
 	                    </div>
 	                </div>
 	            </div>

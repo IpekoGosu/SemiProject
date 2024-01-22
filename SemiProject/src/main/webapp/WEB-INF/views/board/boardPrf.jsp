@@ -96,18 +96,39 @@
           <div class="col-lg-6">
             <div class="card">
               <div class="card-body p-5"><strong class="text-uppercase text-secondary d-inline-block mb-2 text-sm gmarketfontM">인기 후기</strong>
-                <h2 class="mb-3 gmarketfontM">정말 추천하고 응원하는 뮤지컬 :)</h2>
+                <h2 class="mb-3 gmarketfontM"><c:out value="${firstBoard.title}"/></h2>
                 <table class="w-100 gmarketfontM">
                   <tr>
-                    <td>2023.11.02</td>
-                    <td>댓글 28</td>
-                    <td>조회 492</td>
-                    <td>★★★★★</td>
+                    <td>
+                    	<img class="mx-1" src="${path}/resources/img/myImages/iconclock.png" alt="">
+                    	<fmt:formatDate type="date" value="${firstBoard.createDate}"/>
+                    </td>
+                    <td>
+                    	<img class="mx-1" src="${path}/resources/img/myImages/iconbook.png" alt="">
+                    	조회 <c:out value="${firstBoard.readCount}"/>
+                    </td>
+                    <td>
+                    	<img class="mx-1" src="${path}/resources/img/myImages/iconchat-dots.png" alt="">
+                    	댓글 <c:out value="${firstBoard.replyCount}"/>
+                    </td>
+                    <td>
+						<c:if test="${firstBoard.ratings == 5}">★★★★★</c:if>
+                    	<c:if test="${firstBoard.ratings == 4}">★★★★</c:if>
+                    	<c:if test="${firstBoard.ratings == 3}">★★★</c:if>
+                    	<c:if test="${firstBoard.ratings == 2}">★★</c:if>
+                    	<c:if test="${firstBoard.ratings == 1}">★</c:if>
+					</td>
                   </tr>
                 </table>
-                <p class="text-muted gdodumfont">뮤지컬 몬테크리스토를 보기 위해 티켓팅날 예매를 하고 엄마와 함께 공연을 보러 갔었습니다.
-                  많은 배우님들이 연기를 하시는데 김성철 배우님의 '몬테크리스토 백작'이 보고싶어서 이 날로 예매했었어요.
-                  '뮤지컬 몬테크리스토'는 처음 보는 공연이라 어떨지</p><a class="btn btn-link p-0 gmarketfontM" href="post.html">계속 읽기<i class="fa fa-long-arrow-alt-right"></i></a>
+                <p class="text-muted gdodumfont" style="height: 100px; overflow: hidden; text-overflow: ellipsis;"><c:out value="${firstBoard.content}"/></p>
+                <div class="row">
+                	<span class="col-sm-6"><c:out value="no.  ${firstBoard.bno}"/></span>
+	                <span class="col-sm-6" style="text-align: right">
+	                	<img class="mx-1" src="${path}/resources/img/myImages/iconfile-person.png" alt="">
+	                	<c:out value="${firstBoard.memberName}"/>
+	                </span>
+	            </div>
+                <a class="btn btn-link p-0 gmarketfontM" href="${path}/boardprf/view?no=${firstBoard.bno}">계속 읽기<i class="fa fa-long-arrow-alt-right"></i></a>
               </div>
             </div>
           </div>
@@ -204,12 +225,12 @@
         
         <!-- 게시물들 -->
         <div class="row mb-5">
-	        <c:forEach items="${list}" var="item">
+	        <c:forEach items="${list}" var="item" varStatus="status">
 	          <!-- blog item-->
 	          <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
 	            <div class="card shadow border-0 h-100">
 	              <a href="${path}/boardprf/view?no=${item.bno}">
-	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/lesMiserable.jpg" alt=""/>
+	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/boardPrfImg${status.index}.jpg" alt=""/>
 	              </a>
 	              <div class="card-body">
 	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="#">

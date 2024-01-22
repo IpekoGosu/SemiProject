@@ -23,6 +23,9 @@ public class BoardServicePrf {
 	public List<BoardPrf> getBoardList(BoardParamPrf param) {
 		return mapper.selectBoardListPrf(param);
 	}
+	public BoardPrf getBoardFirst() {
+		return mapper.selectBoardFirstPrf();
+	}
 	@Transactional(rollbackFor = Exception.class)
 	public BoardPrf findBoardByBNo (int bno) {
 		BoardPrf board = mapper.selectBoardByNoPrf(bno);

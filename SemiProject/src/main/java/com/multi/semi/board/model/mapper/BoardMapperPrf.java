@@ -12,6 +12,7 @@ import com.multi.semi.board.model.vo.BoardReplyPrf;
 @Mapper
 public interface BoardMapperPrf {
 	List<BoardPrf> selectBoardListPrf(BoardParamPrf param);
+	BoardPrf selectBoardFirstPrf();
 	int selectBoardCountPrf(BoardParamPrf param);
 	BoardPrf selectBoardByNoPrf(int bno);
 	int insertBoardPrf(BoardPrf board);

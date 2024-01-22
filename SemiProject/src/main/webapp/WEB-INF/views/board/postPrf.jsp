@@ -136,7 +136,7 @@
               	<h6 class="text-uppercase text-muted mb-4 gmarketfontM">댓글 <c:out value="${board.replyCount}"/></h6>
 	            <c:forEach var="item" items="${board.replies}">
 	              <!-- comment-->
-	              <div class="d-flex mb-4"><img class="avatar avatar-lg p-1 flex-shrink-0 me-4" src="img/avatar/avatar-0.jpg" alt="Julie Alma">
+	              <div class="d-flex mb-4"><img class="avatar avatar-lg p-1 flex-shrink-0 me-4" src="${path}/resources/img/myImages/replyicon.png" alt="Julie Alma">
 	                <div>
 	                  <h5><c:out value="${item.memberName}"/></h5>
 	                  <p class="text-uppercase text-sm text-muted"><i class="far fa-clock mx-1"></i><fmt:formatDate type="date" value="${item.createDate}"/></p>

@@ -15,7 +15,7 @@
         <a class="navbar-brand py-1" href="${path}/">
           <img width="90px" height="60px" style="object-fit: cover" src="${path}/resources/img/yja/myseoullogo4.png" alt="Directory logo"/>
         </a>
-        <a href="index.html" style="font-size: 30px; color: #ef4562; font-weight: bold; text-decoration: none;">마이서울</a>
+        <a href="${path}/" style="font-size: 30px; color: #ef4562; font-weight: bold; text-decoration: none;">마이서울</a>
       </div>
       <!-- 로고 영역 끝 -->
       <!-- 메뉴 영역 시작 -->
@@ -23,7 +23,7 @@
         <ul class="navbar-nav ms-auto">
           <!-- 관광지 시작 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="index.html"
+            <a class="nav-link dropdown-toggle" id="docsDropdownMenuLink" href="${path}/"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 24px; color: #ef4562;">
               관광지
             </a>
@@ -59,7 +59,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
               <a class="dropdown-item" href="community-tour.html" style="font-size: 18px;">관광지 게시판</a>
-              <a class="dropdown-item" href="community-show.html" style="font-size: 18px;">공연 게시판</a>
+              <a class="dropdown-item" href="${path}/boardprf/list" style="font-size: 18px;">공연 게시판</a>
               <a class="dropdown-item" href="#" style="font-size: 18px;">지역 행사 게시판</a>
             </div>
           </li>
@@ -71,8 +71,8 @@
               뉴스
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="news-tour.html" style="font-size: 18px;">관광지 뉴스</a>
-              <a class="dropdown-item" style="font-size: 18px;">공연 뉴스</a>
+              <a class="dropdown-item" href="${path}/news/tour" style="font-size: 18px;">관광지 뉴스</a>
+              <a class="dropdown-item" href="${path}/news/perform" style="font-size: 18px;">공연 뉴스</a>
             </div>
           </li>
           <!-- 뉴스 끝 -->

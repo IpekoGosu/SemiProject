@@ -93,6 +93,19 @@
 			</if>
 	</select>
 	
+	<!-- 상단에 나올 조회수1위 글 -->
+	<select id="selectBoardFirstPrf" resultMap="boardResultMap">
+		SELECT * FROM (
+			SELECT 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, 
+			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE, 
+	        ROW_NUMBER() OVER (ORDER BY B.READCOUNT DESC) AS 'RANKING'
+			FROM PRFBOARD B
+			JOIN MEMBER M ON (B.MNO = M.MNO)
+			WHERE B.STATUS = 'Y') RANKED
+		WHERE RANKED.RANKING = 1;
+	</select>
+	
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
 	<select id="selectBoardByNoPrf" parameterType="int" resultMap="boardResultMap">
 		SELECT  
@@ -125,12 +138,15 @@
 		WHERE bNO = #{bno}
 	</update>
 	
-	<!-- 댓글 작성시 replyCount 갱신 -->
+	<!-- 댓글 작성/삭제시 replyCount 갱신 -->
 	<update id="updateReplyCountPrf" parameterType="int">
 		UPDATE PRFBOARD SET 
 			REPLYCOUNT = (SELECT COUNT(*) FROM PRFREPLY WHERE BNO = #{bno}) 
 		WHERE bNO = #{bno};
 	</update>
+	
+	<!-- 게시물 작성/삭제시 공연의 평균평점 갱신 -->
+	<!-- <update id="updatePrfRate"></update> -->
 	
 	<!-- 게시글 삭제용 update문 -->
 	<update id="deleteBoardPrf" parameterType="int">
