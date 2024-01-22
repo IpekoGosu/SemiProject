@@ -127,7 +127,7 @@
 	
 	<update id="updateBoardTour" parameterType="BoardTour">
 		UPDATE TOURBOARD SET 
-			TYPE=#{type}, CONTENT=#{content}, RATINGS=#{ratings}, MODIFY_DATE = CURRENT_TIMESTAMP
+			TITLE=#{title}, CONTENT=#{content}, RATINGS=#{ratings}, MODIFY_DATE = CURRENT_TIMESTAMP
 		WHERE bNO = #{bno}
 	</update>
 	
@@ -182,7 +182,7 @@
 	<update id="updateAttachFileCounterTour" parameterType="int">
 		UPDATE TOURBOARD 
 		SET 
-			ATTACHCOUNT = (SELECT COUNT(*) FROM TourBOARD_ATTACH_FILE WHERE BNO = #{bno}) 
+			ATTACHCOUNT = (SELECT COUNT(*) FROM TOURBOARD_ATTACH_FILE WHERE BNO = #{bno}) 
 		WHERE BNO = #{bno}
 	</update>
 	

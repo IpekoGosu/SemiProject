@@ -127,7 +127,7 @@
 	
 	<update id="updateBoardPrf" parameterType="BoardPrf">
 		UPDATE PRFBOARD SET 
-			TYPE=#{type}, CONTENT=#{content}, RATINGS=#{ratings}, MODIFY_DATE = CURRENT_TIMESTAMP
+			TITLE=#{title}, CONTENT=#{content}, RATINGS=#{ratings}, MODIFY_DATE = CURRENT_TIMESTAMP
 		WHERE bNO = #{bno}
 	</update>
 	

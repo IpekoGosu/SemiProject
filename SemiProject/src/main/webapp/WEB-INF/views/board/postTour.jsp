@@ -124,10 +124,45 @@
         
         <!-- 게시글 수정/삭제 버튼 -->
         
-        
+        <c:if test="${not empty loginMember && (loginMember.id == board.memberId 
+															|| loginMember.role == 'ROLE_ADMIN')}">
+			<div class="container">
+			<div class="row mb-4">
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+	        	<div class="col">
+	         		<button type="button" class="btn btn-secondary w-100" id="btnUpdate">글 수정</button>
+	        	</div>
+	        	<div class="col">
+	         		<button type="button" class="btn btn-secondary w-100" id="btnDelete">글 삭제</button>
+	        	</div>
+				<div class="col"></div>
+			</div>
+			</div>
+        </c:if>
         <div class="row">
           <!-- 첨부 이미지 -->
-          <div class="col-xl-10 mx-auto"><img class="img-fluid mb-5" src="${path}/resources/img/myImages/mcimg.webp" alt=""></div>
+           	<c:if test="${empty board.attachFiles}">
+	          <div class="col-xl-10 mx-auto">
+	          	<img class="img-fluid mb-5" src="${path}/resources/img/myImages/mcimg.webp" alt="">
+	          </div>
+           	</c:if>
+          
+           	<c:if test="${not empty board.attachFiles}">
+           		<div class="col-xl-10 mx-auto mb-5">
+           		<c:forEach var="item" items="${board.attachFiles}" >
+					<c:if test="${fn:contains(item.originalFilename,'.jpg') 
+								  or fn:contains(item.originalFilename,'.png')  
+								  or fn:contains(item.originalFilename,'.jpeg')}">
+						<img src="${path}/resources/upload/boardTour/${item.renamedFilename}"
+																	width="45%"/>
+					</c:if>
+				</c:forEach>
+				</div>
+           	</c:if>
         </div>
         <div class="row">
           <div class="col-xl-8 col-lg-10 mx-auto">                               
@@ -142,7 +177,8 @@
 	              <!-- comment-->
 	              <div class="row">
               		<div class="col-sm-10">
-		              <div class="d-flex mb-4"><img class="avatar avatar-lg p-1 flex-shrink-0 me-4" src="${path}/resources/img/myImages/replyicon.png" alt="">
+		              <div class="d-flex mb-4">
+		              	<img class="avatar avatar-lg p-1 flex-shrink-0 me-4" src="${path}/resources/img/myImages/replyicon.png" alt="">
 		                <div>
 		                  <h5><c:out value="${item.memberName}"/></h5>
 		                  <p class="text-uppercase text-sm text-muted"><i class="far fa-clock mx-1"></i><fmt:formatDate type="date" value="${item.createDate}"/></p>
@@ -195,9 +231,12 @@
         </div>
       </div>
     </section>
+
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
     
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script type="text/javascript">
-		$(()=>{
+		$(document).ready(() => {
 			$("#btnUpdate").click((e) => {
 				location.href = "${path}/boardTour/update?no=${board.bno}";
 			});
@@ -243,7 +282,7 @@
 </html>
 
 
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	
 
 
 
