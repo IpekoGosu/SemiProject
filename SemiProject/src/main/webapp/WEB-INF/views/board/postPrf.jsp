@@ -124,11 +124,48 @@
         
         <!-- 게시글 수정/삭제 버튼 -->
         
-        
+        <c:if test="${not empty loginMember && (loginMember.id == board.memberId 
+															|| loginMember.role == 'ROLE_ADMIN')}">
+			<div class="container">
+			<div class="row mb-4">
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+				<div class="col"></div>
+	        	<div class="col">
+	         		<button type="button" class="btn btn-secondary w-100" id="btnUpdate">글 수정</button>
+	        	</div>
+	        	<div class="col">
+	         		<button type="button" class="btn btn-secondary w-100" id="btnDelete">글 삭제</button>
+	        	</div>
+				<div class="col"></div>
+			</div>
+			</div>
+        </c:if>
         <div class="row">
           <!-- 첨부 이미지 -->
-          <div class="col-xl-10 mx-auto"><img class="img-fluid mb-5" src="${path}/resources/img/myImages/mcimg.webp" alt=""></div>
+           	<c:if test="${empty board.attachFiles}">
+	          <div class="col-xl-10 mx-auto">
+	          	<img class="img-fluid mb-5" src="${path}/resources/img/myImages/mcimg.webp" alt="">
+	          </div>
+           	</c:if>
+          
+           	<c:if test="${not empty board.attachFiles}">
+           		<div class="col-xl-10 mx-auto mb-5">
+           		<c:forEach var="item" items="${board.attachFiles}" >
+					<c:if test="${fn:contains(item.originalFilename,'.jpg') 
+								  or fn:contains(item.originalFilename,'.png')  
+								  or fn:contains(item.originalFilename,'.jpeg')}">
+						<img src="${path}/resources/upload/boardPrf/${item.renamedFilename}"
+																	width="45%"/>
+					</c:if>
+				</c:forEach>
+				</div>
+           	</c:if>
         </div>
+        
+        
         <div class="row">
           <div class="col-xl-8 col-lg-10 mx-auto">                               
             <div class="gdodumfont" style="font-size: 15pt;">
@@ -179,7 +216,7 @@
 	            <!-- 댓글 작성하기 -->
 	            <div class="mb-5">
 	              <div>댓글을 남겨보세요</div>
-	              <form method="post" action="${path}/boardprf/reply">
+	              <form method="post" action="${path}/boardPrf/reply">
 	              	<input type="hidden" name="bno" value="${board.bno}" />
 	    			<input type="hidden" name="memberId" value="${loginMember.id}" />
 	                <textarea name="content" class="form-control mb-3 gdodumfont" rows="5"></textarea>
@@ -195,27 +232,27 @@
         </div>
       </div>
     </section>
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script type="text/javascript">
 		$(()=>{
 			$("#btnUpdate").click((e) => {
-				location.href = "${path}/boardprf/update?no=${board.bno}";
+				location.href = "${path}/boardPrf/update?no=${board.bno}";
 			});
 			
 			$("#btnDelete").click((e) => {
 				if(confirm("정말로 게시글을 삭제 하시겠습니까?")) {
-					location.replace("${path}/boardprf/delete?no=${board.bno}");
+					location.replace("${path}/boardPrf/delete?no=${board.bno}");
 				}
 			});
 		});
 		
 		function fileDownload(fno) {
-			const url = '${path}/boardprf/fileDown?fno=' + fno;
+			const url = '${path}/boardPrf/fileDown?fno=' + fno;
 			location.href = url;
 		}
 
 		function deleteReply(rno, bno) {
-			const url = '${path}/boardprf/replyDel?rno=' + rno + '&bno=' + bno;
+			const url = '${path}/boardPrf/replyDel?rno=' + rno + '&bno=' + bno;
 			location.href = url;
 		}
 		

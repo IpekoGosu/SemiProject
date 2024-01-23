@@ -80,11 +80,13 @@ public class BoardServicePrf {
 		int result = 0;
 		if(board.getBno() == 0) { // insert
 			result = mapper.insertBoardPrf(board);
+			mapper.updatePrfRate(board.getPid());
 			if(result <= 0) {
 				throw new Exception("Board insert error!");
 			}
 		} else { // update
 			result = mapper.updateBoardPrf(board);
+			mapper.updatePrfRate(board.getPid());
 			if(result <= 0) {
 				throw new Exception("Board update error!");
 			}
@@ -125,7 +127,9 @@ public class BoardServicePrf {
 				}
 			}
 		}
-		return mapper.deleteBoardPrf(bno);
+		int delresult = mapper.deleteBoardPrf(bno);
+		mapper.updatePrfRate(board.getPid());
+		return delresult;
 	}
 
 	public void deleteFile(String savePath, AttachFilePrf arrachFile) {

@@ -128,7 +128,7 @@
 	                	<c:out value="${firstBoard.memberName}"/>
 	                </span>
 	            </div>
-                <a class="btn btn-link p-0 gmarketfontM" href="${path}/boardprf/view?no=${firstBoard.bno}">계속 읽기<i class="fa fa-long-arrow-alt-right"></i></a>
+                <a class="btn btn-link p-0 gmarketfontM" href="${path}/boardPrf/view?no=${firstBoard.bno}">계속 읽기<i class="fa fa-long-arrow-alt-right"></i></a>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@
 		<c:if test="${empty orderType}">
 			<c:set var="orderType" value="time" />
         </c:if>
-       <form name="searchBoardPrfFrom" action="${path}/boardprf/list" method="get">
+       <form name="searchBoardPrfFrom" action="${path}/boardPrf/list" method="get">
        		<input type="hidden" name="page" value="1">
         <div class="container">
           <div class="row mt-n2 mb-2">
@@ -229,7 +229,7 @@
 	          <!-- blog item-->
 	          <div class="col-lg-4 col-sm-6 mb-4 hover-animate">
 	            <div class="card shadow border-0 h-100">
-	              <a href="${path}/boardprf/view?no=${item.bno}">
+	              <a href="${path}/boardPrf/view?no=${item.bno}">
 	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/boardPrfImg${status.index}.jpg" alt=""/>
 	              </a>
 	              <div class="card-body">
@@ -237,7 +237,7 @@
 	              		<c:out value="[${item.pname}]"/>
 	              	</a>
 	                <h5 class="my-2" style="height: 30px; overflow: hidden; text-overflow: ellipsis;">
-	                	<a class="text-dark gmarketfontM" href="${path}/boardprf/view?no=${item.bno}">
+	                	<a class="text-dark gmarketfontM" href="${path}/boardPrf/view?no=${item.bno}">
 	                	<c:out value="${item.title}"/></a>
 	                </h5>
 	                <table class="w-100 gmarketfontM">
@@ -264,7 +264,7 @@
 		                	<c:out value="${item.memberName}"/>
 		                </span>
 	                </div>
-		                <a class="btn btn-link ps-0 gmarketfontM" href="${path}/boardprf/view?no=${item.bno}">
+		                <a class="btn btn-link ps-0 gmarketfontM" href="${path}/boardPrf/view?no=${item.bno}">
 		                	계속 읽기<i class="fa fa-long-arrow-alt-right ms-2"></i>
 		                </a>
 	              </div>

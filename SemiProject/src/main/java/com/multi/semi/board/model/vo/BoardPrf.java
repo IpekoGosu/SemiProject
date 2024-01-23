@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class BoardPrf {
 	private int bno;
 	private int mno;
+	private String pid;
 	private String pname;
 	private int ratings;
 	private String title;

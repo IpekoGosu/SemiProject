@@ -6,6 +6,7 @@
 	<resultMap type="BoardTour" id="boardResultMap">
 		<result property="bno" column="BNO"/>
 		<result property="mno" column="MNO"/>
+		<result property="tid" column="T_CONTENT_ID"/>
 		<result property="tname" column="T_TITLE"/>
 		<result property="title" column="TITLE"/>
 		<result property="content" column="CONTENT"/>
@@ -48,7 +49,7 @@
 	-->
 	
 	<select id="selectBoardListTour" parameterType="BoardParamTour" resultMap="boardResultMap">
-		SELECT  B.BNO, B.RATINGS, B.T_TITLE, B.TITLE, M.ID, M.NAME, B.CONTENT, 
+		SELECT  B.BNO, B.RATINGS, B.T_TITLE, B.TITLE, M.ID, M.NAME, B.CONTENT, B.T_CONTENT_ID, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE
 		FROM TOURBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
@@ -97,7 +98,7 @@
 	<select id="selectBoardFirstTour" resultMap="boardResultMap">
 		SELECT * FROM (
 			SELECT 
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, B.T_CONTENT_ID, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE, 
 	        ROW_NUMBER() OVER (ORDER BY B.READCOUNT DESC) AS 'RANKING'
 			FROM TOURBOARD B
@@ -109,7 +110,7 @@
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
 	<select id="selectBoardByNoTour" parameterType="int" resultMap="boardResultMap">
 		SELECT  
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.T_TITLE, B.T_CONTENT_ID, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE
 		FROM TOURBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
@@ -121,8 +122,8 @@
 		<selectKey keyProperty="bno" resultType="int" order="AFTER">
 			SELECT @@IDENTITY AS bno
 		</selectKey>
-		INSERT INTO TOURBOARD (bNO, mNO, T_TITLE, TITLE, CONTENT, RATINGS)  
-			VALUES(0, #{mno}, #{tname}, #{title}, #{content}, #{ratings})
+		INSERT INTO TOURBOARD (bNO, mNO, T_CONTENT_ID, T_TITLE, TITLE, CONTENT, RATINGS)  
+			VALUES(0, #{mno}, #{tid} #{tname}, #{title}, #{content}, #{ratings})
 	</insert>
 	
 	<update id="updateBoardTour" parameterType="BoardTour">
@@ -146,7 +147,11 @@
 	</update>
 	
 	<!-- 게시물 작성/삭제시 공연의 평균평점 갱신 -->
-	<!-- <update id="updateTourRate"></update> -->
+	<update id="updateTourRate">
+		UPDATE TOUR 
+			SET RATE = (SELECT AVG(RATINGS) FROM PRFBOARD WHERE T_CONTENT_ID = #{tid}) 
+			WHERE T_CONTENT_ID = #{tid};
+	</update>
 	
 	<!-- 게시글 삭제용 update문 -->
 	<update id="deleteBoardTour" parameterType="int">

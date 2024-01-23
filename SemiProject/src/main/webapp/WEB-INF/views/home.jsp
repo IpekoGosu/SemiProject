@@ -22,7 +22,7 @@
 	<hr><br>
 	<h3><a href="${path}/member/enroll">회원가입페이지</a></h3>
 	<hr><br>
-	<h3><a href="${path}/boardprf/list">공연리뷰게시판</a></h3>
+	<h3><a href="${path}/boardPrf/list">공연리뷰게시판</a></h3>
 	<hr><br>
 	
 	

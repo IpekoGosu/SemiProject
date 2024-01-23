@@ -76,11 +76,13 @@ public class BoardServiceTour {
 		int result = 0;
 		if(board.getBno() == 0) { // insert
 			result = mapper.insertBoardTour(board);
+			mapper.updateTourRate(board.getTid());
 			if(result <= 0) {
 				throw new Exception("Board insert error!");
 			}
 		} else { // update
 			result = mapper.updateBoardTour(board);
+			mapper.updateTourRate(board.getTid());
 			if(result <= 0) {
 				throw new Exception("Board update error!");
 			}
@@ -121,7 +123,9 @@ public class BoardServiceTour {
 				}
 			}
 		}
-		return mapper.deleteBoardTour(bno);
+		int delresult = mapper.deleteBoardTour(bno);
+		mapper.updateTourRate(board.getTid());
+		return delresult;
 	}
 
 	public void deleteFile(String savePath, AttachFileTour arrachFile) {

@@ -1,18 +1,24 @@
 package com.multi.semi.board.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.multi.semi.board.model.service.BoardServicePrf;
+import com.multi.semi.board.model.vo.AttachFilePrf;
 import com.multi.semi.board.model.vo.BoardParamPrf;
 import com.multi.semi.board.model.vo.BoardPrf;
 import com.multi.semi.board.model.vo.BoardReplyPrf;
@@ -31,8 +37,8 @@ public class BoardControllerPrf {
 	@Autowired
 	private ResourceLoader resourceLoader;
 	
-	@RequestMapping("/boardprf/list")
-	public String prfList(Model model, BoardParamPrf param) {
+	@RequestMapping("/boardPrf/list")
+	public String PrfList(Model model, BoardParamPrf param) {
 		log.debug("@@ board list 요청 param : " + param);
 		
 		int boardCount = service.getBoardCount(param);
@@ -47,10 +53,10 @@ public class BoardControllerPrf {
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
 		
-		return "/board/boardPrf";
+		return "board/boardPrf";
 	}
 	
-	@RequestMapping("/boardprf/view")
+	@RequestMapping("/boardPrf/view")
 	public String view(Model model, @RequestParam("no") int no) {
 		BoardPrf board = null;
 		try {
@@ -66,12 +72,105 @@ public class BoardControllerPrf {
 	
 	
 	
+	@GetMapping("/boardPrf/update")
+	public String updateView(Model model,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@RequestParam int no
+			) {
+		BoardPrf board = service.findBoardByBNo(no);
+		model.addAttribute("board", board);
+		return "board/updatePrf";
+	}
+	
+	@PostMapping("/boardPrf/update")
+	public String update(Model model, HttpSession session,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@ModelAttribute BoardPrf board,
+			@RequestParam(name="upfiles", required = false) List<MultipartFile> upfiles
+			) {
+		log.debug("board update 요청, board : " + board +", upfiles : " + upfiles +", " + upfiles.size());
+		
+		
+		BoardPrf prevBoard = service.findBoardByBNo(board.getBno());
+		board.setMno(loginMember.getMno());
+		
+		List<AttachFilePrf> attachFileList = new ArrayList<AttachFilePrf>();
+		String rootPath = session.getServletContext().getRealPath("resources");
+		String savePath = rootPath + "/upload/boardPrf";
+		System.out.println("savePath : " + savePath);
+		
+		for(MultipartFile upfile : upfiles) {
+			if(upfile.getSize() == 0) {
+				continue;
+			}
+			String renamedFileName = service.saveFile(upfile, savePath);
+			
+			if(renamedFileName != null) {
+				AttachFilePrf file = new AttachFilePrf();
+				file.setOriginalFilename(upfile.getOriginalFilename());
+				file.setRenamedFilename(renamedFileName);
+				attachFileList.add(file);
+			}
+		}
+		
+		if(attachFileList.size() != 0) {
+			// 기존 파일 삭제
+			List<AttachFilePrf> prevAttachFileList = prevBoard.getAttachFiles();
+			for(AttachFilePrf file : prevAttachFileList) {
+				service.deleteFile(savePath, file);
+				service.deleteAttachFile(file);
+			}
+		}
+		board.setAttachFiles(attachFileList);
+		
+		int result = 0;
+		try {
+			result = service.saveBoard(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(result > 0) {
+			model.addAttribute("msg", "게시글이 수정이 완료 되었습니다.");
+			model.addAttribute("location", "/boardPrf/view?no=" + board.getBno());
+		}else {
+			model.addAttribute("msg", "게시글 수정에 실패하였습니다.");
+			model.addAttribute("location", "/boardPrf/list");
+		}
+		return "common/msg";
+	}
 	
 	
 	
 	
+	// http://localhost/mvc/board/delete?no=162
+	@RequestMapping("/boardPrf/delete")
+	public String deleteBoard(Model model, HttpSession session,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@RequestParam int no) {
+		log.debug("게시글 삭제 요청 no : " + no);
+		
+		String rootPath = session.getServletContext().getRealPath("resources");
+		String savePath = rootPath +"/upload/boardPrf";
+		
+		int result = 0;
+		try {
+			result = service.deleteBoard(no, savePath);
+		} catch (Exception e) {}
+		
+		if(result > 0 ) {
+			model.addAttribute("msg", "게시글이 삭제 되었습니다.");
+		} else {
+			model.addAttribute("msg", "게시글이 삭제에 실패하였습니다.");
+		}
+		model.addAttribute("location", "/boardPrf/list");
+		return "common/msg";
+	}
 	
-	@PostMapping("/boardprf/reply")
+	
+	
+	
+	@PostMapping("/boardPrf/reply")
 	public String writeReply(Model model,
 			@SessionAttribute(name="loginMember", required = false) Member loginMember,
 			@ModelAttribute BoardReplyPrf reply) {
@@ -85,11 +184,11 @@ public class BoardControllerPrf {
 		} else {
 			model.addAttribute("msg", "리플 등록에 실패하였습니다.");
 		}
-		model.addAttribute("location", "/boardprf/view?no="+reply.getBno());
+		model.addAttribute("location", "/boardPrf/view?no="+reply.getBno());
 		return "/common/msg";
 	}
 	
-	@RequestMapping("boardprf/replyDel")
+	@RequestMapping("boardPrf/replyDel")
 	public String deleteReply(Model model, 
 			@SessionAttribute(name = "loginMember", required = false) Member loginMember,
 			int rno, int bno
@@ -102,8 +201,8 @@ public class BoardControllerPrf {
 		}else {
 			model.addAttribute("msg", "리플 삭제에 실패하였습니다.");
 		}
-		model.addAttribute("location", "/boardprf/view?no=" + bno);
-		return "/common/msg";
+		model.addAttribute("location", "/boardPrf/view?no=" + bno);
+		return "common/msg";
 	}
 	
 	

@@ -19,6 +19,7 @@ public interface BoardMapperTour {
 	int updateBoardTour(BoardTour board);
 	int updateReadCountTour(BoardTour board);
 	int updateReplyCountTour(int bno);
+	int updateTourRate(int tid);
 	int deleteBoardTour(int bno);
 	AttachFileTour selectAttachFileByFnoTour(int fno);
 	List<AttachFileTour> selectAttachFileByBnoTour(int bno);

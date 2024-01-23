@@ -6,6 +6,7 @@
 	<resultMap type="BoardPrf" id="boardResultMap">
 		<result property="bno" column="BNO"/>
 		<result property="mno" column="MNO"/>
+		<result property="pid" column="PID"/>
 		<result property="pname" column="PNAME"/>
 		<result property="title" column="TITLE"/>
 		<result property="content" column="CONTENT"/>
@@ -48,7 +49,7 @@
 	-->
 	
 	<select id="selectBoardListPrf" parameterType="BoardParamPrf" resultMap="boardResultMap">
-		SELECT  B.BNO, B.RATINGS, B.PNAME, B.TITLE, M.ID, M.NAME, B.CONTENT, 
+		SELECT  B.BNO, B.RATINGS, B.PID, B.PNAME, B.TITLE, M.ID, M.NAME, B.CONTENT, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE
 		FROM PRFBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
@@ -97,7 +98,7 @@
 	<select id="selectBoardFirstPrf" resultMap="boardResultMap">
 		SELECT * FROM (
 			SELECT 
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, B.PID, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE, 
 	        ROW_NUMBER() OVER (ORDER BY B.READCOUNT DESC) AS 'RANKING'
 			FROM PRFBOARD B
@@ -109,7 +110,7 @@
 	<!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
 	<select id="selectBoardByNoPrf" parameterType="int" resultMap="boardResultMap">
 		SELECT  
-			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, 
+			B.BNO, M.ID, M.NAME, B.TITLE, B.CONTENT, B.RATINGS, B.PNAME, B.PID, 
 			B.READCOUNT, B.ATTACHCOUNT, B.REPLYCOUNT, B.CREATE_DATE, B.MODIFY_DATE
 		FROM PRFBOARD B
 		JOIN MEMBER M ON (B.MNO = M.MNO)
@@ -121,8 +122,8 @@
 		<selectKey keyProperty="bno" resultType="int" order="AFTER">
 			SELECT @@IDENTITY AS bno
 		</selectKey>
-		INSERT INTO PRFBOARD (bNO, mNO, PNAME, TITLE, CONTENT, RATINGS)  
-			VALUES(0, #{mno}, #{pname}, #{title}, #{content}, #{ratings})
+		INSERT INTO PRFBOARD (bNO, mNO, PID, PNAME, TITLE, CONTENT, RATINGS)  
+			VALUES(0, #{mno}, #{pid} #{pname}, #{title}, #{content}, #{ratings})
 	</insert>
 	
 	<update id="updateBoardPrf" parameterType="BoardPrf">
@@ -146,7 +147,11 @@
 	</update>
 	
 	<!-- 게시물 작성/삭제시 공연의 평균평점 갱신 -->
-	<!-- <update id="updatePrfRate"></update> -->
+	<update id="updatePrfRate" parameterType="String">
+		UPDATE performance 
+			SET RATE = (SELECT AVG(RATINGS) FROM PRFBOARD WHERE PID = #{pid}) 
+			WHERE PID = #{pid};
+	</update>
 	
 	<!-- 게시글 삭제용 update문 -->
 	<update id="deleteBoardPrf" parameterType="int">

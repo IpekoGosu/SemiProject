@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class BoardTour {
 	private int bno;
 	private int mno;
+	private int tid;
 	private String tname;
 	private int ratings;
 	private String title;

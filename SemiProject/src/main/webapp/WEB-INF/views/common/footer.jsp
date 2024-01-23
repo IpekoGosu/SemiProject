@@ -74,7 +74,7 @@
             <a href="${path}/boardTour/list" class="nav-link p-0 text-body-secondary">관광지 게시판</a>
           </li>
           <li class="nav-item mb-2">
-            <a href="${path}/boardprf/list" class="nav-link p-0 text-body-secondary">공연 게시판</a>
+            <a href="${path}/boardPrf/list" class="nav-link p-0 text-body-secondary">공연 게시판</a>
           </li>
           <li class="nav-item mb-2">
             <a href="#" class="nav-link p-0 text-body-secondary">지역 행사 게시판</a>
