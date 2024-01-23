@@ -42,12 +42,10 @@
               공연
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="show-search-1.html" style="font-size: 18px;">음악</a>
-              <a class="dropdown-item" href="show-search-2.html" style="font-size: 18px;">연극, 뮤지컬</a
-              ><a class="dropdown-item" href="show-search-3.html" style="font-size: 18px;">무용, 서커스/마술</a>
-              <a class="dropdown-item" href="show-inform.html" style="font-size: 18px;">공연 정보</a>
-              <a class="dropdown-item" href="show-recommendations.html" style="font-size: 18px;">공연 추천</a>
-              <a class="dropdown-item" href="show-award.html" style="font-size: 18px;">수상작</a>
+              <a class="dropdown-item" href="show-search-1" style="font-size: 18px;">공연 검색</a>
+              <a class="dropdown-item" href="show-inform" style="font-size: 18px;">공연 정보</a>
+              <a class="dropdown-item" href="show-recommendations" style="font-size: 18px;">공연 추천</a>
+              <a class="dropdown-item" href="show-award" style="font-size: 18px;">수상작</a>
             </div>
           </li>
           <!-- 공연 끝 -->

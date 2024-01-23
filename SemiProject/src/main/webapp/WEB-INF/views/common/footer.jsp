@@ -46,13 +46,7 @@
         <h5><strong style="color: #ef4562;">공연</strong></h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2">
-            <a href="show-search-1.html" class="nav-link p-0 text-body-secondary">음악</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-search-2.html" class="nav-link p-0 text-body-secondary">연극, 뮤지컬</a>
-          </li>
-          <li class="nav-item mb-2">
-            <a href="show-search-3.html" class="nav-link p-0 text-body-secondary">무용, 서커스/마술</a>
+            <a href="show-search-1.html" class="nav-link p-0 text-body-secondary">공연 검색</a>
           </li>
           <li class="nav-item mb-2">
             <a href="show-inform.html" class="nav-link p-0 text-body-secondary">공연 정보</a>
