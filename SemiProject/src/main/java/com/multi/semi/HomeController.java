@@ -36,7 +36,7 @@ public class HomeController {
 		
 		// 관광지 게시판 정보 추가해주는부분
 		BoardParamPrf bparamPrf = new BoardParamPrf();
-		bparamPrf.setOrderType("date");
+		bparamPrf.setOrderType("time");
 		bparamPrf.setLimit(6);
 		bparamPrf.setOffset(0);
 		List<BoardPrf> listPrf = bservicePrf.getBoardList(bparamPrf);

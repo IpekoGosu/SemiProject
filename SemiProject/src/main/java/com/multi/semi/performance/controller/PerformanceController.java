@@ -1,9 +1,7 @@
 package com.multi.semi.performance.controller;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -12,13 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.multi.semi.board.model.service.BoardServicePrf;
+import com.multi.semi.board.model.vo.BoardParamPrf;
+import com.multi.semi.board.model.vo.BoardPrf;
 import com.multi.semi.common.PageInfo;
 import com.multi.semi.performance.model.service.PerformanceService;
 import com.multi.semi.performance.model.vo.Performance;
@@ -33,6 +31,9 @@ import lombok.extern.slf4j.Slf4j;
 public class PerformanceController {
 	@Autowired
 	private PerformanceService service;
+	
+	@Autowired
+	private BoardServicePrf bservicePrf;
 	
 	@GetMapping(value = "/show-inform")
 	public String showInformPage(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
@@ -155,7 +156,10 @@ public class PerformanceController {
 	}
 	
 	@RequestMapping(value = "/show-detail", method = RequestMethod.GET)
-	public String showDetailPage(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
+	public String showDetailPage(Model model,
+			@RequestParam Map<String, Object> param, HttpSession session, 
+			BoardParamPrf bparamPrf
+			) {
 
 		
 		Performance item = service.showDetailById(param);
@@ -164,7 +168,32 @@ public class PerformanceController {
 
 		model.addAttribute("item", item);
 		
+		
+		bparamPrf.setSearchType("pname");
+		bparamPrf.setSearchValue(item.getPname());
+		int boardCount = bservicePrf.getBoardCount(bparamPrf);
+		PageInfo pageInfo = new PageInfo(bparamPrf.getPage(), 6, boardCount, 5);
+		bparamPrf.setLimit(pageInfo.getListLimit());
+		bparamPrf.setOffset(pageInfo.getStartList() - 1);
+		List<BoardPrf> list = bservicePrf.getBoardList(bparamPrf);
+		model.addAttribute("boardCount", boardCount);
+		model.addAttribute("bparamPrf", bparamPrf);
+		model.addAttribute("pageInfo", pageInfo);
+		model.addAttribute("list", list);
+		log.info("=========boardparamprf: " + bparamPrf.toString());
+		
+		
 		return "/performance/show-detail";
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+

@@ -233,125 +233,108 @@
                 </div>
             </div>
         </li>
+        
         <li class="border-0 shadow rounded" style="list-style: none;">
-            <h4 class="shadow" style="text-align: center; padding: 5px;">관람후기</h4>
-            <div style="margin: 10px;">
-                <div class="mt-3 d-flex justify-content-between align-items-center">
-                    <span>총 <strong style="color: deepskyblue;">5</strong> 개의 관람후기가 등록되었습니다.</span>
-                    <ul class="nav nav-pills-custom" style="justify-content: end;">
-                        <li class="nav-item"><a class="nav-link active" href="#" style="border: none;">최신글순</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" style="border: none;">평점순</a></li>
-                    </ul>
-                </div>
+	        
+	            <h4 class="shadow" style="text-align: center; padding: 5px;">관람후기</h4>
+	            <div style="margin: 10px;">
+	                <div class="mt-3 d-flex justify-content-between align-items-center">
+				        
+				        <form name="searchBoardPrfFrom" action="${path}/show-detail" method="get">
+							<input type="hidden" name="pid" value="${item.pid}">				        
+							<input type="hidden" name="page" value="1">				        
+		                    <span>총 <strong style="color: deepskyblue;"><c:out value="${boardCount}"/></strong> 개의 관람후기가 등록되었습니다.</span>
+		                    <div class="mt-2">
+					            <div class="col">
+					              <table class="w-100">
+					                <tbody>
+					                  <tr>
+					                    <td>
+					                      <input type="radio" name="orderType" value="time" class="btn-check" onclick="subfunc()"
+					                      		 id="btn-check-outlined1" autocomplete="off" ${bparamPrf.orderType == 'time' ? 'checked' : ''}>
+					                      <label class="btn btn-outline-dark gmarketfontM" for="btn-check-outlined1">&nbsp;&nbsp;최신순&nbsp;&nbsp;</label>
+					                    </td>
+					                    <td>
+					                      <input type="radio" name="orderType" value="read" class="btn-check" onclick="subfunc()"
+					                      		 id="btn-check-outlined2" autocomplete="off" ${bparamPrf.orderType == 'read' ? 'checked' : ''}>
+					                      <label class="btn btn-outline-dark" for="btn-check-outlined2">&nbsp;&nbsp;조회순&nbsp;&nbsp;</label>
+					                    </td>
+					                  </tr>
+					                </tbody>
+					              </table>
+					            </div>
+					          </div>
+				        </form>
+	                </div>
                 <div>
-                    <!-- 1 -->
-                    <div class="card mt-3 hover-animate border-0 shadow" id="review-1" style="padding: 0;">
-                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                            <ul style="display: inline-flex; list-style: none; padding: 0;">
-                              <li><p class="text-xs mb-0"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p></li>
-                              <li class="ms-3"><a href="post.html" style="display: flex; text-align: end;">글 보러가기</a></li>
-                            </ul>
-                            <ul style="display: inline-flex; list-style: none;">
-                                <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                <li><p>2024.01.01</p></li>
-                            </ul>
-                        </div>
-                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                            <li><strong>정말 재미있어요</strong></li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                        </ul>
-                    </div>
-                    <!-- 2 -->
-                    <div class="card mt-3 hover-animate border-0 shadow" id="review-2" style="padding: 0;">
-                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                            <ul style="display: inline-flex; list-style: none; padding: 0;">
-                              <li><p class="text-xs mb-0"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p></li>
-                              <li class="ms-3"><a href="post.html" style="display: flex; text-align: end;">글 보러가기</a></li>
-                            </ul>
-                            <ul style="display: inline-flex; list-style: none;">
-                                <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                <li><p>2024.01.01</p></li>
-                            </ul>
-                        </div>
-                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                            <li><strong>정말 재미있어요</strong></li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                        </ul>
-                    </div>
-                    <!-- 3 -->
-                    <div class="card mt-3 hover-animate border-0 shadow" id="review-3" style="padding: 0;">
-                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                            <ul style="display: inline-flex; list-style: none; padding: 0;">
-                              <li><p class="text-xs mb-0"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p></li>
-                              <li class="ms-3"><a href="post.html" style="display: flex; text-align: end;">글 보러가기</a></li>
-                            </ul>
-                            <ul style="display: inline-flex; list-style: none;">
-                                <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                <li><p>2024.01.01</p></li>
-                            </ul>
-                        </div>
-                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                            <li><strong>정말 재미있어요</strong></li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                        </ul>
-                    </div>
-                    <!-- 4 -->
-                    <div class="card mt-3 hover-animate border-0 shadow" id="review-4" style="padding: 0;">
-                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                            <ul style="display: inline-flex; list-style: none; padding: 0;">
-                              <li><p class="text-xs mb-0"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p></li>
-                              <li class="ms-3"><a href="post.html" style="display: flex; text-align: end;">글 보러가기</a></li>
-                            </ul>
-                            <ul style="display: inline-flex; list-style: none;">
-                                <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                <li><p>2024.01.01</p></li>
-                            </ul>
-                        </div>
-                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                            <li><strong>정말 재미있어요</strong></li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                        </ul>
-                    </div>
-                    <!-- 5 -->
-                    <div class="card mt-3 hover-animate border-0 shadow" id="review-5" style="padding: 0;">
-                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                            <ul style="display: inline-flex; list-style: none; padding: 0;">
-                              <li><p class="text-xs mb-0"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p></li>
-                              <li class="ms-3"><a href="post.html" style="display: flex; text-align: end;">글 보러가기</a></li>
-                            </ul>
-                            <ul style="display: inline-flex; list-style: none;">
-                                <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                <li><p>2024.01.01</p></li>
-                            </ul>
-                        </div>
-                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                            <li><strong>정말 재미있어요</strong></li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                        </ul>
-                    </div>
+                	<c:forEach var="item" items="${list}">
+                	
+	                    <!-- 1 -->
+	                    <div class="card mt-3 hover-animate border-0 shadow" id="review-1" style="padding: 0;">
+	                        <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
+	                            <ul style="display: inline-flex; list-style: none; padding: 0;">
+	                              <li><p class="text-xs mb-0">
+	                              	<c:if test="${item.ratings == 1}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+		                           	<c:if test="${item.ratings == 2}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+		                           	<c:if test="${item.ratings == 3}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+		                           	<c:if test="${item.ratings == 4}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i></c:if>
+		                           	<c:if test="${item.ratings == 5}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></c:if>
+	                              </p></li>
+	                              <li class="ms-3"><a href="${path}/boardPrf/view?no=${item.bno}" style="display: flex; text-align: end;">글 보러가기</a></li>
+	                            </ul>
+	                            <ul style="display: inline-flex; list-style: none;">
+	                                <li style="padding-right: 20px;"><p><c:out value="${item.memberName}"/></p></li>
+	                                <li><p><fmt:formatDate type="date" value="${item.createDate}"/></p></li>
+	                            </ul>
+	                        </div>
+	                        <ul class="ms-3 p-0 me-3" style="list-style: none;">
+	                            <li><strong><c:out value="${item.title}"/></strong></li>
+	                            <li><c:out value="${item.content}"/></li>
+	                        </ul>
+	                    </div>
+                	</c:forEach>
+                
+                    
                 </div>
                 <div style="text-align: right;">
                   <button class="btn btn-secondary mt-4" style="background-color: #ef4562;"><a href="write.html" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a></button>
                 </div>
             </div>
             <div class="pb-4">
-              <nav aria-label="Page navigation example">
-                  <ul class="pagination pagination-template d-flex justify-content-center">
-                      <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link" href="#">4</a></li>
-                      <li class="page-item"><a class="page-link" href="#">5</a></li>
-                      <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
-                  </ul>
-              </nav>
+             <nav aria-label="Page navigation example">
+		          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
+		              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+		              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
+		              <li class="page-item page-link" onclick="movePage(${pageInfo.prevPage});"><i class="fa fa-angle-left"></i></li>
+		              <c:forEach begin="${pageInfo.startPage}" end="${pageInfo.endPage}" varStatus="status" step="1">
+		              	<c:if test="${status.current == pageInfo.currentPage}">
+		              		<li class="page-item page-link active">${status.current}</li>
+		              	</c:if>
+		              	<c:if test="${status.current != pageInfo.currentPage}">
+		              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+		              	</c:if>
+		              </c:forEach>
+		              <li class="page-item page-link" onclick="movePage(${pageInfo.nextPage});"><i class="fa fa-angle-right"></i></li>
+		              <li class="page-item page-link" onclick="movePage(${pageInfo.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+		              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
+		          </ul>
+		      </nav>
             </div>
         </li>
     </ul>
     <!-- 탭 영역 끝 -->
 </div>
 <!-- 상세 영역 끝 -->
+
+<script type="text/javascript">
+	function movePage(page){
+		searchBoardPrfFrom.page.value = page;
+		searchBoardPrfFrom.submit();
+	}
+	function subfunc(){
+		searchBoardPrfFrom.submit();
+	}
+</script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
