@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.multi.semi.performance.model.mapper.PerformanceMapper">
+
+
+	<select id="selectPerformanceAll" resultType="Performance">
+		SELECT * FROM performance
+	</select>
+	
+	<select id="performanceAll" resultType="Performance" parameterType="Map">
+		SELECT * FROM performance 
+		where pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND pgenre LIKE '%${genre}%'
+		</if>
+	</select>
+	
+	<select id="performanceGenre" resultType="Performance" parameterType="Map">
+		SELECT * FROM performance 
+		where pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND pgenre LIKE '%${genre}%'
+		</if>
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="countGenre" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM performance 
+		where pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND pgenre LIKE '%${genre}%'
+		</if>
+	</select>
+	
+	<select id="performanceRegion" resultType="Performance" parameterType="Map">
+		SELECT p.*, f.* 
+		FROM performance p
+		JOIN facility f on p.conhallid = f.conhallid
+		where p.pto like '%2024%'
+		<if test="region != null and region != ''">
+			AND f.address LIKE '%${region}%'
+		</if>
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="countRegion" parameterType="Map" resultType="int">
+		SELECT count(*)
+		FROM performance p
+		JOIN facility f on p.conhallid = f.conhallid
+		where p.pto like '%2024%'
+		<if test="region != null and region != ''">
+			AND f.address LIKE '%${region}%'
+		</if>
+	</select>
+	
+	<select id="musicSearch" resultType="Performance" parameterType="Map">
+		SELECT *
+		FROM performance
+		WHERE pgenre in ('서양음악(클래식)', '한국음악(국악)', '대중음악')
+		and pto like '%2024%'
+	</select>
+	
+	<select id="concSearch" resultType="Performance" parameterType="Map">
+		SELECT p.*, f.* 
+		FROM performance p
+		JOIN facility f on (p.conhallid = f.conhallid)
+		WHERE p.pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND p.pgenre LIKE '%${genre}%'
+		</if>
+		<if test="region != null and region != ''">
+			AND f.address LIKE '%${region}%'
+		</if>
+		<if test="child != null and child != ''">
+			AND p.child LIKE '%${child}%'
+		</if>
+		<if test="pstate != null and pstate != ''">
+			AND p.pstate  LIKE '%${pstate}%'
+		</if>
+		<if test="searchType == 'concKeyword'">
+			AND p.pname LIKE '%${keyword}%'
+		</if>
+		<if test="searchType == 'hallKeyword'">
+			AND p.fname LIKE '%${keyword}%'
+		</if>
+		<if test="bypname != null and bypname != ''">
+			ORDER BY p.pname ASC
+		</if>
+		<if test="bydate != null and bydate != ''">
+			ORDER BY p.pto ASC
+		</if>
+		LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="countSearch" parameterType="Map" resultType="int">
+		SELECT count(*)
+		FROM performance p
+		JOIN facility f on (p.conhallid = f.conhallid)
+		WHERE p.pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND p.pgenre LIKE '%${genre}%'
+		</if>
+		<if test="region != null and region != ''">
+			AND f.address LIKE '%${region}%'
+		</if>
+		<if test="child != null and child != ''">
+			AND p.child LIKE '%${child}%'
+		</if>
+		<if test="pstate != null and pstate != ''">
+			AND p.pstate  LIKE '%${pstate}%'
+		</if>
+		<if test="searchType == 'concKeyword'">
+			AND p.pname LIKE '%${keyword}%'
+		</if>
+		<if test="searchType == 'hallKeyword'">
+			AND p.fname LIKE '%${keyword}%'
+		</if>
+	</select>
+	
+	<select id="countMusic" parameterType="Map" resultType="int">
+		SELECT count(*)
+		FROM performance
+		WHERE pgenre in ('서양음악(클래식)', '한국음악(국악)', '대중음악')
+		and pto like '%2024%'
+	</select>
+	
+	<select id="performanceAward" resultType="Performance" parameterType="Map">
+		SELECT * FROM performance 
+		where awards is not null
+		and awards != ''
+		and pto like '%2024%'
+		<if test="genre != null and genre != ''">
+			AND pgenre LIKE '%${genre}%'
+		</if>
+	</select>
+	
+	<select id="showDetailById" parameterType="Map" resultType="Performance">
+		SELECT p.*, f.*
+		FROM performance p
+		LEFT JOIN facility f ON p.conhallid = f.conhallid
+		WHERE p.pid = #{pid}
+	</select>
+</mapper>
+
