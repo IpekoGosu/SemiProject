@@ -575,12 +575,11 @@
     </div>
     <section class="container tour-boardsection">
       <ul class="tour-board">
-        <li><a href="post.html" style="text-decoration: none; color: black;">행사 또 언제 있나요?</a><span>2023.12.25</span></li>
-        <li><a href="post.html" style="text-decoration: none; color: black;">오늘 너무 재밌었어요</a><span>2023.12.25</span></li>
-        <li><a href="post.html" style="text-decoration: none; color: black;">주말에 시간내길 잘했어요!</a><span>2023.12.25</span></li>
-        <li><a href="post.html" style="text-decoration: none; color: black;">담에 또 오려구요</a><span>2023.12.25</span></li>
-        <li><a href="post.html" style="text-decoration: none; color: black;">친구들이랑 왔는데 너무 좋았어요!</a><span>2023.12.25</span></li>
-        <li><a href="post.html" style="text-decoration: none; color: black;">강아지도 좋아해요</a><span>2023.12.25</span></li>
+      	<c:forEach items="${listPrf}" var="item">
+	        <li><a href="${path}/boardPrf/view?no=${item.bno}" style="text-decoration: none; color: black;"><c:out value="${item.title}"/></a>
+	        	<span><fmt:formatDate type="date" value="${item.createDate}"/></span>
+	        </li>
+      	</c:forEach>
       </ul>
       <div class="tour-board__etc">
         <div class="etc__tour etc">

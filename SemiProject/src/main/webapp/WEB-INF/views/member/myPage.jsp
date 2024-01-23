@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Price Slider Stylesheets -->
-    <link rel="stylesheet" href="../vendor/nouislider/nouislider.css">
+    <link rel="stylesheet" href="${path}/resources/vendor/nouislider/nouislider.css">
     <!-- Google fonts - Playfair Display-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700">
     <!-- Google fonts - Poppins-->
@@ -27,15 +27,15 @@
     <!-- swiper-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
     <!-- Magnigic Popup-->
-    <link rel="stylesheet" href="../vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="${path}/resources/vendor/magnific-popup/magnific-popup.css">
     <!-- Leaflet Maps-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="../css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="${path}/resources/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="${path}/resources/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="../img/favicon.png">
+    <link rel="shortcut icon" href="${path}/resources/img/favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -106,7 +106,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                               <div class="row col-12 g-0">
                                   <div class="col-md-auto">
-                                      <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                   </div>
                                   <div class="col-md-8">
                                       <div class="card-body">
@@ -123,7 +123,7 @@
                           <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                             <div class="row col-12 g-0">
                                 <div class="col-md-auto">
-                                    <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -140,7 +140,7 @@
                           <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                             <div class="row col-12 g-0">
                                 <div class="col-md-auto">
-                                    <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -157,7 +157,7 @@
                           <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                             <div class="row col-12 g-0">
                                 <div class="col-md-auto">
-                                    <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -174,7 +174,7 @@
                           <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                             <div class="row col-12 g-0">
                                 <div class="col-md-auto">
-                                    <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -220,7 +220,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                                 <div class="row col-12 g-0">
                                     <div class="col-md-auto">
-                                        <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                        <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -237,7 +237,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                               <div class="row col-12 g-0">
                                   <div class="col-md-auto">
-                                      <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                   </div>
                                   <div class="col-md-8">
                                       <div class="card-body">
@@ -254,7 +254,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                               <div class="row col-12 g-0">
                                   <div class="col-md-auto">
-                                      <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                   </div>
                                   <div class="col-md-8">
                                       <div class="card-body">
@@ -271,7 +271,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                               <div class="row col-12 g-0">
                                   <div class="col-md-auto">
-                                      <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                   </div>
                                   <div class="col-md-8">
                                       <div class="card-body">
@@ -288,7 +288,7 @@
                             <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                               <div class="row col-12 g-0">
                                   <div class="col-md-auto">
-                                      <img src="../img/myImages/m_agatha.png" class="card-img rounded-start" alt="...">
+                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
                                   </div>
                                   <div class="col-md-8">
                                       <div class="card-body">
@@ -358,9 +358,7 @@
                       
                       </div>
                       
-                      <form name="myPageBoardPrf" action="${path}/member/myPage" method="get">
-                      	<input type="hidden" name="page">
-                      </form>
+                      
                       
                       <nav aria-label="Page navigation example">
 				          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
@@ -552,7 +550,7 @@
                               <table class="w-100">
                                 <tbody>
                                   <tr>
-                                    <td rowspan="4"><img class="shadow" src="../img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
+                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
                                     <td class="text-center">[뮤지컬] 몬테크리스토</td>
                                   </tr>
                                   <tr>
@@ -593,7 +591,7 @@
                               <table class="w-100">
                                 <tbody>
                                   <tr>
-                                    <td rowspan="4"><img class="shadow" src="../img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
+                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
                                     <td class="text-center">[뮤지컬] 몬테크리스토</td>
                                   </tr>
                                   <tr>
@@ -636,7 +634,7 @@
                               <table class="w-100">
                                 <tbody>
                                   <tr>
-                                    <td rowspan="4"><img class="shadow" src="../img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
+                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
                                     <td class="text-center">[뮤지컬] 몬테크리스토</td>
                                   </tr>
                                   <tr>
@@ -677,7 +675,7 @@
                               <table class="w-100">
                                 <tbody>
                                   <tr>
-                                    <td rowspan="4"><img class="shadow" src="../img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
+                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
                                     <td class="text-center">[뮤지컬] 몬테크리스토</td>
                                   </tr>
                                   <tr>
@@ -763,17 +761,17 @@
     </script>
     
     <!-- jQuery-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${path}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Magnific Popup - Lightbox for the gallery-->
-    <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="${path}/resources/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!-- Smooth scroll-->
-    <script src="../vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+    <script src="${path}/resources/vendor/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
     <!-- Bootstrap Select-->
-    <script src="../vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="${path}/resources/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <!-- Object Fit Images - Fallback for browsers that don't support object-fit-->
-    <script src="../vendor/object-fit-images/ofi.min.js"></script>
+    <script src="${path}/resources/vendor/object-fit-images/ofi.min.js"></script>
     <!-- Swiper Carousel                       -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
@@ -782,8 +780,8 @@
     <!-- Map-->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <!-- Available tile layers-->
-    <script src="../js/map-layers.js"> </script>
-    <script src="../js/map-category.js">                               </script>
+    <script src="${path}/resources/js/map-layers.js"> </script>
+    <script src="${path}/resources/js/map-category.js">                               </script>
     <script>
       createListingsMap({
           mapId: 'categorySideMap',
@@ -797,9 +795,9 @@
     <!-- Daterange picker-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"> </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.19.0/jquery.daterangepicker.min.js"> </script>
-    <script src="../js/datepicker-category.js"> </script>
+    <script src="${path}/resources/js/datepicker-category.js"> </script>
     <!-- Price Slider-->
-    <script src="../vendor/nouislider/nouislider.min.js"></script>
+    <script src="${path}/resources/vendor/nouislider/nouislider.min.js"></script>
     <script>
       var snapSlider = document.getElementById('slider-snap');
     

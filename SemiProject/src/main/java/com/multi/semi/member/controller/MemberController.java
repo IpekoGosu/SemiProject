@@ -175,7 +175,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping("/member/myPage")
+	@RequestMapping("/member/my")
 	public String myPage(Model model, 
 			@SessionAttribute(name="loginMember") Member loginMember) {
 		model.addAttribute("loginMember", loginMember);

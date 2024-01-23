@@ -78,7 +78,7 @@
           <!-- 로그인/아웃/프로필(마이페이지) 서버측 구현 필요 -->
           <c:if test="${loginMember != null}">
 	          <li class="nav-item profile" id="profile-button" style="display: flex; align-items: center; margin-right: 20px;">
-	            <a class="btn btn-primary" href="profile.html"
+	            <a class="btn btn-primary" href="${path}/member/my"
 	              style="background-color: #ef4562 !important; color: white !important; border: none; font-family: Concert One, sans-serif; font-weight: bolder; font-size: 15px;">
 		          <c:out value="${loginMember.name}"></c:out>의 Page
 	            </a>
