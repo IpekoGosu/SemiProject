@@ -157,13 +157,29 @@
 					<c:if test="${fn:contains(item.originalFilename,'.jpg') 
 								  or fn:contains(item.originalFilename,'.png')  
 								  or fn:contains(item.originalFilename,'.jpeg')}">
-						<img src="${path}/resources/upload/boardTour/${item.renamedFilename}"
+						<img class="mb-2" src="${path}/resources/upload/boardTour/${item.renamedFilename}"
 																	width="45%"/>
 					</c:if>
 				</c:forEach>
 				</div>
            	</c:if>
         </div>
+        <c:if test="${not empty board.attachFiles}">
+	        <div class="row mb-5">
+	        	<div>
+	        		첨부파일 목록
+	        	</div>
+        		<div>
+	        	<c:forEach var="item" items="${board.attachFiles}">
+	        			<img alt="" src="${path}/resources/img/myImages/iconfiledown.png">
+		        		<a href="javascript:fileDownload('${item.fno}');">
+		        			<c:out value="${item.originalFilename}"></c:out>
+		        		</a>
+	        	</c:forEach>
+        		</div>
+	        </div>
+        </c:if>
+        
         <div class="row">
           <div class="col-xl-8 col-lg-10 mx-auto">                               
             <div class="gdodumfont" style="font-size: 15pt;">

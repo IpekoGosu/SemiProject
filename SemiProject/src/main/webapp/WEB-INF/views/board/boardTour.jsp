@@ -112,11 +112,13 @@
                     	댓글 <c:out value="${firstBoard.replyCount}"/>
                     </td>
                     <td>
-						<c:if test="${firstBoard.ratings == 5}">★★★★★</c:if>
-                    	<c:if test="${firstBoard.ratings == 4}">★★★★</c:if>
-                    	<c:if test="${firstBoard.ratings == 3}">★★★</c:if>
-                    	<c:if test="${firstBoard.ratings == 2}">★★</c:if>
-                    	<c:if test="${firstBoard.ratings == 1}">★</c:if>
+						<p class="text-xs mb-2">
+                        	<c:if test="${firstBoard.ratings == 1}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+                        	<c:if test="${firstBoard.ratings == 2}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+                        	<c:if test="${firstBoard.ratings == 3}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+                        	<c:if test="${firstBoard.ratings == 4}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i></c:if>
+                        	<c:if test="${firstBoard.ratings == 5}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></c:if>
+                        </p>
 					</td>
                   </tr>
                 </table>
@@ -246,11 +248,13 @@
 	                    <td><c:out value="댓글 ${item.replyCount}"/></td>
 	                    <td><c:out value="조회 ${item.readCount}"/></td>
 	                    <td>
-	                    	<c:if test="${item.ratings == 5}">★★★★★</c:if>
-	                    	<c:if test="${item.ratings == 4}">★★★★</c:if>
-	                    	<c:if test="${item.ratings == 3}">★★★</c:if>
-	                    	<c:if test="${item.ratings == 2}">★★</c:if>
-	                    	<c:if test="${item.ratings == 1}">★</c:if>
+	                    	<p class="text-xs mb-2">
+	                        	<c:if test="${item.ratings == 1}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                        	<c:if test="${item.ratings == 2}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                        	<c:if test="${item.ratings == 3}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                        	<c:if test="${item.ratings == 4}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                        	<c:if test="${item.ratings == 5}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></c:if>
+	                        </p>
 	                    </td>
 	                  </tr>
 	                </table>

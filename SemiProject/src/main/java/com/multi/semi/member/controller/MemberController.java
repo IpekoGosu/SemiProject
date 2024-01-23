@@ -2,6 +2,7 @@ package com.multi.semi.member.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.multi.semi.board.model.service.BoardServicePrf;
+import com.multi.semi.board.model.service.BoardServiceTour;
+import com.multi.semi.board.model.vo.BoardParamPrf;
+import com.multi.semi.board.model.vo.BoardParamTour;
+import com.multi.semi.board.model.vo.BoardPrf;
+import com.multi.semi.board.model.vo.BoardTour;
+import com.multi.semi.common.PageInfo;
 import com.multi.semi.kakao.KakaoService;
 import com.multi.semi.member.model.service.MemberService;
 import com.multi.semi.member.model.vo.Member;
@@ -31,6 +40,11 @@ public class MemberController {
 	
 	@Autowired
 	private KakaoService kakaoService;
+	
+	@Autowired
+	private BoardServicePrf bPrfservice;
+	@Autowired
+	private BoardServiceTour bTourservice;
 	
 	// test!!!!!!!!!!!
 	@RequestMapping("/login/test")
@@ -160,6 +174,38 @@ public class MemberController {
 		return new ResponseEntity<Map<String,Object>>(map, HttpStatus.OK);
 	}
 	
+	
+	@RequestMapping("/member/myPage")
+	public String myPage(Model model, 
+			@SessionAttribute(name="loginMember") Member loginMember) {
+		model.addAttribute("loginMember", loginMember);
+		
+		// 공연글 작성한거 리스트
+		BoardParamPrf paramPrf = new BoardParamPrf();
+		paramPrf.setSearchType("writer");
+		paramPrf.setSearchValue(loginMember.getName());
+		paramPrf.setOrderType("time");
+		int boardCountPrf = bPrfservice.getBoardCount(paramPrf);
+		PageInfo pageInfoPrf = new PageInfo(paramPrf.getPage(), 3, boardCountPrf, 5);
+		paramPrf.setLimit(pageInfoPrf.getListLimit());
+		paramPrf.setOffset(pageInfoPrf.getStartList());
+		List<BoardPrf> listPrf = bPrfservice.getBoardList(paramPrf);
+		model.addAttribute("listPrf", listPrf);
+		
+		// 관광글 작성한거 리스트
+		BoardParamTour paramTour = new BoardParamTour();
+		paramTour.setSearchType("writer");
+		paramTour.setSearchValue(loginMember.getName());
+		paramTour.setOrderType("time");
+		int boardCountTour = bTourservice.getBoardCount(paramTour);
+		PageInfo pageInfoTour = new PageInfo(paramTour.getPage(), 3, boardCountTour, 5);
+		paramTour.setLimit(pageInfoTour.getListLimit());
+		paramTour.setOffset(pageInfoTour.getStartList());
+		List<BoardTour> listTour = bTourservice.getBoardList(paramTour);
+		model.addAttribute("listTour", listTour);
+		
+		return "member/myPage";
+	}
 	
 	
 	
