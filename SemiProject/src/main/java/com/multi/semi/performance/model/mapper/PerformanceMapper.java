@@ -33,4 +33,6 @@ public interface PerformanceMapper {
 	List<Performance> concSearch(Map<String, Object> param);
 
 	int countSearch(Map<String, Object> param);
+	
+	List<Performance> todayRank(Map<String, Object> param);
 }

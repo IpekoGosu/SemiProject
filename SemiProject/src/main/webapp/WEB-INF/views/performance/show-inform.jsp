@@ -75,8 +75,10 @@
     <link href="${path}/resources/css/custom.css" rel="stylesheet" />
   </head>
   <body style="padding-top: 72px">
-
+   <form name="informForm" action="${path}/show-inform" method="get">
     <section class="py-6">
+      <input type="hidden" name="pageA" value="1">
+      <input type="hidden" name="pageB" value="1">
       <div class="container genre">
         <div class="row mb-3">
           <div class="col-md-12 title">
@@ -181,33 +183,26 @@
 	          </div>
           </c:forEach>
         </div>
-        <div class="row">
-			<div class="col-12">
-				<nav class="mt-4 d-flex justify-content-center"
-					aria-label="navigation">
-					<ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-						<li class="page-item mb-0" style="margin-top: 0.4rem !important;">
-							<a class="page-link" href="javascript:movePage(${pageInfo1.prevPage})" tabindex="-1"><i class="fas fa-angle-left"></i></a>
-						</li>
-						<c:forEach begin="${pageInfo1.startPage}" end="${pageInfo1.endPage}" varStatus="status" step="1">
-							<c:if test="${status.current == pageInfo1.currentPage}">
-								<li class="page-item mb-0 active">
-									<a class="page-link" href="javascript:movePage(${status.current})">${status.current}</a>
-								</li>
-							</c:if>
-							<c:if test="${status.current != pageInfo1.currentPage}">
-								<li class="page-item mb-0">
-									<a class="page-link" href="javascript:movePage(${status.current})">${status.current}</a>
-								</li>
-							</c:if>
-						</c:forEach>
-						<li class="page-item mb-0" style="margin-top: 0.4rem !important;">
-							<a class="page-link" href="javascript:movePage(${pageInfo1.nextPage})"><i class="fas fa-angle-right"></i></a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+        <div class="mt-5 mb-5">
+	      <nav aria-label="Page navigation example">
+	          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
+	              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+	              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo1.prevPage});"><i class="fa fa-angle-left"></i></li>
+	              <c:forEach begin="${pageInfo1.startPage}" end="${pageInfo1.endPage}" varStatus="status" step="1">
+	              	<c:if test="${status.current == pageInfo1.currentPage}">
+	              		<li class="page-item page-link active">${status.current}</li>
+	              	</c:if>
+	              	<c:if test="${status.current != pageInfo1.currentPage}">
+	              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+	              	</c:if>
+	              </c:forEach>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo1.nextPage});"><i class="fa fa-angle-right"></i></li>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo1.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+	              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
+	          </ul>
+	      </nav>
+    	</div>
       </div>
     </section>
     <section class="show-statistics">
@@ -283,12 +278,6 @@
               지역별로 모아보기!
             </h2>
             <div class="filters">
-              <select name="region" class="region-select" onchange="if(this.value) location.href=(this.value);">
-              	<option value=""><a href="${path}/show-inform"> 전체 </a></option>
-              	<c:forEach var="region" items="${regions}">
-              		<option value="${path}/show-inform?${region}">${region}</option>
-              	</c:forEach>
-			  </select>
               <div class="dropdown">
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -309,6 +298,16 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="select-region">
+			<button><a href="${path}/show-inform"> 전체 </a></button>
+			<button><a href="${path}/show-inform?region=종로구"> 종로구 </a></button>
+            <button><a href="${path}/show-inform?region=마포구"> 마포구 </a></button>
+            <button><a href="${path}/show-inform?region=중구"> 중구 </a></button>
+            <button><a href="${path}/show-inform?region=강남구"> 강남구 </a></button>
+            <button><a href="${path}/show-inform?region=성동구"> 성동구 </a></button>
+            <button><a href="${path}/show-inform?region=서초구"> 서초구 </a></button>
+            <button><a href="${path}/show-inform?region=송파구"> 송파구 </a></button>
         </div>
         <div class="region__el" style="margin-bottom: 50px">
           <c:forEach var="item" items="${items2}">
@@ -374,35 +373,29 @@
 	          </div>
           </c:forEach>
         </div>
-        <div class="row">
-			<div class="col-12">
-				<nav class="mt-4 d-flex justify-content-center"
-					aria-label="navigation">
-					<ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-						<li class="page-item mb-0" style="margin-top: 0.4rem !important;">
-							<a class="page-link" href="javascript:movePage(${pageInfo2.prevPage})" tabindex="-1"><i class="fas fa-angle-left"></i></a>
-						</li>
-						<c:forEach begin="${pageInfo2.startPage}" end="${pageInfo2.endPage}" varStatus="status" step="1">
-							<c:if test="${status.current == pageInfo2.currentPage}">
-								<li class="page-item mb-0 active">
-									<a class="page-link" href="javascript:movePage(${status.current})">${status.current}</a>
-								</li>
-							</c:if>
-							<c:if test="${status.current != pageInfo2.currentPage}">
-								<li class="page-item mb-0">
-									<a class="page-link" href="javascript:movePage(${status.current})">${status.current}</a>
-								</li>
-							</c:if>
-						</c:forEach>
-						<li class="page-item mb-0" style="margin-top: 0.4rem !important;">
-							<a class="page-link" href="javascript:movePage(${pageInfo2.nextPage})"><i class="fas fa-angle-right"></i></a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div>
+        <div class="mt-5 mb-5">
+	      <nav aria-label="Page navigation example">
+	          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
+	              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+	              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo2.prevPage});"><i class="fa fa-angle-left"></i></li>
+	              <c:forEach begin="${pageInfo2.startPage}" end="${pageInfo2.endPage}" varStatus="status" step="1">
+	              	<c:if test="${status.current == pageInfo2.currentPage}">
+	              		<li class="page-item page-link active">${status.current}</li>
+	              	</c:if>
+	              	<c:if test="${status.current != pageInfo2.currentPage}">
+	              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+	              	</c:if>
+	              </c:forEach>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo2.nextPage});"><i class="fa fa-angle-right"></i></li>
+	              <li class="page-item page-link" onclick="movePage(${pageInfo2.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+	              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
+	          </ul>
+	      </nav>
+    	</div>
       </div>
     </section>
+   </form>
     <div class="container">
       <div class="row mb-5">
         <div class="col-md-8 title">
@@ -434,73 +427,65 @@
         </ul>
       </div>
       <div class="show-board__etc">
-        <div class="etc__show etc">
-          <img
-            class="show-img scale-img"
-            src="${path}/resources/img/yja/austin-neill-hgO1wFPXl3I-unsplash.jpg"
-            width="230px"
-            height="210px"
-            style="object-fit: cover"
-          />
-          <span>공연 검색</span>
-          <img class="etc__search-img" src="${path}/resources/img/yja/search.svg" />
-        </div>
-        <div class="etc__award etc">
-          <img
-            class="award-img scale-img"
-            src="${path}/resources/img/yja/aleksandr-popov-hTv8aaPziOQ-unsplash.jpg"
-            width="230px"
-            height="210px"
-            style="object-fit: cover"
-          />
-          <span>수상작 보러가기</span>
-          <img class="etc__award-img" src="${path}/resources/img/yja/trophy.svg" />
-        </div>
-        <div class="etc__recommend etc">
-          <img
-            class="recommend-img scale-img"
-            src="${path}/resources/img/yja/antoine-j-FNieWqIDsJA-unsplash.jpg"
-            width="230px"
-            height="210px"
-            style="object-fit: cover"
-          />
-          <span>공연 추천</span>
-          <img
-            class="etc__recommend-img"
-            src="${path}/resources/img/yja/smile-beam-solid.svg"
-          />
-        </div>
+      	<a href="show-search-1">
+	        <div class="etc__show etc">
+	          <img
+	            class="show-img scale-img"
+	            src="${path}/resources/img/yja/austin-neill-hgO1wFPXl3I-unsplash.jpg"
+	            width="230px"
+	            height="210px"
+	            style="object-fit: cover"
+	          />
+	          <span>공연 검색</span>
+	          <img class="etc__search-img" src="${path}/resources/img/yja/search.svg" />
+	        </div>
+        </a>
+        <a href="show-award">
+	        <div class="etc__award etc">
+	          <img
+	            class="award-img scale-img"
+	            src="${path}/resources/img/yja/aleksandr-popov-hTv8aaPziOQ-unsplash.jpg"
+	            width="230px"
+	            height="210px"
+	            style="object-fit: cover"
+	          />
+	          <span>수상작 보러가기</span>
+	          <img class="etc__award-img" src="${path}/resources/img/yja/trophy.svg" />
+	        </div>
+        </a>
+        <a href="show-recommendations">
+	        <div class="etc__recommend etc">
+	          <img
+	            class="recommend-img scale-img"
+	            src="${path}/resources/img/yja/antoine-j-FNieWqIDsJA-unsplash.jpg"
+	            width="230px"
+	            height="210px"
+	            style="object-fit: cover"
+	          /><a href="show-recommendations">
+	          <span>공연 추천</span>
+	          <img
+	            class="etc__recommend-img"
+	            src="${path}/resources/img/yja/smile-beam-solid.svg"
+	          />
+	        </div>
+        </a>
       </div>
     </section>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
     <!-- JavaScript files-->
-    <script>
-      // ------------------------------------------------------- //
-      //   Inject SVG Sprite -
-      //   see more here
-      //   https://css-tricks.com/ajaxing-svg-sprite/
-      // ------------------------------------------------------ //
-      function injectSvgSprite(path) {
-        var ajax = new XMLHttpRequest();
-        ajax.open("GET", path, true);
-        ajax.send();
-        ajax.onload = function (e) {
-          var div = document.createElement("div");
-          div.className = "d-none";
-          div.innerHTML = ajax.responseText;
-          document.body.insertBefore(div, document.body.childNodes[0]);
-        };
-      }
-      // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
-      // use your own URL in production, please :)
-      // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
-      //- injectSvgSprite('${path}icons/orion-svg-sprite.svg');
-      injectSvgSprite(
-        "https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg"
-      );
-    </script>
+    <script type="text/javascript">
+	function movePage(page){
+		informForm.page.value = page;
+		informForm.submit();
+	}
+	$(()=>{
+		$('#success-outlined, #danger-outlined').click((e)=>{
+	        informForm.submit();
+	    })
+	});
+	
     <!-- jQuery-->
     <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->

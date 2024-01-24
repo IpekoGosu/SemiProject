@@ -84,5 +84,9 @@ public class PerformanceService {
 		return mapper.countSearch(param);
 	}
 
+	public List<Performance> todayRank(Map<String, Object> param) {
+		log.info("todayRank - param>> " + param.toString());
+		return mapper.todayRank(param);
+	}
 	
 }
