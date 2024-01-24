@@ -98,15 +98,16 @@
       <div
         class="search-bar rounded p-3 p-lg-4 position-relative mt-n5 z-index-20"
       >
-        <form action="#">
+        <form action="${path}/show-search-1" method="get">
           <div class="row">
             <div class="col-lg-4 d-flex align-items-center form-group">
               <input
                 class="form-control border-0 shadow-0 show-search"
-                type="search"
-                name="search"
+                type="text"
+                name="keyword"
                 placeholder="공연을 검색하세요!"
                 style="font-size: 20px"
+                value="${param.keyword}"
               />
             </div>
             <div
@@ -117,12 +118,20 @@
                 title="자치구"
                 data-style="btn-form-control"
                 style="font-size: 20px"
+                name="region"
               >
-                <option value="small">Restaurants</option>
-                <option value="medium">Hotels</option>
-                <option value="large">Cafes</option>
-                <option value="x-large">Garages</option>
-              </select>
+                <option value="" selected>지역 전체</option>
+                <option value="종로구" ${param.region == '종로구' ? 'selected' : ''}>종로구</option>
+                <option value="마포구" ${param.region == '마포구' ? 'selected' : ''}>마포구</option>
+                <option value="중구" ${param.region == '중구' ? 'selected' : ''}>중구</option>
+                <option value="강남구" ${param.region == '강남구' ? 'selected' : ''}>강남구</option>
+                <option value="성동구" ${param.region == '성동구' ? 'selected' : ''}>성동구</option>
+                <option value="서초구" ${param.region == '서초구' ? 'selected' : ''}>서초구</option>
+                <option value="송파구" ${param.region == '송파구' ? 'selected' : ''}>송파구</option>
+                <option value="용산구" ${param.region == '용산구' ? 'selected' : ''}>용산구</option>
+                <option value="영등포구" ${param.region == '영등포구' ? 'selected' : ''}>영등포구</option>
+                <option value="성북구" ${param.region == '성북구' ? 'selected' : ''}>성북구</option>
+                </select>
             </div>
             <div
               class="col-md-6 col-lg-3 d-flex align-items-center form-group no-divider"
@@ -132,11 +141,16 @@
                 title="장르"
                 data-style="btn-form-control"
                 style="font-size: 20px"
+                name="genre"
               >
-                <option value="small">Restaurants</option>
-                <option value="medium">Hotels</option>
-                <option value="large">Cafes</option>
-                <option value="x-large">Garages</option>
+	              <option value="" selected>장르 전체</option>
+	              <option value="연극" ${param.genre == '연극' ? 'selected' : ''}>연극</option>
+	              <option value="뮤지컬" ${param.genre == '뮤지컬' ? 'selected' : ''}>뮤지컬</option>
+	              <option value="클래식" ${param.genre == '클래식' ? 'selected' : ''}>클래식</option>
+	              <option value="국악" ${param.genre == '국악' ? 'selected' : ''}>국악</option>
+	              <option value="대중음악" ${param.genre == '대중음악' ? 'selected' : ''}>대중음악</option>
+	              <option value="무용" ${param.genre == '무용' ? 'selected' : ''}>무용</option>
+	              <option value="서커스/마술" ${param.genre == '서커스/마술' ? 'selected' : ''}>서커스/마술</option>
               </select>
             </div>
             <div class="col-lg-2 form-group d-grid mb-0">
@@ -150,6 +164,8 @@
                   font-size: 20px;
                 "
                 type="submit"
+                name="searchType"
+                value="concKeyword"
               >
                 Search
               </button>

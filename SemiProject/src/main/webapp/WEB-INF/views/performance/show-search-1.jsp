@@ -6,7 +6,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
-  <jsp:param value="음악 장르 검색" name="title"/>
+  <jsp:param value="공연 검색" name="title"/>
 </jsp:include>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>음악 공연 검색</title>
+    <title>공연 검색</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -90,6 +90,7 @@
   <div class="search-bar rounded p-4 mt-n6 position-relative z-index-20">
 	<input type="hidden" name="bypname" value="${param.bypname == 'name' ? 'name' : ''}">
 	<input type="hidden" name="bydate" value="${param.bydate == 'date' ? 'date' : ''}">
+	<input type="hidden" name="byrank" value="${param.byrank == 'rank' ? 'rank' : ''}">
    	 <input type="hidden" name="page" value="1">
       <div class="row mb-5">
         <div class="col-2 align-items-center no-divider">
@@ -216,8 +217,9 @@
         <!-- 검색된 결과 수 끝 -->
         <!-- 정렬 선택 영역 시작 -->
         <ul class="nav nav-pills-custom" style="justify-content: end;">
-            <li class="nav-item"><button type="button" class="nav-link ${param.bypname == 'name' ? 'active' : ''}" onclick="searchPrfForm.bydate.value =''; searchPrfForm.bypname.value ='name'; movePage(1);" style="border: none;">이름순 정렬</button></li>
-            <li class="nav-item"><button type="button" class="nav-link ${param.bydate == 'date' ? 'active' : ''}" onclick="searchPrfForm.bydate.value = 'date'; searchPrfForm.bypname.value =''; movePage(1);" style="border: none;">날짜순 정렬</button></li>
+            <li class="nav-item"><button type="button" class="nav-link ${param.bypname == 'name' ? 'active' : ''}" onclick="searchPrfForm.bydate.value =''; searchPrfForm.bypname.value ='name'; searchPrfForm.byrank.value ='';  movePage(1); " style="border: none;">이름순 정렬</button></li>
+            <li class="nav-item"><button type="button" class="nav-link ${param.bydate == 'date' ? 'active' : ''}" onclick="searchPrfForm.bydate.value = 'date'; searchPrfForm.bypname.value =''; searchPrfForm.byrank.value =''; movePage(1);" style="border: none;">날짜순 정렬</button></li>
+            <li class="nav-item"><button type="button" class="nav-link ${param.byrank == 'rank' ? 'active' : ''}" onclick="searchPrfForm.bydate.value = ''; searchPrfForm.bypname.value =''; searchPrfForm.byrank.value ='rank'; movePage(1);" style="border: none;">랭킹순 정렬</button></li>
         </ul>
         <!-- 정렬 선택 영역 끝 -->
     </div>

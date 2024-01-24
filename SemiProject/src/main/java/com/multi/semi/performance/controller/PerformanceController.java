@@ -38,22 +38,21 @@ public class PerformanceController {
 	@GetMapping(value = "/show-inform")
 	public String showInformPage(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
 		
-		int page = 1;
+		int pageA = 1;
+		int pageB = 1;
 		try {
-			page = Integer.parseInt((String) param.get("page"));
+			pageA = Integer.parseInt((String) param.get("pageA"));
+		} catch (Exception e) {}
+		try {
+			pageB = Integer.parseInt((String) param.get("pageB"));
 		} catch (Exception e) {}
 		
-		int resultCount1 = service.countGenre(param);
-		PageInfo pageInfo1 = new PageInfo(page, 5, resultCount1, 8);
-		int resultCount2 = service.countRegion(param);
-		PageInfo pageInfo2 = new PageInfo(page, 5, resultCount2, 8);
-		List<Performance> list1 = service.performanceGenre(pageInfo1, param);
-		List<Performance> list2 = service.performanceRegion(pageInfo2, param);
-		
-		List<String> regions = Arrays.asList("종로구", "중구", "용산구", "성동구", "광진구", 
-				"동대문구", "중랑구", "성북구", "강북구", "도봉구", "노원구", "은평구", "서대문구", 
-				"마포구", "양천구", "강서구", "구로구", "금천구", "영등포구", "동작구", "관악구", "서초구", 
-				"강남구", "송파구", "강동구");
+		int resultCount1 = service.countSearch(param);
+		PageInfo pageInfo1 = new PageInfo(pageA, 5, resultCount1, 8);
+		int resultCount2 = service.countSearch(param);
+		PageInfo pageInfo2 = new PageInfo(pageB, 5, resultCount2, 8);
+		List<Performance> list1 = service.concSearch(pageInfo1, param);
+		List<Performance> list2 = service.concSearch(pageInfo2, param);
 		
 //		int numOfResult = service.countGenre(param);
 		
@@ -63,7 +62,6 @@ public class PerformanceController {
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo1", pageInfo1);
 		model.addAttribute("pageInfo2", pageInfo2);
-		model.addAttribute("regions", regions);
 		
 		return "/performance/show-inform";
 	}
@@ -99,48 +97,6 @@ public class PerformanceController {
 		model.addAttribute("pageInfo", pageInfo);
 		
 		return "/performance/show-search-1";
-	}
-	
-	@GetMapping(value = "/show-search-2")
-	public String showSearch2Page(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
-		int page = 1;
-		try {
-			page = Integer.parseInt((String) param.get("page"));
-		} catch (Exception e) {}
-		
-		int resultCount = service.countSearch(param);
-		PageInfo pageInfo = new PageInfo(page, 5, resultCount, 8);
-		List<Performance> list = service.concSearch(pageInfo, param);
-		
-		int numOfResult = service.countSearch(param);
-		
-		model.addAttribute("items", list);
-		model.addAttribute("numOfResult", numOfResult);
-		model.addAttribute("param", param);
-		model.addAttribute("pageInfo", pageInfo);
-		
-		return "/performance/show-search-2";
-	}
-	
-	@GetMapping(value = "/show-search-3")
-	public String showSearch3Page(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
-		int page = 1;
-		try {
-			page = Integer.parseInt((String) param.get("page"));
-		} catch (Exception e) {}
-		
-		int resultCount = service.countSearch(param);
-		PageInfo pageInfo = new PageInfo(page, 5, resultCount, 8);
-		List<Performance> list = service.concSearch(pageInfo, param);
-		
-		int numOfResult = service.countSearch(param);
-		
-		model.addAttribute("items", list);
-		model.addAttribute("numOfResult", numOfResult);
-		model.addAttribute("param", param);
-		model.addAttribute("pageInfo", pageInfo);
-		
-		return "/performance/show-search-3";
 	}
 	
 	@RequestMapping(value = "/show-award", method = RequestMethod.GET)

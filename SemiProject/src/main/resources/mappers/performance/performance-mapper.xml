@@ -62,7 +62,7 @@
 	</select>
 	
 	<select id="concSearch" resultType="Performance" parameterType="Map">
-		SELECT p.*, f.* 
+		SELECT p.*, f.*, (select count(*) from prfboard b where p.pid = b.pid) as count
 		FROM performance p
 		JOIN facility f on (p.conhallid = f.conhallid)
 		WHERE p.pto like '%2024%'
@@ -90,6 +90,9 @@
 		<if test="bydate != null and bydate != ''">
 			ORDER BY p.pto ASC
 		</if>
+		<if test="byrank != null and byrank != ''">
+			ORDER BY count DESC
+		</if>
 		LIMIT #{limit} OFFSET #{offset}
 	</select>
 	
@@ -116,6 +119,14 @@
 		<if test="searchType == 'hallKeyword'">
 			AND p.fname LIKE '%${keyword}%'
 		</if>
+	</select>
+	
+	<select id="todayRank" resultType="Performance" parameterType="Map">
+		SELECT p.*, (select count(*) from prfboard b where p.pid = b.pid) as count
+		FROM performance p
+		WHERE p.pto like '%2024%'
+		ORDER BY count DESC
+		LIMIT 5;
 	</select>
 	
 	<select id="countMusic" parameterType="Map" resultType="int">

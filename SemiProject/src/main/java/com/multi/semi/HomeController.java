@@ -31,7 +31,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(@RequestParam Map<String, Object> param, Model model) {
 		
-		List<Performance> items = service.performanceAll(param);
+		List<Performance> items = service.todayRank(param);
 		model.addAttribute("items", items);
 		
 		// 관광지 게시판 정보 추가해주는부분
