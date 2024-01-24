@@ -10,9 +10,9 @@
 	</context-param>
 	
 	<!-- 에러 발생시 -->
-	<error-page>
-  		<location>/error.do</location>
-	</error-page>
+<!-- 	<error-page> -->
+<!--   		<location>/error.do</location> -->
+<!-- 	</error-page> -->
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>

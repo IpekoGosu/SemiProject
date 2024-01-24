@@ -1,6 +1,7 @@
 package com.multi.semi.performance.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,31 +41,42 @@ public class PerformanceController {
 	
 	@GetMapping(value = "/show-inform")
 	public String showInformPage(Model model, @RequestParam Map<String, Object> param, HttpSession session) {
-		
-		int pageA = 1;
-		int pageB = 1;
+		int page1 = 1;
+		int page2 = 1;
 		try {
-			pageA = Integer.parseInt((String) param.get("pageA"));
+			page1 = Integer.parseInt((String) param.get("page1"));
 		} catch (Exception e) {}
 		try {
-			pageB = Integer.parseInt((String) param.get("pageB"));
+			page2 = Integer.parseInt((String) param.get("page2"));
 		} catch (Exception e) {}
 		
-		int resultCount1 = service.countSearch(param);
-		PageInfo pageInfo1 = new PageInfo(pageA, 5, resultCount1, 8);
-		int resultCount2 = service.countSearch(param);
-		PageInfo pageInfo2 = new PageInfo(pageB, 5, resultCount2, 8);
-		List<Performance> list1 = service.concSearch(pageInfo1, param);
-		List<Performance> list2 = service.concSearch(pageInfo2, param);
+		List<String> genreList = Arrays.asList("클래식", "대중음악", "뮤지컬", "연극", "서커스/마술", "국악", "무용");
+		List<String> regionList = Arrays.asList("종로구", "마포구", "중구", "강남구", "성동구", "서초구", "송파구");
 		
-//		int numOfResult = service.countGenre(param);
+		
+		Map<String, Object> param1 = new HashMap<String, Object>();
+		param1.put("page", param.get("page1"));
+		param1.put("genre", param.get("genre"));
+		int resultCount1 = service.countSearch(param1);
+		PageInfo pageInfo1 = new PageInfo(page1, 5, resultCount1, 8);
+		List<Performance> list1 = service.concSearch(pageInfo1, param1);
+		
+		
+		
+		Map<String, Object> param2 = new HashMap<String, Object>();
+		param2.put("page", param.get("page2"));
+		param2.put("region", param.get("region"));
+		int resultCount2 = service.countSearch(param2);
+		PageInfo pageInfo2 = new PageInfo(page2, 5, resultCount2, 8);
+		List<Performance> list2 = service.concSearch(pageInfo2, param2);
 		
 		model.addAttribute("items", list1);
 		model.addAttribute("items2", list2);
-//		model.addAttribute("numOfResult", numOfResult);
 		model.addAttribute("param", param);
 		model.addAttribute("pageInfo1", pageInfo1);
 		model.addAttribute("pageInfo2", pageInfo2);
+		model.addAttribute("genreList", genreList);
+		model.addAttribute("regionList", regionList);
 		
 		return "/performance/show-inform";
 	}

@@ -73,12 +73,16 @@
 
     <link href="${path}/resources/css/carousel/carousel.css" rel="stylesheet" />
     <link href="${path}/resources/css/custom.css" rel="stylesheet" />
+
   </head>
   <body style="padding-top: 72px">
    <form name="informForm" action="${path}/show-inform" method="get">
+      <input type="hidden" name="page1" value="${param.page1 != null ? param.page1 : 1 }">
+      <input type="hidden" name="page2" value="${param.page2 != null ? param.page2 : 1 }">
+      <input type="hidden" name="genre" value="${param.genre != null ? param.genre : '' }">
+      <input type="hidden" name="region" value="${param.region != null ? param.region : '' }">
+      
     <section class="py-6">
-      <input type="hidden" name="pageA" value="1">
-      <input type="hidden" name="pageB" value="1">
       <div class="container genre">
         <div class="row mb-3">
           <div class="col-md-12 title">
@@ -90,34 +94,24 @@
             >
               장르별로 모아보기!
             </h2>
-            <div class="dropdown">
-              <button
-                class="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                정렬
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">이름순</a></li>
-                <li><a class="dropdown-item" href="#">날짜순</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">랭킹순</a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
         <div class="select-genre">
-			<button><a href="${path}/show-inform"> 전체 </a></button>
-			<button><a href="${path}/show-inform?genre=클래식"> 클래식 </a></button>
-            <button><a href="${path}/show-inform?genre=대중음악"> 대중음악 </a></button>
-            <button><a href="${path}/show-inform?genre=뮤지컬"> 뮤지컬 </a></button>
-            <button><a href="${path}/show-inform?genre=연극"> 연극 </a></button>
-            <button><a href="${path}/show-inform?genre=서커스/마술"> 서커스/마술 </a></button>
-            <button><a href="${path}/show-inform?genre=국악"> 국악 </a></button>
-            <button><a href="${path}/show-inform?genre=무용"> 무용 </a></button>
+			<c:if test="${empty param.genre}">
+				<button onclick="informForm.genre.value = ''; movePageA(1);">전체</button>
+			</c:if>
+			<c:if test="${not empty param.genre}">
+				<button onclick="informForm.genre.value = ''; movePageA(1);">전체</button>
+			</c:if>
+			
+			<c:forEach var="genre" items="${genreList}">
+				<c:if test="${param.genre == genre}">
+					<button style="color: black" onclick="informForm.genre.value='${genre}'; movePageA(1);">${genre }</button>
+				</c:if>
+				<c:if test="${param.genre != genre}">
+					<button onclick="informForm.genre.value='${genre}'; movePageA(1);">${genre }</button>
+				</c:if>
+			</c:forEach>
         </div>
         <div class="genre__el" style="margin-bottom: 50px">
           <c:forEach var="item" items="${items}">
@@ -186,19 +180,19 @@
         <div class="mt-5 mb-5">
 	      <nav aria-label="Page navigation example">
 	          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-	              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+	              <li class="page-item page-link" onclick="movePageA(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
 	              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo1.prevPage});"><i class="fa fa-angle-left"></i></li>
+	              <li class="page-item page-link" onclick="movePageA(${pageInfo1.prevPage});"><i class="fa fa-angle-left"></i></li>
 	              <c:forEach begin="${pageInfo1.startPage}" end="${pageInfo1.endPage}" varStatus="status" step="1">
 	              	<c:if test="${status.current == pageInfo1.currentPage}">
 	              		<li class="page-item page-link active">${status.current}</li>
 	              	</c:if>
 	              	<c:if test="${status.current != pageInfo1.currentPage}">
-	              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+	              		<li onclick="movePageA(${status.current});" class="page-item page-link">${status.current}</li>
 	              	</c:if>
 	              </c:forEach>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo1.nextPage});"><i class="fa fa-angle-right"></i></li>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo1.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+	              <li class="page-item page-link" onclick="movePageA(${pageInfo1.nextPage});"><i class="fa fa-angle-right"></i></li>
+	              <li class="page-item page-link" onclick="movePageA(${pageInfo1.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
 	              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
 	          </ul>
 	      </nav>
@@ -277,37 +271,24 @@
             >
               지역별로 모아보기!
             </h2>
-            <div class="filters">
-              <div class="dropdown">
-                <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style="margin-left: 10px"
-                >
-                  정렬
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">이름순</a></li>
-                  <li><a class="dropdown-item" href="#">날짜순</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#">랭킹순</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
         <div class="select-region">
-			<button><a href="${path}/show-inform"> 전체 </a></button>
-			<button><a href="${path}/show-inform?region=종로구"> 종로구 </a></button>
-            <button><a href="${path}/show-inform?region=마포구"> 마포구 </a></button>
-            <button><a href="${path}/show-inform?region=중구"> 중구 </a></button>
-            <button><a href="${path}/show-inform?region=강남구"> 강남구 </a></button>
-            <button><a href="${path}/show-inform?region=성동구"> 성동구 </a></button>
-            <button><a href="${path}/show-inform?region=서초구"> 서초구 </a></button>
-            <button><a href="${path}/show-inform?region=송파구"> 송파구 </a></button>
+        	<c:if test="${empty param.region}">
+				<button style="color: black" onclick="informForm.region.value = ''; movePageB(1);">전체</button>
+			</c:if>
+			<c:if test="${not empty param.region}">
+				<button onclick="informForm.region.value = ''; movePageB(1);">전체</button>
+			</c:if>
+			
+			<c:forEach var="region" items="${regionList}">
+				<c:if test="${param.region == region}">
+					<button style="color: black" onclick="informForm.region.value='${region}'; movePageB(1);">${region }</button>
+				</c:if>
+				<c:if test="${param.region != region}">
+					<button onclick="informForm.region.value='${region}'; movePageB(1);">${region }</button>
+				</c:if>
+			</c:forEach>
         </div>
         <div class="region__el" style="margin-bottom: 50px">
           <c:forEach var="item" items="${items2}">
@@ -376,19 +357,19 @@
         <div class="mt-5 mb-5">
 	      <nav aria-label="Page navigation example">
 	          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-	              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+	              <li class="page-item page-link" onclick="movePageB(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
 	              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo2.prevPage});"><i class="fa fa-angle-left"></i></li>
+	              <li class="page-item page-link" onclick="movePageB(${pageInfo2.prevPage});"><i class="fa fa-angle-left"></i></li>
 	              <c:forEach begin="${pageInfo2.startPage}" end="${pageInfo2.endPage}" varStatus="status" step="1">
 	              	<c:if test="${status.current == pageInfo2.currentPage}">
 	              		<li class="page-item page-link active">${status.current}</li>
 	              	</c:if>
 	              	<c:if test="${status.current != pageInfo2.currentPage}">
-	              		<li onclick="movePage(${status.current});" class="page-item page-link">${status.current}</li>
+	              		<li onclick="movePageB(${status.current});" class="page-item page-link">${status.current}</li>
 	              	</c:if>
 	              </c:forEach>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo2.nextPage});"><i class="fa fa-angle-right"></i></li>
-	              <li class="page-item page-link" onclick="movePage(${pageInfo2.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+	              <li class="page-item page-link" onclick="movePageB(${pageInfo2.nextPage});"><i class="fa fa-angle-right"></i></li>
+	              <li class="page-item page-link" onclick="movePageB(${pageInfo2.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
 	              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
 	          </ul>
 	      </nav>
@@ -474,20 +455,31 @@
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
+	<!-- jQuery-->
+    <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
+
     <!-- JavaScript files-->
     <script type="text/javascript">
-	function movePage(page){
-		informForm.page.value = page;
+	function movePage(){
 		informForm.submit();
 	}
+	function movePageA(page){
+		informForm.page1.value = page;
+		informForm.submit();
+	}
+	
+	function movePageB(page){
+		informForm.page2.value = page;
+		informForm.submit();
+	}
+	
 	$(()=>{
 		$('#success-outlined, #danger-outlined').click((e)=>{
 	        informForm.submit();
 	    })
 	});
+	</script>
 	
-    <!-- jQuery-->
-    <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->
     <script src="${path}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Magnific Popup - Lightbox for the gallery-->
