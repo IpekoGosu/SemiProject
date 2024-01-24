@@ -297,7 +297,9 @@
                     
                 </div>
                 <div style="text-align: right;">
-                  <button class="btn btn-secondary mt-4" style="background-color: #ef4562;"><a href="write.html" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a></button>
+                  <button id="write" class="btn btn-secondary mt-4" style="background-color: #ef4562;">
+                  	<a href="${path}/boardPrf/write?pid=${item.pid}&pname=${item.pname}" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a>
+                  </button>
                 </div>
             </div>
             <div class="pb-4">
@@ -334,6 +336,20 @@
 	function subfunc(){
 		searchBoardPrfFrom.submit();
 	}
+	$('#write').click(
+		()=>{
+			$.ajax({
+				type: 'get',
+				url: '${path}/boardPrf/write'
+				data: {
+					item: ${item}
+				}
+				success: ()=>{}
+				error: (e)=>{console.log(e);}
+			});
+		}	
+	);
+	
 </script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

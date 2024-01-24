@@ -31,6 +31,7 @@ import com.multi.semi.board.model.vo.BoardPrf;
 import com.multi.semi.board.model.vo.BoardReplyPrf;
 import com.multi.semi.common.PageInfo;
 import com.multi.semi.member.model.vo.Member;
+import com.multi.semi.performance.model.vo.Performance;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -78,8 +79,72 @@ public class BoardControllerPrf {
 	}
 	
 	
-//	글쓰기 파트 추가바람
+	@GetMapping("/boardPrf/write")
+	public String writeView(Model model, 
+			@SessionAttribute(name="loginMember", required = false) Member loginMember, 
+			@RequestParam("pid") String pid, 
+			@RequestParam("pname") String pname
+			) {
+		model.addAttribute("pid", pid);
+		model.addAttribute("pname", pname);
+		model.addAttribute("loginMember", loginMember);
+		return "board/writePrf";
+	}
 	
+	@PostMapping("/boardPrf/write")
+	public String write(Model model, HttpSession session,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@ModelAttribute BoardPrf board,
+			@RequestParam(name="upfiles", required = false) List<MultipartFile> upfiles
+			) {
+		log.debug("board write 요청, board : " + board +", upfiles : " + upfiles +", " + upfiles.size());
+		
+		// 보안코드나 파라메터 검사 예시
+		if(loginMember == null || loginMember.getId().equals(board.getMemberId()) == false) {
+			model.addAttribute("msg","잘못된 접근 입니다.");
+			model.addAttribute("location", "/");
+			return "common/msg";
+		}
+		board.setMno(loginMember.getMno());
+		
+		// 파일처리부
+		String rootPath = session.getServletContext().getRealPath("resources");
+		String savePath = rootPath + "/upload/boardPrf"; // 파일 저장 경로
+		log.debug("savePath : " + savePath);
+		
+		List<AttachFilePrf> attachFileList = new ArrayList<AttachFilePrf>();
+		
+		// 파일 저장 로직
+		for(MultipartFile upfile : upfiles) {
+			if(upfile.getSize() == 0) {
+				continue;
+			}
+			String renamedFileName = service.saveFile(upfile, savePath); // 실제 파일 저장되는 로직
+			if(renamedFileName != null) {
+				AttachFilePrf file = new AttachFilePrf();
+				file.setOriginalFilename(upfile.getOriginalFilename());
+				file.setRenamedFilename(renamedFileName);
+				attachFileList.add(file);
+			}
+		}
+		board.setAttachFiles(attachFileList);
+		System.out.println("저장 시작~~~~~~~~~~~" + board);
+		int result = 0;
+		try {
+			result = service.saveBoard(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(result > 0) {
+			model.addAttribute("msg", "게시글이 등록 되었습니다.");
+			model.addAttribute("location", "/boardPrf/view?no=" + board.getBno());
+		}else {
+			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
+			model.addAttribute("location", "/boardPrf/list");
+		}
+		return "common/msg";
+	}
 	
 	
 	@GetMapping("/boardPrf/update")
