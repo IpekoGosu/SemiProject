@@ -572,6 +572,20 @@ create table performance(
 
 select * from performance;
 
+create table facility(
+    conhallid     VARCHAR(100),
+    fname           VARCHAR(100),
+    la             VARCHAR(100),
+    lo             VARCHAR(100),
+    address     VARCHAR(100),
+    seatscale     INT,
+    homepage     VARCHAR(500),
+    telno         VARCHAR(100),
+    primary key (conhallid)
+);
+
+select * from facility;
+
 ------------------------------------------------
 --------------- TICKETING 예매 테이블 ----------------
 ------------------------------------------------
