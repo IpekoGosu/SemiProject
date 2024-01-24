@@ -340,6 +340,9 @@
 	function subfunc(){
 		searchBoardPrfFrom.submit();
 	}
+	
+</script>
+<script type="text/javascript">
 	$('#write').click(
 		()=>{
 			$.ajax({
@@ -353,7 +356,6 @@
 			});
 		}	
 	);
-	
 </script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

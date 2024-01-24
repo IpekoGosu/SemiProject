@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.multi.semi.board.model.service.BoardServicePrf;
-import com.multi.semi.board.model.vo.BoardParamPrf;
-import com.multi.semi.board.model.vo.BoardPrf;
-import com.multi.semi.common.PageInfo;
+import com.multi.semi.board.model.service.BoardServiceTour;
+import com.multi.semi.board.model.vo.BoardParamTour;
+import com.multi.semi.board.model.vo.BoardTour;
 import com.multi.semi.performance.model.service.PerformanceService;
 import com.multi.semi.performance.model.vo.Performance;
 
@@ -26,7 +25,7 @@ public class HomeController {
 	private PerformanceService service;
 	
 	@Autowired
-	private BoardServicePrf bservicePrf;
+	private BoardServiceTour bserviceTour;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(@RequestParam Map<String, Object> param, Model model) {
@@ -35,12 +34,12 @@ public class HomeController {
 		model.addAttribute("items", items);
 		
 		// 관광지 게시판 정보 추가해주는부분
-		BoardParamPrf bparamPrf = new BoardParamPrf();
-		bparamPrf.setOrderType("time");
-		bparamPrf.setLimit(6);
-		bparamPrf.setOffset(0);
-		List<BoardPrf> listPrf = bservicePrf.getBoardList(bparamPrf);
-		model.addAttribute("listPrf", listPrf);
+		BoardParamTour bparamTour = new BoardParamTour();
+		bparamTour.setOrderType("time");
+		bparamTour.setLimit(6);
+		bparamTour.setOffset(0);
+		List<BoardTour> listTour = bserviceTour.getBoardList(bparamTour);
+		model.addAttribute("listTour", listTour);
 		
 		return "index";
 	}

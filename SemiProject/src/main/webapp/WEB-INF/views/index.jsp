@@ -591,8 +591,8 @@
     </div>
     <section class="container tour-boardsection">
       <ul class="tour-board">
-      	<c:forEach items="${listPrf}" var="item">
-	        <li><a href="${path}/boardPrf/view?no=${item.bno}" style="text-decoration: none; color: black;"><c:out value="${item.title}"/></a>
+      	<c:forEach items="${listTour}" var="item">
+	        <li style="height: 25px"><a href="${path}/boardPrf/view?no=${item.bno}" style="text-decoration: none; color: black; width: 350px; text-overflow: ellipsis; overflow: hidden;"><c:out value="${item.title}"/></a>
 	        	<span><fmt:formatDate type="date" value="${item.createDate}"/></span>
 	        </li>
       	</c:forEach>

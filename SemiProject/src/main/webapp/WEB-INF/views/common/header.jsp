@@ -4,9 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
-<head>
-	<script type="text/javascript" src="${path}/resources/js/jquery-3.7.0.js"></script>
-</head>
 
 <body>
 <header class="header">
