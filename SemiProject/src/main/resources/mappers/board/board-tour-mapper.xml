@@ -123,7 +123,7 @@
 			SELECT @@IDENTITY AS bno
 		</selectKey>
 		INSERT INTO TOURBOARD (bNO, mNO, T_CONTENT_ID, T_TITLE, TITLE, CONTENT, RATINGS)  
-			VALUES(0, #{mno}, #{tid} #{tname}, #{title}, #{content}, #{ratings})
+			VALUES(0, #{mno}, #{tid}, #{tname}, #{title}, #{content}, #{ratings})
 	</insert>
 	
 	<update id="updateBoardTour" parameterType="BoardTour">

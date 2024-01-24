@@ -156,7 +156,28 @@ public class MemberController {
 	}
 	
 	
-	
+	@PostMapping("/member/update")
+	public String updatePwd(Model model,
+			String prevPassword, String newPassword, 
+			@SessionAttribute(required = true) Member loginMember) {
+		Member tryMember = service.login(loginMember.getId(), prevPassword);
+		if (tryMember == null) {
+			model.addAttribute("msg", "기존 비밀번호가 다릅니다!");
+			model.addAttribute("location", "/");
+		} else {
+			int result = 0;
+			try {
+				result = service.updatePwd(loginMember.getMno(), newPassword);
+			} catch (Exception e) {}
+			if (result > 0) {
+				model.addAttribute("msg", "비밀번호 변경 성공");
+			} else {
+				model.addAttribute("msg", "변경 실패! 오류가 발생했습니다");
+			}
+		}
+		model.addAttribute("script", "self.close()");
+		return "common/msg";
+	}
 	
 	
 	

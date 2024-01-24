@@ -74,254 +74,54 @@
         }
     </style>
 </head>
-<body class="reward">
+<body class="reward" style="padding-top: 100px;">
 <!-- 상세 영역 시작 -->
 <div class="container mt-4 mb-4">
     <!-- 탭 영역 시작 -->
     <div class="row shadow" style="min-height: 800px;">
         <div class="col-2">
-            <nav class="nav flex-column pt-2">
-                <a class="nav-link active" style="border-radius: 5px;" id="tab1" data-bs-toggle="tab" aria-current="page" href="#content1">즐겨찾기</a>
+            <nav id="tablist" class="nav flex-column pt-2">
+                <a class="nav-link active" style="border-radius: 5px;" id="tab1" data-bs-toggle="tab" aria-current="page" href="#content1">회원정보</a>
                 <a class="nav-link" style="border-radius: 5px;" id="tab2" data-bs-toggle="tab" href="#content2">내가 쓴 글</a>
-                <a class="nav-link" style="border-radius: 5px;" id="tab3" data-bs-toggle="tab" href="#content3">회원정보 변경</a>
+                <a class="nav-link" style="border-radius: 5px;" id="tab3" data-bs-toggle="tab" href="#content3">비밀번호 변경</a>
                 <a class="nav-link" style="border-radius: 5px;" id="tab4" data-bs-toggle="tab" href="#content4">예매 내역</a>
             </nav>
         </div>
         <div class="col-10 shadow">
-            <div class="tab-content mt-3">
-                <!-- 즐겨찾기 시작 -->
+        	<div class="tab-content mt-3">
+                <!-- 회원정보 시작 -->
                 <div class="tab-pane fade show active" id="content1">
-                    <ul class="nav nav-tabs mt-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#content1-1" aria-current="page">즐겨찾기한 관광지</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#content1-2">즐겨찾기한 공연</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content mt-3">
-                        <!-- 즐겨찾기한 관광지 시작 -->
-                        <div class="tab-pane fade show active" id="content1-1">
-                            <!-- 1 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                              <div class="row col-12 g-0">
-                                  <div class="col-md-auto">
-                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                          <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                          <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                          <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <!-- 2 -->
-                          <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="row col-12 g-0">
-                                <div class="col-md-auto">
-                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                        <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                        <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                        <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                          <!-- 3 -->
-                          <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="row col-12 g-0">
-                                <div class="col-md-auto">
-                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                        <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                        <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                        <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                          <!-- 4 -->
-                          <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="row col-12 g-0">
-                                <div class="col-md-auto">
-                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                        <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                        <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                        <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                          <!-- 5 -->
-                          <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="row col-12 g-0">
-                                <div class="col-md-auto">
-                                    <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                        <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                        <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                        <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                        <!-- 페이지네이션 영역 시작 -->
-                        <nav aria-label="Page navigation example mt-3">
-                          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-                              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">4</a></li>
-                              <li class="page-item"><a class="page-link" href="#">5</a></li>
-                              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
-                          </ul>
-                        </nav>
-                        <!-- 페이지네이션 영역 끝 -->
-                        </div>
-                        <!-- 즐겨찾기한 관광지 끝 -->
-                        <!-- 즐겨찾기한 공연 시작 -->
-                        <div class="tab-pane fade" id="content1-2">
-                            <!-- 장르 선택 영역 시작 -->
-                            <div class="mt-1">
-                              <ul class="nav nav-pills-custom">
-                                  <li class="nav-item"><a class="nav-link active" href="#">뮤지컬</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="#" style="border: none;">연극</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="#" style="border: none;">콘서트</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="#" style="border: none;">클래식</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="#" style="border: none;">무용</a></li>
-                                  <li class="nav-item"><a class="nav-link" href="#" style="border: none;">서커스</a></li>
-                              </ul>
-                            </div>
-                            <!-- 장르 선택 영역 끝 -->
-                            <!-- 1 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                                <div class="row col-12 g-0">
-                                    <div class="col-md-auto">
-                                        <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                            <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                            <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                            <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 2 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                              <div class="row col-12 g-0">
-                                  <div class="col-md-auto">
-                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                          <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                          <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                          <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <!-- 3 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                              <div class="row col-12 g-0">
-                                  <div class="col-md-auto">
-                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                          <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                          <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                          <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <!-- 4 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                              <div class="row col-12 g-0">
-                                  <div class="col-md-auto">
-                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                          <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                          <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                          <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                            <!-- 5 -->
-                            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                              <div class="row col-12 g-0">
-                                  <div class="col-md-auto">
-                                      <img src="${path}/resources/img/myImages/m_agatha.png" class="card-img rounded-start" alt="${path}/resources.">
-                                  </div>
-                                  <div class="col-md-8">
-                                      <div class="card-body">
-                                          <h5 class="card-title">Card title</h5>
-                                          <p class="card-text" style="height: 210px; overflow: hidden; text-overflow: ellipsis;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod ut inventore qui harum, neque officiis cumque placeat id? Doloribus repellat eius, quae hic rerum quis nam similique ut asperiores quo.</p>
-                                          <p class="text-md mb-2"><a class="me-1" href="#">2023-01-01 ~ </a><a class="me-1" href="#">2023-01-01</a></p>
-                                          <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">100,000 ~</a></p>
-                                          <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                      </div>
-                                  </div>
-                              </div>
-                            </div>
-                          <!-- 페이지네이션 영역 시작 -->
-                          <nav aria-label="Page navigation example mt-3">
-                            <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-                                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                          </nav>
-                          <!-- 페이지네이션 영역 끝 -->
-                        </div>
-                        <!-- 즐겨찾기한 공연 끝 -->
-                    </div>
+                	<div class="tab-content mt-3">
+		              <div class="mb-4">
+		                <label class="form-label" for="id"> 아이디</label>
+		                <input class="form-control" name="id" id="id" type="text" readonly value="${loginMember.id}" placeholder="awesomeId" autocomplete="off">
+		              </div>
+		              <div class="mb-4">
+		                <label class="form-label" for="email"> 이메일</label>
+		                <input class="form-control" name="email" id="email" type="email" readonly value="${loginMember.email}" placeholder="name@address.com" autocomplete="off">
+		              </div>
+		              <div class="mb-4">
+		                <label class="form-label" for="name"> 닉네임</label>
+		                <input class="form-control" name="name" id="name" type="text" readonly value="${loginMember.name}" placeholder="fancyNickname" autocomplete="off">
+		              </div>
+		              <div class="mb-4">
+		                <label class="form-label" for="phone"> 전화번호</label>
+		                <input class="form-control" name="phone" id="phone" type="text" readonly value="${loginMember.phone}" placeholder="010-1234-5678" autocomplete="off">
+		              </div>
+		              <div class="mb-4">
+		                <label class="form-label" for="address"> 주소</label>
+		                <input class="form-control" name="phone" id="address" type="text" readonly value="${loginMember.address}" placeholder="010-1234-5678" autocomplete="off">
+		              </div>
+		              <div class="mb-4">
+		                <label class="form-label" for="favGenre"> 선호장르</label>
+		                <input class="form-control" name="phone" id="favGenre" type="text" readonly value="${loginMember.favoriteGenre}" placeholder="" autocomplete="off">
+		              </div>
+                	</div>
                 </div>
-                <!-- 즐겨찾기 끝 -->
+                <!-- 회원정보 끝 -->
                 <!-- 내가 쓴 글 시작 -->
-                <div class="tab-pane fade" id="content2">
-                  <ul class="nav nav-tabs mt-3">
+            	<div class="tab-pane fade" id="content2">
+               <ul class="nav nav-tabs mt-3">
                     <li class="nav-item">
                         <a class="nav-link active" data-bs-toggle="tab" href="#content2-1" aria-current="page">관광지 내가 쓴 글</a>
                     </li>
@@ -333,7 +133,7 @@
                     <!-- 관광지 내가 쓴 글 시작-->
                     <div class="tab-pane fade show active" id="content2-1">
                       <div>
-                      <c:forEach var="item" items="listTour">
+                      <c:forEach var="item" items="${listTour}">
                         <!-- 1 -->
                         <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
                             <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
@@ -350,7 +150,7 @@
                                 </ul>
                             </div>
                             <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong><c:out value="${item.title}"/></strong></li>
+                                <li><strong><a href="${path}/boardTour/view?no=${item.bno}"><c:out value="${item.title}"/></a></strong></li>
                                 <li><c:out value="${item.content}"/></li>
                             </ul>
                         </div>
@@ -360,7 +160,7 @@
                       
                       
                       
-                      <nav aria-label="Page navigation example">
+                      <%-- <nav aria-label="Page navigation example">
 				          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
 				              <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
 				              	<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i></li>
@@ -377,84 +177,37 @@
 				              <li class="page-item page-link" onclick="movePage(${pageInfoTour.maxPage});" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
 				              	<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></li>
 				          	</ul>
-			      		</nav>
+			      		</nav> --%>
                     </div>
                     <!-- 관광지 내가 쓴 글 끝 -->
                     <!-- 공연 내가 쓴 글 시작 -->
                     <div class="tab-pane fade" id="content2-2">
                       <div>
-                        <!-- 1 -->
-                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                                <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
-                                    <li style="padding-right: 20px;"><p>blahblah***</p></li>
-                                    <li><p>2024.01.01</p></li>
-                                </ul>
-                            </div>
-                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong>정말 재미있어요</strong></li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                            </ul>
-                        </div>
-                        <!-- 2 -->
-                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                                <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
-                                    <li style="padding-right: 20px;"><p>angel10***</p></li>
-                                    <li><p>2024.01.01</p></li>
-                                </ul>
-                            </div>
-                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong>정말 재미있어요</strong></li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                            </ul>
-                        </div>
-                        <!-- 3 -->
-                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                                <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
-                                    <li style="padding-right: 20px;"><p>sorandom***</p></li>
-                                    <li><p>2024.01.01</p></li>
-                                </ul>
-                            </div>
-                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong>정말 재미있어요</strong></li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                            </ul>
-                        </div>
-                        <!-- 4 -->
-                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                                <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
-                                    <li style="padding-right: 20px;"><p>uassh***</p></li>
-                                    <li><p>2024.01.01</p></li>
-                                </ul>
-                            </div>
-                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong>정말 재미있어요</strong></li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                            </ul>
-                        </div>
-                        <!-- 5 -->
-                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
-                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
-                                <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
-                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
-                                    <li style="padding-right: 20px;"><p>wthwth***</p></li>
-                                    <li><p>2024.01.01</p></li>
-                                </ul>
-                            </div>
-                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
-                                <li><strong>정말 재미있어요</strong></li>
-                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo amet itaque nemo quasi suscipit corrupti, consequuntur sed earum, quibusdam incidunt in assumenda aspernatur rerum cumque, porro quam. Id, minima tenetur!</li>
-                            </ul>
-                        </div>
+                      	<c:forEach var="item" items="${listPrf}">
+	                        <!-- 1 -->
+	                        <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
+	                            <div class="mt-3 ms-3 me-3 d-flex justify-content-between align-items-center">
+	                                <p class="text-xs mb-2">
+	                                	<c:if test="${item.ratings == 1}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                                	<c:if test="${item.ratings == 2}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                                	<c:if test="${item.ratings == 3}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                                	<c:if test="${item.ratings == 4}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"></i></c:if>
+	                                	<c:if test="${item.ratings == 5}"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i></c:if>
+	                                </p>
+	                                <ul style="justify-content: end; display: inline-flex; list-style: none;">
+	                                    <li style="padding-right: 20px;"><p><c:out value="${item.pname}"></c:out> </p></li>
+	                                    <li><p><fmt:formatDate type="date" value="${item.createDate}"/></p></li>
+	                                </ul>
+	                            </div>
+	                            <ul class="ms-3 p-0 me-3" style="list-style: none;">
+	                                <li><strong><a href="${path}/boardPrf/view?no=${item.bno}"><c:out value="${item.title}"/></a></strong></li>
+	                                <li><c:out value="${item.content}"/></li>
+	                            </ul>
+	                        </div>
+	                      </c:forEach>
+                      
                       </div>
-                      <nav aria-label="Page navigation example">
+                      <!-- <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-template d-flex justify-content-center mt-3">
                             <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
@@ -464,7 +217,7 @@
                             <li class="page-item"><a class="page-link" href="#">5</a></li>
                             <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                      </nav> -->
                     </div>
                     <!-- 공연 내가 쓴 글 끝 -->
                 </div>
@@ -479,7 +232,7 @@
                   </ul>
                   <div class="tab-content mt-3">
                     <div class="tab-pane fade show active" id="content3-1">
-                        <form action="#" method="post" name="changePasswordForm">
+                        <form action="${path}/member/update" method="post" name="changePasswordForm">
                           <fieldset>
                             <div class="row">
                               <div class="col-2"></div>
@@ -490,7 +243,7 @@
                                     <label for="inputPassword1" class="col-form-label">기존 비밀번호</label>
                                   </div>
                                   <div class="col-5">
-                                    <input type="password" id="inputPassword1" class="form-control" aria-describedby="passwordHelpInline">
+                                    <input type="password" name="prevPassword" id="inputPassword1" class="form-control" aria-describedby="passwordHelpInline">
                                   </div>
                                   <div class="col-4"></div>
                                 </div>
@@ -500,7 +253,7 @@
                                     <label for="inputPassword2" class="col-form-label">변경할 비밀번호</label>
                                   </div>
                                   <div class="col-5">
-                                    <input type="password" id="inputPassword2" class="form-control" aria-describedby="passwordHelpInline" placeholder="8자 이상 20자 이하">
+                                    <input type="password" name="newPassword" id="inputPassword2" class="form-control" aria-describedby="passwordHelpInline" placeholder="8자 이상 20자 이하">
                                   </div>
                                   <div class="col-4">
                                     <span id="passwordHelpInline" class="form-text">
@@ -514,7 +267,7 @@
                                     <label for="inputPassword3" class="col-form-label">변경할 비밀번호 확인</label>
                                   </div>
                                   <div class="col-5">
-                                    <input type="password" id="inputPassword3" class="form-control" aria-describedby="passwordHelpInline" placeholder="한번 더 입력해주세요">
+                                    <input type="password" name="newPassword" id="inputPassword3" class="form-control" aria-describedby="passwordHelpInline" placeholder="한번 더 입력해주세요">
                                   </div>
                                   <div class="col-4">
                                     <span id="passwordHelpInline" class="form-text">
@@ -523,7 +276,7 @@
                                   </div>
                                 </div>
                                 <!-- 확인 버튼 -->
-                                <button type="submit" class="btn btn-secondary mx-auto mt-4" style="background-color: #ef4562; display: flex; justify-content: center;">확인</button>
+                                <button type="submit" id="updateSubmit" class="btn btn-secondary mx-auto mt-4" style="background-color: #ef4562; display: flex; justify-content: center;">확인</button>
                               </div>
                               <div class="col-2"></div>
                             </div>
@@ -734,6 +487,28 @@
 </div>
 <!-- 상세 영역 끝 -->
     <!-- JavaScript files-->
+    
+    <script type="text/javascript">
+	    
+	    
+	    $(function(){
+			$('#inputPassword2').blur((e) => {
+				let pass1 = $('#inputPassword2').val();			
+				let pass2 = $('#inputPassword3').val();
+				
+				if(pass1.trim() != pass2.trim()) {
+					alert('비밀번호가 일치하지 않습니다.');
+					
+					$('#inputPassword2').val('');
+					$('#inputPassword3').val('');
+					$('#inputPassword2').focus();
+				}		
+			});
+		});
+	    
+    </script>
+    
+    
     <script>
         // ------------------------------------------------------- //
         //   Inject SVG Sprite - 
@@ -776,7 +551,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
     <script>var basePath = ''</script>
     <!-- Main Theme JS file    -->
-    <script src="js/theme.js"></script>
+    <script src="${path}/resources/js/theme.js"></script>
     <!-- Map-->
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
     <!-- Available tile layers-->

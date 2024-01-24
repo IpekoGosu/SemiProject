@@ -296,11 +296,15 @@
                 
                     
                 </div>
-                <div style="text-align: right;">
-                  <button id="write" class="btn btn-secondary mt-4" style="background-color: #ef4562;">
-                  	<a href="${path}/boardPrf/write?pid=${item.pid}&pname=${item.pname}" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a>
-                  </button>
-                </div>
+                
+                <!-- 로그인 해야 버튼 보이도록 -->
+                <c:if test="${loginMember != null}">
+	                <div style="text-align: right;">
+	                  <button id="write" class="btn btn-secondary mt-4" style="background-color: #ef4562;">
+	                  	<a href="${path}/boardPrf/write?pid=${item.pid}&pname=${item.pname}" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a>
+	                  </button>
+	                </div>
+                </c:if>
             </div>
             <div class="pb-4">
              <nav aria-label="Page navigation example">

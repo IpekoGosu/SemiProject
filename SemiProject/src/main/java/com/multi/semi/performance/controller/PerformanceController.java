@@ -9,15 +9,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.multi.semi.board.model.service.BoardServicePrf;
 import com.multi.semi.board.model.vo.BoardParamPrf;
 import com.multi.semi.board.model.vo.BoardPrf;
 import com.multi.semi.common.PageInfo;
+import com.multi.semi.member.model.vo.Member;
 import com.multi.semi.performance.model.service.PerformanceService;
 import com.multi.semi.performance.model.vo.Performance;
 
@@ -158,7 +161,8 @@ public class PerformanceController {
 	@RequestMapping(value = "/show-detail", method = RequestMethod.GET)
 	public String showDetailPage(Model model,
 			@RequestParam Map<String, Object> param, HttpSession session, 
-			BoardParamPrf bparamPrf
+			BoardParamPrf bparamPrf, 
+			@SessionAttribute(required = false) Member loginMember
 			) {
 
 		
@@ -181,7 +185,7 @@ public class PerformanceController {
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);
 		log.info("=========boardparamprf: " + bparamPrf.toString());
-		
+		model.addAttribute("loginMember", loginMember);
 		
 		return "/performance/show-detail";
 	}
