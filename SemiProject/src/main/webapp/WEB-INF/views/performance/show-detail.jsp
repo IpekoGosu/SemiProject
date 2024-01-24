@@ -129,7 +129,9 @@
                             </div>
                         </li>
                         <li class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-primary me-md-2" style="background-color: #ef4562; border: none;"><a href="user-booking-1.html" style="color: white; text-decoration: none;">예매하기</a></button>
+                        	<c:if test="${loginMember != null}">
+	                            <button type="button" class="btn btn-primary me-md-2" style="background-color: #ef4562; border: none;"><a href="${path}/ticketing/ticket?pid=${item.pid}" style="color: white; text-decoration: none;">예매하기</a></button>
+                        	</c:if>
                         </li>
                     </ul>
                 </div>
@@ -342,21 +344,7 @@
 	}
 	
 </script>
-<script type="text/javascript">
-	$('#write').click(
-		()=>{
-			$.ajax({
-				type: 'get',
-				url: '${path}/boardPrf/write'
-				data: {
-					item: ${item}
-				}
-				success: ()=>{}
-				error: (e)=>{console.log(e);}
-			});
-		}	
-	);
-</script>
+
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 

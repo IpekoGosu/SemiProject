@@ -11,8 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -27,6 +30,9 @@ import com.multi.semi.common.PageInfo;
 import com.multi.semi.kakao.KakaoService;
 import com.multi.semi.member.model.service.MemberService;
 import com.multi.semi.member.model.vo.Member;
+import com.multi.semi.member.model.vo.Ticket;
+import com.multi.semi.performance.model.service.PerformanceService;
+import com.multi.semi.performance.model.vo.Performance;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -46,6 +52,8 @@ public class MemberController {
 	@Autowired
 	private BoardServiceTour bTourservice;
 	
+	@Autowired
+	private PerformanceService prfservice;
 	// test!!!!!!!!!!!
 	@RequestMapping("/login/test")
 	public String logintest() {
@@ -229,6 +237,72 @@ public class MemberController {
 	}
 	
 	
+	// ticket
+	@GetMapping("/ticketing/ticket")
+	public String startTicket(Model model, 
+			@SessionAttribute Member loginMember, 
+			@RequestParam Map<String, Object> pid
+			) {
+		Performance prfItem = prfservice.showDetailById(pid);
+		model.addAttribute("prfItem", prfItem);
+		model.addAttribute("loginMember", loginMember);
+		return "ticketing/ticket1";
+	}
+	
+	@PostMapping("/ticketing/ticket")
+	public String makeTicket(Model model, Ticket ticket,
+			@RequestParam Map<String, Object> pid
+			) {
+		
+		int result = 0;
+		try {
+			result = service.saveTicket(ticket);
+		} catch (Exception e) {
+		}
+		if (result > 0) {
+			System.out.println("예매 성공!@@@@@@@@@@@");
+		} else {
+			System.out.println("@@@@@@@@@@@ 예매 실패");
+			return "common/error";
+		}
+		Performance prfItem = prfservice.showDetailById(pid);
+		int total = 0;
+		int count = ticket.getSeatCount();
+		switch(ticket.getSeatType()) {
+		case "VIP석": total = 170000 * count; break;
+		case "R석": total = 140000 * count; break;
+		case "S석": total = 110000 * count; break;
+		case "A석": total = 80000 * count; break;
+		default: System.out.println("오류발생");
+		}
+		System.out.println(total + "@@@@@@@@@@@@@@@@@@");
+		model.addAttribute("total", total);
+		model.addAttribute("ticket", ticket);
+		model.addAttribute("prfItem", prfItem);
+		return "ticketing/ticket2";
+	}
+	
+	@RequestMapping("/ticketing/last")
+	public String lastTicket(Model model, int reserveno,
+			@RequestParam Map<String, Object> pid
+			) {
+		Ticket ticket = service.findTicketByRno(reserveno);
+		model.addAttribute("ticket", ticket);
+		Performance prfItem = prfservice.showDetailById(pid);
+		model.addAttribute("prfItem", prfItem);
+		int total = 0;
+		int count = ticket.getSeatCount();
+		switch(ticket.getSeatType()) {
+		case "VIP석": total = 170000 * count; break;
+		case "R석": total = 140000 * count; break;
+		case "S석": total = 110000 * count; break;
+		case "A석": total = 80000 * count; break;
+		default: System.out.println("오류발생");
+		}
+		
+		model.addAttribute("total", total);
+		return "ticketing/ticket3";
+	}
 	
 }
 

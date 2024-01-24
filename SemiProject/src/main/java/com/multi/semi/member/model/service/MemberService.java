@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.multi.semi.member.model.mapper.MemberMapper;
 import com.multi.semi.member.model.vo.Member;
+import com.multi.semi.member.model.vo.Ticket;
 
 @Service
 public class MemberService {
@@ -87,6 +88,24 @@ public class MemberService {
 		} else {
 			return member;
 		}
+	}
+	
+	
+	public List<Ticket> findTicket(int mno) {
+		List<Ticket> tickets = mapper.selectTicketBymno(mno);
+		return tickets;
+	}
+	public Ticket findTicketByRno(int reserveno) {
+		return mapper.selectTicketByReserveno(reserveno);
+	}
+	@Transactional(rollbackFor = Exception.class)
+	public int saveTicket(Ticket ticket) {
+		System.out.println(ticket.toString());
+		return mapper.insertTicket(ticket);
+	}
+	@Transactional(rollbackFor = Exception.class)
+	public int deleteTic(int reserveno) {
+		return mapper.deleteTicket(reserveno);
 	}
 	
 	
