@@ -174,7 +174,9 @@
             <div class="text-block mb-5"></div>
             <div class="row">
               <div class="col-lg-7">
-                <img src="${prfItem.poster}" height="400px" alt="poster">
+              	<div style="max-width: 300px; overflow: hidden;">
+                  <img src="${prfItem.poster}" height="400px"  alt="poster">
+                </div>
               </div>
 
               <div class="row mb-2 col-lg-5">

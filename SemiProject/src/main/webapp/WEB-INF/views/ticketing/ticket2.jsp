@@ -127,7 +127,15 @@
               <!-- 카카오페이 연동 해줄 부분 -->
               <div class="d-flex justify-content-between align-items-end mt-n2 mb-3">
                 <h5 class="gmarketfontM">카카오페이</h5>
-                <div><a href="#"><img class="hover-animate shadow" src="${path}/resources/img/myImages/easyPay.png" alt="kakaoPay" height="70px" style="border-radius: 5%;"></a></div>
+                <form name="kakoPayForm" action="${path}/kakaoPay" method="post">
+					<input type="hidden" name="item_name" value="${ticket.pname} - ${ticket.seatType}"><br>
+					<input type="hidden" name="total_amount" value="${total}"><br>
+					<input type="hidden" name="quantity" value="${ticket.seatCount}"><br>
+                	<a id="kakaoPayButton">
+                		<img class="hover-animate shadow" src="${path}/resources/img/myImages/easyPay.png" 
+                				 alt="kakaoPay" height="70px" style="border-radius: 5%;">
+                	</a>
+				</form>
               </div>
             </div>
             <div class="text-block gdodumfont">
@@ -254,8 +262,16 @@
       </div>
     </section>
 
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <!-- JavaScript files-->
+    <script type="text/javascript">
+	    $(()=>{
+			$('#kakaoPayButton').click((e)=>{
+				kakoPayForm.submit();
+		    })
+		});
+    </script>
+    
     <script>
       // ------------------------------------------------------- //
       //   Inject SVG Sprite - 

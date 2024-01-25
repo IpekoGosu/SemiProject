@@ -95,7 +95,7 @@ public class KaKaoController {
         @SuppressWarnings("unchecked")
 		Map<String, String> param = (Map<String, String>) session.getAttribute("param");
         model.addAttribute("info", kakaopay.kakaoPayInfo(pg_token, param));
-        return "kakao/kakaoPaySuccess";
+        return "ticketing/ticket4";
     }
 	
 }
