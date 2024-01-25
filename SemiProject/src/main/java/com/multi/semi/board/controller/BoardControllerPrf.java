@@ -3,6 +3,7 @@ package com.multi.semi.board.controller;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +32,7 @@ import com.multi.semi.board.model.vo.BoardPrf;
 import com.multi.semi.board.model.vo.BoardReplyPrf;
 import com.multi.semi.common.PageInfo;
 import com.multi.semi.member.model.vo.Member;
+import com.multi.semi.performance.model.service.PerformanceService;
 import com.multi.semi.performance.model.vo.Performance;
 
 import lombok.extern.slf4j.Slf4j;
@@ -43,10 +45,15 @@ public class BoardControllerPrf {
 	private BoardServicePrf service;
 	
 	@Autowired
+	private PerformanceService prfservice;
+	
+	@Autowired
 	private ResourceLoader resourceLoader;
 	
 	@RequestMapping("/boardPrf/list")
-	public String PrfList(Model model, BoardParamPrf param) {
+	public String PrfList(Model model, BoardParamPrf param,
+			@RequestParam Map<String, Object> pidparam
+			) {
 		log.debug("@@ board list 요청 param : " + param);
 		
 		int boardCount = service.getBoardCount(param);
@@ -56,10 +63,19 @@ public class BoardControllerPrf {
 		List<BoardPrf> list = service.getBoardList(param);
 		BoardPrf firstBoard = service.getBoardFirst();
 		
+		// 공연리스트 만들어서 포스터써먹기
+		List<Performance> pList = new ArrayList<Performance>();
+		for (BoardPrf b : list) {
+			pidparam.put("pid", b.getPid());
+			pList.add(prfservice.showDetailById(pidparam));
+			pidparam.clear();
+		}
+		
 		model.addAttribute("firstBoard", firstBoard);
 		model.addAttribute("pageInfo", pageInfo);
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
+		model.addAttribute("pList", pList);
 		
 		return "board/boardPrf";
 	}
