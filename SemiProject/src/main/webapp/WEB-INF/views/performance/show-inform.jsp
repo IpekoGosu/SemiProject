@@ -393,19 +393,14 @@
     </div>
     <section class="container show-boardsection">
       <div class="show-board__container">
-        <div class="more"><span>+ 더보기</span></div>
-        <ul class="show-board">
-          <li>
-            <span>요즘 인기있는 공연 뭔가요? </span><span>2023.12.25</span>
-          </li>
-          <li><span>오늘 너무 재밌었어요</span><span>2023.12.25</span></li>
-          <li><span>다음 공연도 기대되네용</span><span>2023.12.25</span></li>
-          <li>
-            <span>오늘 배우님들 연기 대박이에요..</span><span>2023.12.25</span>
-          </li>
-          <li><span>내한 또 와주세요!!!</span><span>2023.12.25</span></li>
-          <li><span>막콘도 예매할걸...</span><span>2023.12.25</span></li>
-        </ul>
+          <a class="more" href="${path}/boardPrf/list" style="text-decoration: none;">+ 더보기</a>
+	      <ul class="show-board">
+	      	<c:forEach items="${listPrf}" var="item">
+		        <li style="height: 25px"><a href="${path}/boardPrf/view?no=${item.bno}" style="text-decoration: none; color: black; width: 350px; text-overflow: ellipsis; overflow: hidden;"><c:out value="${item.title}"/></a>
+		        	<span><fmt:formatDate type="date" value="${item.createDate}"/></span>
+		        </li>
+	      	</c:forEach>
+	      </ul>
       </div>
       <div class="show-board__etc">
       	<a href="show-search-1">

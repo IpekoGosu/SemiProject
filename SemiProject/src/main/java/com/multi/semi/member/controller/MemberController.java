@@ -1,6 +1,7 @@
 package com.multi.semi.member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,6 +74,8 @@ public class MemberController {
 	}
 	@PostMapping("/member/enroll")
 	public String enroll(Model model, Member member) {
+		String seoul = "서울 ";
+		member.setAddress(seoul + member.getAddress());
 		log.debug("회원가입 요청 member : " + member.toString());
 		int result = 0;
 		try {
@@ -206,7 +209,9 @@ public class MemberController {
 	
 	@RequestMapping("/member/my")
 	public String myPage(Model model, 
-			@SessionAttribute(name="loginMember") Member loginMember) {
+			@SessionAttribute(name="loginMember") Member loginMember,
+			@RequestParam Map<String, Object> param
+			) {
 		model.addAttribute("loginMember", loginMember);
 		
 		// 공연글 작성한거 리스트
@@ -232,6 +237,18 @@ public class MemberController {
 		paramTour.setOffset(pageInfoTour.getStartList());
 		List<BoardTour> listTour = bTourservice.getBoardList(paramTour);
 		model.addAttribute("listTour", listTour);
+		
+		// 공연 예매 리스트
+		List<Ticket> tList = service.findTicket(loginMember.getMno());
+		model.addAttribute("tList", tList);
+		List<Performance> pList = new ArrayList<Performance>();
+		for (Ticket ticket : tList) {
+			param.put("pid", ticket.getPid());
+			pList.add(prfservice.showDetailById(param));
+			param.clear();
+		}
+		model.addAttribute("pList", pList);
+		
 		
 		return "member/myPage";
 	}
@@ -302,6 +319,21 @@ public class MemberController {
 		
 		model.addAttribute("total", total);
 		return "ticketing/ticket3";
+	}
+	
+	@RequestMapping("/ticketing/delete")
+		public String deleteTicket(Model model, @RequestParam int reserveno,
+				@SessionAttribute Member loginMember
+				) {
+		int result = 0;
+		result = service.deleteTic(reserveno);
+		if (result > 0) {
+			model.addAttribute("msg", "예매취소 성공");
+		} else {
+			model.addAttribute("msg", "취소실패. 문제가 발생했습니다.");
+		}
+		model.addAttribute("location", "/member/my");
+		return "common/msg";
 	}
 	
 }

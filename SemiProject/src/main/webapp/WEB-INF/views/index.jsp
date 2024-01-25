@@ -590,13 +590,16 @@
       </div>
     </div>
     <section class="container tour-boardsection">
+      <div class="tour-board__container">
+        <a class="more" href="${path}/boardTour/list" style="text-decoration: none;">+ 더보기</a>
       <ul class="tour-board">
       	<c:forEach items="${listTour}" var="item">
-	        <li style="height: 25px"><a href="${path}/boardPrf/view?no=${item.bno}" style="text-decoration: none; color: black; width: 350px; text-overflow: ellipsis; overflow: hidden;"><c:out value="${item.title}"/></a>
+	        <li style="height: 25px"><a href="${path}/boardTour/view?no=${item.bno}" style="text-decoration: none; color: black; width: 350px; text-overflow: ellipsis; overflow: hidden;"><c:out value="${item.title}"/></a>
 	        	<span><fmt:formatDate type="date" value="${item.createDate}"/></span>
 	        </li>
       	</c:forEach>
       </ul>
+      </div>
       <div class="tour-board__etc">
         <div class="etc__tour etc">
           <a href="tour-search.html">

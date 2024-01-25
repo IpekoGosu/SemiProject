@@ -112,12 +112,10 @@
                   <table class="w-100">
                     <tbody>
                       <tr>
-                        <td>결제금액</td>
-                        <td>${total}</td>
+                        <td>${prfItem.fname}</td>
                       </tr>
                       <tr>
-                        <td>결제수단</td>
-                        <td>카카오페이</td>
+                        <td>${prfItem.pcrew}</td>
                       </tr>
                     </tbody>
                   </table>

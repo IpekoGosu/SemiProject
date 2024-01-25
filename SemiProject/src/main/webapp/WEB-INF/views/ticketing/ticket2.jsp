@@ -244,8 +244,8 @@
               </div>
               <div class="card-footer py-4 border-0" style="text-align: center; background-color: #FFF1F1;">
                 <div>
-                  <h6 class="text-dark gmarketfontM">${ticket.pname}</h6>
-                  <p class="text-dark gmarketfontM">${ticket.showTime}</p>
+                  <h6 class="text-dark gmarketfontM">${prfItem.fname}</h6>
+                  <p class="text-dark gmarketfontM">${prfItem.pcrew}</p>
                 </div>
               </div>
             </div>

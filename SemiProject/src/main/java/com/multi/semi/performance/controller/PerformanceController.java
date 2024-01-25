@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.multi.semi.board.model.service.BoardServicePrf;
 import com.multi.semi.board.model.vo.BoardParamPrf;
+import com.multi.semi.board.model.vo.BoardParamTour;
 import com.multi.semi.board.model.vo.BoardPrf;
+import com.multi.semi.board.model.vo.BoardTour;
 import com.multi.semi.common.PageInfo;
 import com.multi.semi.member.model.vo.Member;
 import com.multi.semi.performance.model.service.PerformanceService;
@@ -69,6 +71,15 @@ public class PerformanceController {
 		int resultCount2 = service.countSearch(param2);
 		PageInfo pageInfo2 = new PageInfo(page2, 5, resultCount2, 8);
 		List<Performance> list2 = service.concSearch(pageInfo2, param2);
+		
+		// 공연 게시판 정보 추가해주는부분
+		BoardParamPrf bparamPrf = new BoardParamPrf();
+		bparamPrf.setOrderType("time");
+		bparamPrf.setLimit(6);
+		bparamPrf.setOffset(0);
+		List<BoardPrf> listPrf = bservicePrf.getBoardList(bparamPrf);
+		model.addAttribute("listPrf", listPrf);
+		
 		
 		model.addAttribute("items", list1);
 		model.addAttribute("items2", list2);

@@ -235,7 +235,7 @@
 	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/boardPrfImg${status.index}.jpg" alt=""/>
 	              </a>
 	              <div class="card-body">
-	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="#">
+	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="${path}/show-detail?pid=${item.pid}">
 	              		<c:out value="[${item.pname}]"/>
 	              	</a>
 	                <h5 class="my-2" style="height: 30px; overflow: hidden; text-overflow: ellipsis;">

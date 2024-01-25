@@ -296,6 +296,8 @@
                   <div class="tab-content mt-3">
                     <div class="tab-pane fade show active" id="content4-1">
                       <div class="row">
+                      
+                      	<c:forEach var="item" items="${tList}" varStatus="status">
                         <!-- 예매 1 시작 -->
                         <div class="col-6">
                           <div class="card border-0 shadow">
@@ -303,17 +305,21 @@
                               <table class="w-100">
                                 <tbody>
                                   <tr>
-                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
-                                    <td class="text-center">[뮤지컬] 몬테크리스토</td>
+                                    <td rowspan="4">
+                                    	<a href="${path}/show-detail?pid=${item.pid}">
+                                    		<img class="shadow" src="${pList[status.index].poster}" alt="MonteCristoPoster" height="220px">
+                                    	</a>
+                                    </td>
+                                    <td class="text-center"><a href="${path}/show-detail?pid=${item.pid}">${item.pname}</a></td>
                                   </tr>
                                   <tr>
-                                    <td class="text-center">2023년 12월 15일</td>
+                                    <td class="text-center">${item.reserveTime}</td>
                                   </tr>
                                   <tr>
-                                    <td class="text-center">1회차(19시35분)</td>
+                                    <td class="text-center">${item.showTime}</td>
                                   </tr>
                                   <tr>
-                                    <td class="text-center">R석 4매</td>
+                                    <td class="text-center">${item.seatType} ${item.seatCount}매</td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -323,12 +329,11 @@
                                 <table class="w-100">
                                   <tbody>
                                     <tr>
-                                      <td>결제금액</td>
-                                      <td>560,000원</td>
-                                    </tr>
-                                    <tr>
-                                      <td>결제수단</td>
-                                      <td>카카오페이</td>
+                                      <td>${pList[status.index].fname}</td>
+                                      <td>
+                                      	<a class="btn btn-lg btn-primary" href="${path}/ticketing/delete?reserveno=${item.reserveno}"
+						                  	style="background-color: #ef4562; border: none">예매취소</a>
+                                      </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -337,145 +342,9 @@
                           </div>
                         </div>
                         <!-- 예매 1 끝 -->
-                        <!-- 예매 2 시작 -->
-                        <div class="col-6">
-                          <div class="card border-0 shadow">
-                            <div class="card-body p-4">
-                              <table class="w-100">
-                                <tbody>
-                                  <tr>
-                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
-                                    <td class="text-center">[뮤지컬] 몬테크리스토</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">2023년 12월 15일</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">1회차(19시35분)</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">R석 4매</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <div class="card-footer py-4 border-0" style="text-align: center; background-color: #FFF1F1;">
-                              <div>
-                                <table class="w-100">
-                                  <tbody>
-                                    <tr>
-                                      <td>결제금액</td>
-                                      <td>560,000원</td>
-                                    </tr>
-                                    <tr>
-                                      <td>결제수단</td>
-                                      <td>카카오페이</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- 예매 2 끝 -->
+                      	</c:forEach>
+                        
                       </div>
-                      <div class="row mt-3">
-                        <!-- 예매 1 시작 -->
-                        <div class="col-6">
-                          <div class="card border-0 shadow">
-                            <div class="card-body p-4">
-                              <table class="w-100">
-                                <tbody>
-                                  <tr>
-                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
-                                    <td class="text-center">[뮤지컬] 몬테크리스토</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">2023년 12월 15일</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">1회차(19시35분)</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">R석 4매</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <div class="card-footer py-4 border-0" style="text-align: center; background-color: #FFF1F1;">
-                              <div>
-                                <table class="w-100">
-                                  <tbody>
-                                    <tr>
-                                      <td>결제금액</td>
-                                      <td>560,000원</td>
-                                    </tr>
-                                    <tr>
-                                      <td>결제수단</td>
-                                      <td>카카오페이</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- 예매 1 끝 -->
-                        <!-- 예매 2 시작 -->
-                        <div class="col-6">
-                          <div class="card border-0 shadow">
-                            <div class="card-body p-4">
-                              <table class="w-100">
-                                <tbody>
-                                  <tr>
-                                    <td rowspan="4"><img class="shadow" src="${path}/resources/img/myImages/MonteCristoPoster.jpg" alt="MonteCristoPoster" height="220px"></td>
-                                    <td class="text-center">[뮤지컬] 몬테크리스토</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">2023년 12월 15일</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">1회차(19시35분)</td>
-                                  </tr>
-                                  <tr>
-                                    <td class="text-center">R석 4매</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                            <div class="card-footer py-4 border-0" style="text-align: center; background-color: #FFF1F1;">
-                              <div>
-                                <table class="w-100">
-                                  <tbody>
-                                    <tr>
-                                      <td>결제금액</td>
-                                      <td>560,000원</td>
-                                    </tr>
-                                    <tr>
-                                      <td>결제수단</td>
-                                      <td>카카오페이</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- 예매 2 끝 -->
-                      </div>
-                          <!-- 페이지네이션 영역 시작 -->
-                        <nav aria-label="Page navigation example mt-3">
-                          <ul class="pagination pagination-template d-flex justify-content-center mt-3">
-                              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a></li>
-                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">4</a></li>
-                              <li class="page-item"><a class="page-link" href="#">5</a></li>
-                              <li class="page-item"><a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a></li>
-                          </ul>
-                        </nav>
-                        <!-- 페이지네이션 영역 끝 -->
                     </div>
                   </div>
                 </div>
