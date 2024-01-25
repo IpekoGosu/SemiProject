@@ -1,9 +1,68 @@
-DROP SCHEMA SEMIPROJECT;
+DROP SCHEMA if exists SEMIPROJECT;
 CREATE SCHEMA SEMIPROJECT;
 USE SEMIPROJECT;
 
 
+-- 중요!!!!! 데이터 import한 뒤에 fk 이어주기
+-- alter table prfboard add constraint foreign key (pid)
+-- 	references performance (pid) on delete cascade;
+-- alter table tourboard add constraint foreign key (T_CONTENT_ID)
+-- 	references tour (T_CONTENT_ID) on delete cascade;
+-- alter table prf_reserve add constraint foreign key (pid)
+-- 	references performance (pid) on delete cascade;
+-- alter table prf_reserve add constraint foreign key (mno)
+-- 	references member (mno) on delete cascade;
 
+
+------------------------------------------------
+--------------- TOUR 관광데이터 테이블 ----------------
+------------------------------------------------
+-- create table tour(
+-- 	T_CONTENT_ID int,
+--     T_TITLE VARCHAR(300),
+--     T_REVIEW_RATE double);
+------------------------------------------------
+--------------- PRF 공연데이터 테이블 ----------------
+------------------------------------------------
+create table performance(
+    pid          VARCHAR(100),
+    conhallid      VARCHAR(100),
+    pname          VARCHAR(100),
+    pfrom          VARCHAR(100),
+    pto          VARCHAR(100),
+    fname          VARCHAR(100),
+    pcast          VARCHAR(500),
+    pcrew          VARCHAR(500),
+    pruntime      VARCHAR(100),
+    prfage      VARCHAR(100),    
+    producer      VARCHAR(100),
+    price          VARCHAR(500),
+    poster      VARCHAR(500),    
+    pgenre      VARCHAR(100),    
+    pstate      VARCHAR(100),    
+    visit          VARCHAR(100),
+    child          VARCHAR(100),
+    img1          VARCHAR(500),    
+    img2          VARCHAR(500),    
+    img3          VARCHAR(500),    
+    img4          VARCHAR(500),    
+    img5         VARCHAR(500),    
+    ptime          VARCHAR(500),
+    awards      VARCHAR(500),    
+    rate          DOUBLE,
+    primary key (pid)
+);
+create table facility(
+    conhallid     VARCHAR(100),
+    fname           VARCHAR(100),
+    la             VARCHAR(100),
+    lo             VARCHAR(100),
+    address     VARCHAR(100),
+    seatscale     INT,
+    homepage     VARCHAR(500),
+    telno         VARCHAR(100),
+    primary key (conhallid)
+);  
 
 ------------------------------------------------
 --------------- MEMBER 관련 테이블 ----------------
@@ -529,77 +588,24 @@ UPDATE TOURBOARD SET REPLYCOUNT = (SELECT COUNT(*) FROM TOURREPLY WHERE BNO =48)
 UPDATE TOURBOARD SET REPLYCOUNT = (SELECT COUNT(*) FROM TOURREPLY WHERE BNO =49) WHERE BNO =49;
 UPDATE TOURBOARD SET REPLYCOUNT = (SELECT COUNT(*) FROM TOURREPLY WHERE BNO =50) WHERE BNO =50;
 
-------------------------------------------------
---------------- TOUR 관광데이터 테이블 ----------------
-------------------------------------------------
 
-create table tour(
-	T_CONTENT_ID int,
-    T_TITLE VARCHAR(300),
-    T_REVIEW_RATE double);
+-- 후기 만든거 수동으로 평균평점으로 업데이트
 
-------------------------------------------------
---------------- PRF 공연데이터 테이블 ----------------
-------------------------------------------------
-create table performance(
-    pid          VARCHAR(100),
-    conhallid      VARCHAR(100),
-    pname          VARCHAR(100),
-    pfrom          VARCHAR(100),
-    pto          VARCHAR(100),
-    fname          VARCHAR(100),
-    pcast          VARCHAR(500),
-    pcrew          VARCHAR(500),
-    pruntime      VARCHAR(100),
-    prfage      VARCHAR(100),    
-    producer      VARCHAR(100),
-    price          VARCHAR(500),
-    poster      VARCHAR(500),    
-    pgenre      VARCHAR(100),    
-    pstate      VARCHAR(100),    
-    visit          VARCHAR(100),
-    child          VARCHAR(100),
-    img1          VARCHAR(500),    
-    img2          VARCHAR(500),    
-    img3          VARCHAR(500),    
-    img4          VARCHAR(500),    
-    img5         VARCHAR(500),    
-    ptime          VARCHAR(500),
-    awards      VARCHAR(500),    
-    rate          DOUBLE,
-    primary key (pid)
-);
-
-select * from performance;
-
-create table facility(
-    conhallid     VARCHAR(100),
-    fname           VARCHAR(100),
-    la             VARCHAR(100),
-    lo             VARCHAR(100),
-    address     VARCHAR(100),
-    seatscale     INT,
-    homepage     VARCHAR(500),
-    telno         VARCHAR(100),
-    primary key (conhallid)
-);
-
-select * from facility;
 
 ------------------------------------------------
 --------------- TICKETING 예매 테이블 ----------------
 ------------------------------------------------
 
-
 CREATE TABLE PRF_RESERVE(
 	RESERVENO INT PRIMARY KEY AUTO_INCREMENT, 
+    PID VARCHAR(100),
     PNAME VARCHAR(100), 
     mNO INT, 
     SEATCOUNT INT, -- 좌석수량
     SEATTYPE VARCHAR(100), -- 좌석타입
-    PAYTYPE VARCHAR(20), -- 결제수단
+    SHOWTIME VARCHAR(100), -- 결제금액
     RESERVETIME DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+    );
 DESC PRF_RESERVE;
 
 
@@ -631,8 +637,7 @@ SELECT * FROM (
 		JOIN MEMBER M ON (B.MNO = M.MNO)
 		WHERE B.STATUS = 'Y') RANKED
 	WHERE RANKED.RANKING = 1;
-        
-
+ 
 
 SELECT COUNT(*)
 		FROM PRFBOARD B
@@ -710,24 +715,34 @@ SELECT * FROM PRFBOARD WHERE BNO = 1;
 -- 공연의 평균 평점 조회하는 쿼리
 SELECT AVG(RATINGS) FROM PRFBOARD WHERE PID = 'PF227565';
 USE SEMIPROJECT;
--- 게시판 작동을 위해 만들어야한는 테스트용 공연/관광지
-INSERT INTO PERFORMANCE (PID, PNAME) VALUES ('PF227565', '몬테크리스토');
-INSERT INTO PERFORMANCE (PID, PNAME) VALUES ('PF229985', '천로역정');
-INSERT INTO PERFORMANCE (PID, PNAME) VALUES ('PF228603', '네이처 오브 포겟팅');
-INSERT INTO PERFORMANCE (PID, PNAME) VALUES ('PF229501', '행복을 찾아서');
-INSERT INTO PERFORMANCE (PID, PNAME) VALUES ('PF229500', '결투');
-INSERT INTO tour (T_CONTENT_ID, T_TITLE) VALUES (126508, '경복궁');
-INSERT INTO tour (T_CONTENT_ID, T_TITLE) VALUES (128611, '서울숲');
-INSERT INTO tour (T_CONTENT_ID, T_TITLE) VALUES (126535, '남산서울타워');
-INSERT INTO tour (T_CONTENT_ID, T_TITLE) VALUES (129703, '국립중앙박물관');
-INSERT INTO tour (T_CONTENT_ID, T_TITLE) VALUES (2492348, '롯데월드타워 서울스카이');
-UPDATE performance SET RATE = (SELECT AVG(RATINGS) FROM PRFBOARD WHERE PID = 'PF227565') WHERE PID = 'PF227565';
-SELECT * FROM PERFORMANCE;
-select * from tour;
 
 
+SELECT *, (SELECT COUNT(*)
+	FROM PRFBOARD B 
+    JOIN PERFORMANCE P ON (B.PID = P.PID)
+    WHERE B.PID = P.PID)
+	FROM PERFORMANCE;
 
 
+USE SEMIPROJECT;
 
+-- 리뷰많은 상위 5개 데이터 조회
+SELECT P.*, (SELECT COUNT(*) FROM PRFBOARD B WHERE P.PID = B.PID) AS COUNT 
+FROM PERFORMANCE P
+ORDER BY COUNT DESC
+LIMIT 5;
+
+SELECT T.*, (SELECT COUNT(*) FROM TOURBOARD B WHERE T.T_CONTENT_ID = B.T_CONTENT_ID) AS COUNT 
+FROM TOUR T
+ORDER BY COUNT DESC
+LIMIT 5;
+
+-- TICKET
+SELECT * FROM prf_reserve
+	WHERE MNO = 4;
+DESC prf_reserve;
+INSERT INTO prf_reserve (RESERVENO, PID, PNAME, mNO, SEATCOUNT, SEATTYPE, RESERVETIME) 
+	VALUES (0, 'QAFDS', '', 3, 3, 'VIP', DEFAULT);
+SELECT * FROM prf_reserve;
 
 
