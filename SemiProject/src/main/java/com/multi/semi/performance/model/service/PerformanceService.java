@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.multi.semi.common.PageInfo;
 import com.multi.semi.performance.model.mapper.PerformanceMapper;
 import com.multi.semi.performance.model.vo.Performance;
+import com.multi.semi.performance.model.vo.PrfBoard;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -87,6 +88,22 @@ public class PerformanceService {
 	public List<Performance> todayRank(Map<String, Object> param) {
 		log.info("todayRank - param>> " + param.toString());
 		return mapper.todayRank(param);
+	}
+	
+	public List<Performance> genreRecommendations(Map<String, Object> param) {
+		return mapper.genreRecommendations(param);
+	}
+	
+	public List<Performance> regionRecommendations(Map<String, Object> param) {
+		return mapper.regionRecommendations(param);
+	}
+	
+	public List<Performance> todayRandom(Map<String, Object> param) {
+		return mapper.todayRandom(param);
+	}
+	
+	public List<PrfBoard> bestReviews(Map<String, Object> param) {
+		return mapper.bestReviews(param);
 	}
 	
 }

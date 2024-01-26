@@ -126,7 +126,7 @@
 		FROM performance p
 		WHERE p.pto like '%2024%'
 		ORDER BY count DESC
-		LIMIT 5;
+		LIMIT 9;
 	</select>
 	
 	<select id="countMusic" parameterType="Map" resultType="int">
@@ -151,6 +151,45 @@
 		FROM performance p
 		LEFT JOIN facility f ON p.conhallid = f.conhallid
 		WHERE p.pid = #{pid}
+	</select>
+	
+	<select id="genreRecommendations" resultType="Performance" parameterType="Map">
+		select * from performance
+		WHERE pto like '%2024%'
+		and find_in_set(pgenre, (select FAVORITEGENRE 
+					  from member
+					  where MNO = #{mno})) > 0
+		order by rand()
+		limit 9;
+	</select>
+	
+	<select id="regionRecommendations" resultType="Performance" parameterType="Map">
+		select p.*, f.*, (select count(*) from prfboard b where p.pid = b.pid) as count
+		FROM performance p
+		LEFT JOIN facility f ON p.conhallid = f.conhallid
+		WHERE p.pto like '%2024%'
+		and instr(f.address, (select address
+					  from member
+					  where MNO = #{mno})) > 0
+		ORDER BY count DESC
+		limit 8;
+	</select>
+	
+	<select id="todayRandom" resultType="Performance" parameterType="Map">
+		select * from performance
+		WHERE pto like '%2024%'
+		order by rand()
+		limit 8;
+	</select>
+	
+	<select id="bestReviews" resultType="PrfBoard" parameterType="Map">
+		select p.poster, b.*
+		from performance p
+		join prfboard b on (p.pid = b.pid)
+		WHERE pto like '%2024%'
+		and b.ratings = 5
+		order by rand()
+		limit 3;
 	</select>
 </mapper>
 

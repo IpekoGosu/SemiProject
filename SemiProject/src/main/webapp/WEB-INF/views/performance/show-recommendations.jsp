@@ -73,6 +73,19 @@
 
     <link href="${path}/resources/css/carousel/carousel.css" rel="stylesheet" />
     <link href="${path}/resources/css/custom.css" rel="stylesheet" />
+    
+    <style>
+    	a {
+    		text-decoration: none;
+    	}
+    	h1 {
+    		font-family: GmarketSansMedium, sans-serif;
+            font-weight: bold;
+            color: #ef4562;
+            margin-top: 20px;
+            margin-bottom: 0px;
+    	}
+    </style>
   </head>
   <body style="padding-top: 72px">
 
@@ -106,230 +119,92 @@
         >
           <div class="container">
             <div style="font-family: GmarketSansMedium, sans-serif">
-              <h1
-                style="
-                  font-family: GmarketSansMedium, sans-serif;
-                  color: #ef4562;
-                  margin-top: 20px;
-                  margin-bottom: 0px;
-                "
-              >
-                홍길동님을 위한 음악 공연!
-              </h1>
+              <c:if test="${loginMember == null }">
+              	<h1>
+                인기 공연 Top 9
+                </h1>
+              </c:if>
+              <c:if test="${loginMember != null }">
+              	<h1>
+	                ${loginMember.name}님을 위한 맞춤 공연!
+	            </h1>
+              </c:if>
               <div
                 class="today-show--small user-show"
                 style="height: 340px; margin: 30px"
               >
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+              	<c:forEach var="i" begin="0" end="2">
+              	  <div
+                  	class="swiper-slide h-auto px-2"
+                  	style="width: 285px; margin-right: 30px"
                   >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/b.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >내일은 스타 [대학로]</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              스타스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+	                  <div
+	                    class="w-100 h-100 hover-animate"
+	                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+	                  >
+	                    <div class="card h-100 border-0 shadow">
+	                      <div
+	                        class="card-img-top overflow-hidden gradient-overlay"
+	                      >	
+	                        <img
+	                          class="img-fluid"
+	                          src="${loginMember == null ? items[i].poster : listByGenre[i].poster}"
+	                          alt="Modern, Well-Appointed Room"
+	                          style="width: 285px; height: 320px; object-fit: cover"
+	                        /><a class="tile-link" href="${path}/show-detail?pid=${loginMember == null ? items[i].pid : listByGenre[i].pid}"></a>
+	                        <div class="card-img-overlay-top text-end">
+	                          <a
+	                            class="card-fav-icon position-relative z-index-40"
+	                            href="javascript: void();"
+	                          >
+	                            <svg class="svg-icon text-white">
+	                              <use xlink:href="#heart-1"></use></svg
+	                          ></a>
+	                        </div>
+	                      </div>
+	                      <div class="card-body d-flex align-items-center">
+	                        <div class="w-100">
+	                          <h6 class="card-title">
+	                            <a
+	                              class="text-decoration-none text-dark"
+	                              href="detail-rooms.html"
+	                              style="
+	                                font-size: 15px;
+	                                font-family: GmarketSansMedium, sans-serif;
+	                                font-weight: bold;
+	                              "
+	                              >${loginMember == null ? items[i].pname : listByGenre[i].pname}</a
+	                            >
+	                          </h6>
+	                          <div class="d-flex card-subtitle mb-3">
+	                            <p
+	                              class="flex-grow-1 mb-0 text-muted text-sm"
+	                              style="font-size: 15px; font-weight: bold"
+	                            >
+	                              ${loginMember == null ? items[i].fname : listByGenre[i].fname}
+	                            </p>
+	                            <p
+	                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
+	                            >
+	                              <i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i>
+	                            </p>
+	                          </div>
+	                          <p
+	                            class="card-text text-muted"
+	                            style="font-size: 15px"
+	                          >
+	                            ${loginMember == null ? items[i].pfrom : listByGenre[i].pfrom} - ${loginMember == null ? items[i].pto : listByGenre[i].pto}
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
                   </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/d.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >멜팅 라이브 X 가온스테이지</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              가온스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 50px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/e.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >SORI PERCUSSION, 타악기 음악극 Blink</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              문화비축기지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              	</c:forEach>
               </div>
             </div>
           </div>
@@ -340,230 +215,92 @@
         >
           <div class="container">
             <div style="font-family: GmarketSansMedium, sans-serif">
-              <h1
-                style="
-                  font-family: GmarketSansMedium, sans-serif;
-                  color: #ef4562;
-                  margin-top: 20px;
-                  margin-bottom: 0px;
-                "
-              >
-                홍길동님을 위한 뮤지컬 공연!
-              </h1>
+              <c:if test="${loginMember == null }">
+              	<h1>
+                인기 공연 Top 9
+                </h1>
+              </c:if>
+              <c:if test="${loginMember != null }">
+              	<h1>
+	                ${loginMember.name}님을 위한 맞춤 공연!
+	            </h1>
+              </c:if>
               <div
                 class="today-show--small user-show"
                 style="height: 340px; margin: 30px"
               >
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+                <c:forEach var="i" begin="3" end="5">
+              	  <div
+                  	class="swiper-slide h-auto px-2"
+                  	style="width: 285px; margin-right: 30px"
                   >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/b.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >내일은 스타 [대학로]</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              스타스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+	                  <div
+	                    class="w-100 h-100 hover-animate"
+	                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+	                  >
+	                    <div class="card h-100 border-0 shadow">
+	                      <div
+	                        class="card-img-top overflow-hidden gradient-overlay"
+	                      >
+	                        <img
+	                          class="img-fluid"
+	                          src="${loginMember == null ? items[i].poster : listByGenre[i].poster}"
+	                          alt="Modern, Well-Appointed Room"
+	                          style="width: 285px; height: 320px; object-fit: cover"
+	                        /><a class="tile-link" href="${path}/show-detail?pid=${loginMember == null ? items[i].pid : listByGenre[i].pid}"></a>
+	                        <div class="card-img-overlay-top text-end">
+	                          <a
+	                            class="card-fav-icon position-relative z-index-40"
+	                            href="javascript: void();"
+	                          >
+	                            <svg class="svg-icon text-white">
+	                              <use xlink:href="#heart-1"></use></svg
+	                          ></a>
+	                        </div>
+	                      </div>
+	                      <div class="card-body d-flex align-items-center">
+	                        <div class="w-100">
+	                          <h6 class="card-title">
+	                            <a
+	                              class="text-decoration-none text-dark"
+	                              href="detail-rooms.html"
+	                              style="
+	                                font-size: 15px;
+	                                font-family: GmarketSansMedium, sans-serif;
+	                                font-weight: bold;
+	                              "
+	                              >${loginMember == null ? items[i].pname : listByGenre[i].pname}</a
+	                            >
+	                          </h6>
+	                          <div class="d-flex card-subtitle mb-3">
+	                            <p
+	                              class="flex-grow-1 mb-0 text-muted text-sm"
+	                              style="font-size: 15px; font-weight: bold"
+	                            >
+	                              ${loginMember == null ? items[i].fname : listByGenre[i].fname}
+	                            </p>
+	                            <p
+	                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
+	                            >
+	                              <i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i>
+	                            </p>
+	                          </div>
+	                          <p
+	                            class="card-text text-muted"
+	                            style="font-size: 15px"
+	                          >
+	                            ${loginMember == null ? items[i].pfrom : listByGenre[i].pfrom} - ${loginMember == null ? items[i].pto : listByGenre[i].pto}
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
                   </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/d.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >멜팅 라이브 X 가온스테이지</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              가온스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 50px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/e.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >SORI PERCUSSION, 타악기 음악극 Blink</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              문화비축기지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              	</c:forEach>
               </div>
             </div>
           </div>
@@ -574,230 +311,92 @@
         >
           <div class="container">
             <div style="font-family: GmarketSansMedium, sans-serif">
-              <h1
-                style="
-                  font-family: GmarketSansMedium, sans-serif;
-                  color: #ef4562;
-                  margin-top: 20px;
-                  margin-bottom: 0px;
-                "
-              >
-                홍길동님을 위한 연극 공연!
-              </h1>
+              <c:if test="${loginMember == null }">
+              	<h1>
+                인기 공연 Top 9
+                </h1>
+              </c:if>
+              <c:if test="${loginMember != null }">
+              	<h1>
+	                ${loginMember.name}님을 위한 맞춤 공연!
+	            </h1>
+              </c:if>
               <div
                 class="today-show--small user-show"
                 style="height: 340px; margin: 30px"
               >
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+                <c:forEach var="i" begin="6" end="8">
+              	  <div
+                  	class="swiper-slide h-auto px-2"
+                  	style="width: 285px; margin-right: 30px"
                   >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/b.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >내일은 스타 [대학로]</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              스타스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+	                  <div
+	                    class="w-100 h-100 hover-animate"
+	                    data-marker-id="59c0c8e33b1527bfe2abaf92"
+	                  >
+	                    <div class="card h-100 border-0 shadow">
+	                      <div
+	                        class="card-img-top overflow-hidden gradient-overlay"
+	                      >
+	                        <img
+	                          class="img-fluid"
+	                          src="${loginMember == null ? items[i].poster : listByGenre[i].poster}"
+	                          alt="Modern, Well-Appointed Room"
+	                          style="width: 285px; height: 320px; object-fit: cover"
+	                        /><a class="tile-link" href="${path}/show-detail?pid=${loginMember == null ? items[i].pid : listByGenre[i].pid}"></a>
+	                        <div class="card-img-overlay-top text-end">
+	                          <a
+	                            class="card-fav-icon position-relative z-index-40"
+	                            href="javascript: void();"
+	                          >
+	                            <svg class="svg-icon text-white">
+	                              <use xlink:href="#heart-1"></use></svg
+	                          ></a>
+	                        </div>
+	                      </div>
+	                      <div class="card-body d-flex align-items-center">
+	                        <div class="w-100">
+	                          <h6 class="card-title">
+	                            <a
+	                              class="text-decoration-none text-dark"
+	                              href="detail-rooms.html"
+	                              style="
+	                                font-size: 15px;
+	                                font-family: GmarketSansMedium, sans-serif;
+	                                font-weight: bold;
+	                              "
+	                              >${loginMember == null ? items[i].pname : listByGenre[i].pname}</a
+	                            >
+	                          </h6>
+	                          <div class="d-flex card-subtitle mb-3">
+	                            <p
+	                              class="flex-grow-1 mb-0 text-muted text-sm"
+	                              style="font-size: 15px; font-weight: bold"
+	                            >
+	                              ${loginMember == null ? items[i].fname : listByGenre[i].fname}
+	                            </p>
+	                            <p
+	                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
+	                            >
+	                              <i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i
+	                              ><i class="fa fa-star text-warning"></i>
+	                            </p>
+	                          </div>
+	                          <p
+	                            class="card-text text-muted"
+	                            style="font-size: 15px"
+	                          >
+	                            ${loginMember == null ? items[i].pfrom : listByGenre[i].pfrom} - ${loginMember == null ? items[i].pto : listByGenre[i].pto}
+	                          </p>
+	                        </div>
+	                      </div>
+	                    </div>
+	                  </div>
                   </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 30px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/d.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >멜팅 라이브 X 가온스테이지</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              가온스테이지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="swiper-slide h-auto px-2"
-                  style="width: 285px; margin-right: 50px"
-                >
-                  <div
-                    class="w-100 h-100 hover-animate"
-                    data-marker-id="59c0c8e33b1527bfe2abaf92"
-                  >
-                    <div class="card h-100 border-0 shadow">
-                      <div
-                        class="card-img-top overflow-hidden gradient-overlay"
-                      >
-                        <img
-                          class="img-fluid"
-                          src="../img/yja/e.png"
-                          alt="Modern, Well-Appointed Room"
-                          style="width: 285px; height: 320px; object-fit: cover"
-                        /><a class="tile-link" href="detail-rooms.html"></a>
-                        <div class="card-img-overlay-top text-end">
-                          <a
-                            class="card-fav-icon position-relative z-index-40"
-                            href="javascript: void();"
-                          >
-                            <svg class="svg-icon text-white">
-                              <use xlink:href="#heart-1"></use></svg
-                          ></a>
-                        </div>
-                      </div>
-                      <div class="card-body d-flex align-items-center">
-                        <div class="w-100">
-                          <h6 class="card-title">
-                            <a
-                              class="text-decoration-none text-dark"
-                              href="detail-rooms.html"
-                              style="
-                                font-size: 15px;
-                                font-family: GmarketSansMedium, sans-serif;
-                                font-weight: bold;
-                              "
-                              >SORI PERCUSSION, 타악기 음악극 Blink</a
-                            >
-                          </h6>
-                          <div class="d-flex card-subtitle mb-3">
-                            <p
-                              class="flex-grow-1 mb-0 text-muted text-sm"
-                              style="font-size: 15px; font-weight: bold"
-                            >
-                              문화비축기지
-                            </p>
-                            <p
-                              class="flex-shrink-1 mb-0 card-stars text-xs text-end"
-                            >
-                              <i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i
-                              ><i class="fa fa-star text-warning"></i>
-                            </p>
-                          </div>
-                          <p
-                            class="card-text text-muted"
-                            style="font-size: 15px"
-                          >
-                            2023.12.31
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              	</c:forEach>
               </div>
             </div>
           </div>
@@ -826,266 +425,49 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-8 title">
-            <h2
-              style="
-                font-family: GmarketSansMedium, sans-serif;
-                font-weight: bold;
-              "
-            >
-              내 주변 HOT한 공연은?
-            </h2>
+          	<c:if test="${loginMember == null }">
+          		<h2
+	              style="
+	                font-family: GmarketSansMedium, sans-serif;
+	                font-weight: bold;
+	              "
+	            >
+	              오늘은 어떤 공연?
+	            </h2>
+          	</c:if>
+          	<c:if test="${loginMember != null }">
+          		<h2
+	              style="
+	                font-family: GmarketSansMedium, sans-serif;
+	                font-weight: bold;
+	              "
+	            >
+	              내 주변 HOT한 공연은?
+	            </h2>
+          	</c:if>
             <p class="subtitle" style="font-size: 20px">지금 당장 보러가자!</p>
           </div>
         </div>
         <div class="show-nearby">
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="../img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="../img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="../img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="../img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="${path}/resources/img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="${path}/resources/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="${path}/resources/img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
-          <div
-            class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-          >
-            <div class="col-auto d-none d-lg-block">
-              <img
-                src="${path}/resources/img/yja/PF_PF231803_231205_094306.gif"
-                width="200"
-                height="250"
-              />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <h3 class="mb-3">IV BREAK JAM'23: 2VS2 Breaking Battle</h3>
-              <p class="flex-shrink-1 mb-3 card-stars text-xs">
-                <i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i
-                ><i class="fa fa-star text-warning"></i>
-              </p>
-              <div class="mb-1 text-body-secondary">
-                무신사 개러지(구. 왓챠홀)
-              </div>
-              <div class="mb-3 text-body-secondary">2023.12.30</div>
-              <a
-                href="#"
-                class="icon-link gap-1 icon-link-hover stretched-link go-ticketing"
-              >
-                예매
-              </a>
-            </div>
-          </div>
+          <c:forEach var="item" items="${loginMember == null ? items2 : listByRegion}">
+	        <div class="content">
+	            <div class="card mt-3 hover-animate border-0 shadow" style="padding: 0;">
+	                <div class="row g-0">
+	                    <div class="col-md-6">
+	                        <img height=400 src="${item.poster}"class="card-img rounded-start" alt="..."><a class="tile-link" href="${path}/show-detail?pid=${item.pid}"></a>
+	                    </div>
+	                    <div class="col-md-6">
+	                        <div class="card-body">
+	                            <h5 class="card-title" style="font-family: GmarketSansMedium, sans-serif; font-weight: bold;">${item.pname }</h5>
+	                            <p class="text-md mb-2"><a class="me-1" href="#">${item.pfrom} ~ </a><a class="me-1" href="#">${item.pto}</a></p>
+	                            <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">${item.price}</a></p>
+	                            <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+        </c:forEach>
         </div>
       </div>
     </section>
@@ -1106,159 +488,56 @@
             </p>
           </div>
         </div>
-        <div class="best-review" style="margin: 20px">
-          <div class="swiper-slide h-auto px-2" style="width: 420px">
-            <div
-              class="w-100 h-100 hover-animate"
-              data-marker-id="59c0c8e33b1527bfe2abaf92"
-            >
-              <div class="card h-100 border-0 shadow">
-                <div class="card-img-top overflow-hidden gradient-overlay">
-                  <img
-                    style="width: 100%"
-                    class="img-fluid"
-                    src="${path}/resources/img/yja/PF_PF232950_231222_094218.gif"
-                    alt="Modern, Well-Appointed Room"
-                  /><a class="tile-link" href="detail-rooms.html"></a>
-                </div>
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <div class="d-flex card-subtitle mb-3">
-                      <p
-                        class="flex-grow-1 mb-0 text-muted"
-                        style="font-size: 18px; color: black; font-weight: bold"
-                      >
-                        멋진 공연이였어요!!!
-                      </p>
-                      <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                        <i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i>
-                      </p>
-                    </div>
-                    <p class="card-text text-muted">
-                      너무 감동적이고 보는 내내 집중 할 수 있는 무대였어요
-                      최고예요!!!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide h-auto px-2" style="width: 420px">
-            <div
-              class="w-100 h-100 hover-animate"
-              data-marker-id="59c0c8e33b1527bfe2abaf92"
-            >
-              <div class="card h-100 border-0 shadow">
-                <div class="card-img-top overflow-hidden gradient-overlay">
-                  <img
-                    style="width: 100%"
-                    class="img-fluid"
-                    src="${path}/resources/img/yja/PF_PF233750_240111_103938.gif"
-                    alt="Modern, Well-Appointed Room"
-                  /><a class="tile-link" href="detail-rooms.html"></a>
-                </div>
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <div class="d-flex card-subtitle mb-3">
-                      <p
-                        class="flex-grow-1 mb-0 text-muted"
-                        style="font-size: 18px; color: black; font-weight: bold"
-                      >
-                        멋진 공연이였어요!!!
-                      </p>
-                      <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                        <i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i>
-                      </p>
-                    </div>
-                    <p class="card-text text-muted">
-                      너무 감동적이고 보는 내내 집중 할 수 있는 무대였어요
-                      최고예요!!!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide h-auto px-2" style="width: 420px">
-            <div
-              class="w-100 h-100 hover-animate"
-              data-marker-id="59c0c8e33b1527bfe2abaf92"
-            >
-              <div class="card h-100 border-0 shadow">
-                <div class="card-img-top overflow-hidden gradient-overlay">
-                  <img
-                    style="width: 100%"
-                    class="img-fluid"
-                    src="${path}/resources/img/yja/PF_PF233619_240109_111627.gif"
-                    alt="Modern, Well-Appointed Room"
-                  /><a class="tile-link" href="detail-rooms.html"></a>
-                </div>
-                <div class="card-body d-flex align-items-center">
-                  <div class="w-100">
-                    <div class="d-flex card-subtitle mb-3">
-                      <p
-                        class="flex-grow-1 mb-0 text-muted"
-                        style="font-size: 18px; color: black; font-weight: bold"
-                      >
-                        멋진 공연이였어요!!!
-                      </p>
-                      <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
-                        <i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i
-                        ><i class="fa fa-star text-warning"></i>
-                      </p>
-                    </div>
-                    <p class="card-text text-muted">
-                      너무 감동적이고 보는 내내 집중 할 수 있는 무대였어요
-                      최고예요!!!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="best-review" style="margin: 20px; height: 650px;">
+          <c:forEach var="item" items="${items3}">
+          	<div class="swiper-slide h-auto px-2" style="width: 420px;">
+	            <div
+	              class="w-100 h-100 hover-animate"
+	              data-marker-id="59c0c8e33b1527bfe2abaf92"
+	            >
+	              <div class="card h-100 border-0 shadow">
+	                <div class="card-img-top overflow-hidden gradient-overlay">
+	                  <img
+	                    style="width: 100%"
+	                    class="img-fluid"
+	                    src="${item.poster}"
+	                    alt="Modern, Well-Appointed Room"
+	                  /><a class="tile-link" href="detail-rooms.html"></a>
+	                </div>
+	                <div class="card-body d-flex align-items-center">
+	                  <div class="w-100">
+	                    <div class="d-flex card-subtitle mb-3">
+	                      <p
+	                        class="flex-grow-1 mb-0 text-muted"
+	                        style="font-size: 18px; color: black; font-weight: bold"
+	                      >
+	                        ${item.title}
+	                      </p>
+	                      <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+	                        <i class="fa fa-star text-warning"></i
+	                        ><i class="fa fa-star text-warning"></i
+	                        ><i class="fa fa-star text-warning"></i
+	                        ><i class="fa fa-star text-warning"></i
+	                        ><i class="fa fa-star text-warning"></i>
+	                      </p>
+	                    </div>
+	                    <p class="card-text text-muted">
+	                      너무 감동적이고 보는 내내 집중 할 수 있는 무대였어요
+	                      최고예요!!!
+	                    </p>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+          </c:forEach>
         </div>
       </div>
     </section>
     
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
-    <!-- JavaScript files-->
-    <script>
-      // ------------------------------------------------------- //
-      //   Inject SVG Sprite -
-      //   see more here
-      //   https://css-tricks.com/ajaxing-svg-sprite/
-      // ------------------------------------------------------ //
-      function injectSvgSprite(path) {
-        var ajax = new XMLHttpRequest();
-        ajax.open("GET", path, true);
-        ajax.send();
-        ajax.onload = function (e) {
-          var div = document.createElement("div");
-          div.className = "d-none";
-          div.innerHTML = ajax.responseText;
-          document.body.insertBefore(div, document.body.childNodes[0]);
-        };
-      }
-      // to avoid CORS issues when viewing using file:// protocol, using the demo URL for the SVG sprite
-      // use your own URL in production, please :)
-      // https://demo.bootstrapious.com/directory/1-0/icons/orion-svg-sprite.svg
-      //- injectSvgSprite('${path}icons/orion-svg-sprite.svg');
-      injectSvgSprite(
-        "https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg"
-      );
-    </script>
+    
     <!-- jQuery-->
     <script src="${path}/resources/vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap JS bundle - Bootstrap + PopperJS-->

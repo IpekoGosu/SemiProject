@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.multi.semi.performance.model.vo.Performance;
+import com.multi.semi.performance.model.vo.PrfBoard;
 
 
 @Mapper
@@ -35,4 +36,12 @@ public interface PerformanceMapper {
 	int countSearch(Map<String, Object> param);
 	
 	List<Performance> todayRank(Map<String, Object> param);
+	
+	List<Performance> genreRecommendations(Map<String, Object> param);
+	
+	List<Performance> regionRecommendations(Map<String, Object> param);
+	
+	List<Performance> todayRandom(Map<String, Object> param);
+	
+	List<PrfBoard> bestReviews(Map<String, Object> param);
 }

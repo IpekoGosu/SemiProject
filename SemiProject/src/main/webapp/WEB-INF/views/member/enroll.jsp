@@ -142,28 +142,32 @@
                   <label class="form-check-label" for="loginFavoriteGenre1"> 연극</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre2" type="checkbox" value="무용" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre2"> 무용</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre2" type="checkbox" value="뮤지컬" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre2"> 뮤지컬</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre3" type="checkbox" value="클래식" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre3"> 클래식</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre3" type="checkbox" value="서양음악(클래식)" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre3"> 서양음악(클래식)</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre4" type="checkbox" value="국악" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre4"> 국악</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre4" type="checkbox" value="한국음악(국악)" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre4"> 한국음악(국악)</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre5" type="checkbox" value="음악" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre5"> 음악</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre5" type="checkbox" value="대중음악" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre5"> 대중음악</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre6" type="checkbox" value="서커스/마술" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre6"> 서커스/마술</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre6" type="checkbox" value="무용(서양/한국무용" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre6"> 무용(서양/한국무용</label>
                 </div>
                 <div class="form-check-inline">
-                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre7" type="checkbox" value="뮤지컬" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre7"> 뮤지컬</label>
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre7" type="checkbox" value="대중무용" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre7"> 대중무용</label>
+                </div>
+                <div class="form-check-inline">
+                  <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre7" type="checkbox" value="서커스/마술" onclick="checkcount(this);">
+                  <label class="form-check-label" for="loginFavoriteGenre7"> 서커스/마술</label>
                 </div>
               </div>
               <div class="d-grid gap-2">

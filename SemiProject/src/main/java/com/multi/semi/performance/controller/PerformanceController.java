@@ -26,6 +26,7 @@ import com.multi.semi.common.PageInfo;
 import com.multi.semi.member.model.vo.Member;
 import com.multi.semi.performance.model.service.PerformanceService;
 import com.multi.semi.performance.model.vo.Performance;
+import com.multi.semi.performance.model.vo.PrfBoard;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -93,13 +94,25 @@ public class PerformanceController {
 	}
 	
 	@RequestMapping(value = "/show-recommendations", method = RequestMethod.GET)
-	public String performanceRecommend(@RequestParam Map<String, Object> param, Model model) {
-		log.info("추천페이지>> " + param.toString());
-		List<Performance> items = service.performanceAll(param);
-		for (Performance obj : items) {
-			log.info("item>> " + obj);
+	public String performanceRecommend(@RequestParam Map<String, Object> param, Model model, HttpSession session) {
+		Member loginMember = (Member) session.getAttribute("loginMember");
+		
+		if (loginMember != null) {
+			List<Performance> listByGenre = service.genreRecommendations(param);
+			List<Performance> listByRegion = service.regionRecommendations(param);
+			
+			model.addAttribute("listByGenre", listByGenre);
+			model.addAttribute("listByRegion", listByRegion);
+			model.addAttribute("loginMember", loginMember);
 		}
+		
+		List<Performance> items = service.todayRank(param);
+		List<Performance> items2 = service.todayRandom(param);
+		List<PrfBoard> items3 = service.bestReviews(param);
+		
 		model.addAttribute("items", items);
+		model.addAttribute("items2", items2);
+		model.addAttribute("items3", items3);
 		
 		return "/performance/show-recommendations";
 	}
