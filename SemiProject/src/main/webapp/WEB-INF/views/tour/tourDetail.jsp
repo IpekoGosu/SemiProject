@@ -313,7 +313,7 @@
             <c:if test="${loginMember != null}">
               <div style="text-align: right;">
                 <button id="write" class="btn btn-secondary mt-4" style="background-color: #ef4562;">
-                  <a href="${path}/boardTour/write?pid=${item.pid}&pname=${item.pname}" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a>
+                  <a href="${path}/boardTour/write?tid=${tour.t_content_id}&tname=${tour.t_title}" style="color: white; text-decoration: none; border: none;">리뷰쓰러가기</a>
                 </button>
               </div>
             </c:if>

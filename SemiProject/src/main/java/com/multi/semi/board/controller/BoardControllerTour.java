@@ -78,8 +78,75 @@ public class BoardControllerTour {
 	}
 	
 //	글쓰기 기능 부분
+	//${path}/boardTour/write?tid=...&tname=...
+	@GetMapping("/boardTour/write")
+	public String writeView(Model model,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@RequestParam("tid") String tid, 
+			@RequestParam("tname") String tname
+			) {
+		model.addAttribute("tid", tid);
+		model.addAttribute("tname", tname);
+		model.addAttribute("loginMember", loginMember);
+		return "board/writeTour";
+	}
 	
-	
+	@PostMapping("/boardTour/write")
+	public String write(Model model, HttpSession session,
+			@SessionAttribute(name="loginMember", required = false) Member loginMember,
+			@ModelAttribute BoardTour board,
+			@RequestParam(name="upfiles", required = false) List<MultipartFile> upfiles
+			) {
+		log.debug("board write 요청, board : " + board +", upfiles : " + upfiles +", " + upfiles.size());
+		
+		// 보안코드나 파라메터 검사 예시
+		if(loginMember == null || loginMember.getId().equals(board.getMemberId()) == false) {
+			model.addAttribute("msg","잘못된 접근 입니다.");
+			model.addAttribute("location", "/");
+			return "common/msg";
+		}
+		board.setMno(loginMember.getMno());
+
+		// 파일처리부
+		String rootPath = session.getServletContext().getRealPath("resources");
+		String savePath = rootPath + "/upload/boardTour"; // 파일 저장 경로
+		log.debug("savePath : " + savePath);
+		
+		List<AttachFileTour> attachFileList = new ArrayList<AttachFileTour>();
+		
+		// 파일 저장 로직
+		for(MultipartFile upfile : upfiles) {
+			if(upfile.getSize() == 0) {
+				continue;
+			}
+			String renamedFileName = service.saveFile(upfile, savePath); // 실제 파일 저장되는 로직
+			if(renamedFileName != null) {
+				AttachFileTour file = new AttachFileTour();
+				file.setOriginalFilename(upfile.getOriginalFilename());
+				file.setRenamedFilename(renamedFileName);
+				attachFileList.add(file);
+			}
+		}
+		board.setAttachFiles(attachFileList);
+		System.out.println("저장 시작~~~~~~~~~~~" + board);
+		int result = 0;
+		try {
+			result = service.saveBoard(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(result > 0) {
+			model.addAttribute("msg", "게시글이 등록 되었습니다.");
+			model.addAttribute("location", "/boardTour/view?no=" + board.getBno());
+		}else {
+			model.addAttribute("msg", "게시글 작성에 실패하였습니다.");
+			model.addAttribute("location", "/boardTour/list");
+		}
+		return "common/msg";
+	}
+		
+		
 	@GetMapping("/boardTour/update")
 	public String updateView(Model model,
 			@SessionAttribute(name="loginMember", required = false) Member loginMember,

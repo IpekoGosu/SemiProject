@@ -235,7 +235,7 @@
 	              	<img class="img-fluid card-img-top" src="${path}/resources/img/myImages/boardPrfImg${status.index}.jpg" alt=""/>
 	              </a>
 	              <div class="card-body">
-	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="${path}/tour/tourdetail?no=${item.t_content_id}">
+	              	<a class="text-uppercase text-muted text-sm letter-spacing-2 gmarketfontM" href="${path}/tour/tourdetail?no=${item.tid}">
 	              		<c:out value="[${item.tname}]"/>
 	              	</a>
 	                <h5 class="my-2" style="height: 30px; overflow: hidden; text-overflow: ellipsis;">
