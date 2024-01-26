@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- Dao를 Mapper Interface로 대체 할 예정, namespace=Class의 풀네임 선언 필요 -->
+<mapper namespace="com.multi.semi.tour.model.mapper.TourMapper">
+	<resultMap type="Tour" id="tourResultMap">
+		<result property="t_content_id" column="T_CONTENT_ID" />
+		<result property="t_contenttype_id" column="T_CONTENTTYPE_ID" />
+		<result property="t_title" column="T_TITLE" />
+		<result property="t_create_date" column="T_CREATE_DATE" />
+		<result property="t_modi_date" column="T_MODI_DATE" />
+		<result property="t_addr" column="T_ADDR" />
+		<result property="t_detail_addr" column="T_DETAIL_ADDR" />
+		<result property="t_image_main" column="T_IMAGE_MAIN" />
+		<result property="t_image_th" column="T_IMAGE_TH" />
+		<result property="t_image_main_src" column="T_IMAGE_MAIN_SRC" />
+		<result property="t_image_th_src" column="T_IMAGE_TH_SRC" />
+		<result property="t_map_x" column="T_MAP_X" />
+		<result property="t_map_y" column="T_MAP_Y" />
+		<result property="t_areacode" column="T_AREACODE" />
+		<result property="t_maincate" column="T_MAINCATE" />
+		<result property="t_midcate" column="T_MIDCATE" />
+		<result property="t_smallcate" column="T_SMALLCATE" />
+		<result property="t_views" column="T_VIEWS" />
+		<result property="t_citycode" column="T_CITYCODE" />
+		<result property="t_tel" column="T_TEL" />
+		<result property="t_zip" column="T_ZIP" />
+		<result property="t_summary" column="T_SUMMARY" />
+		<result property="t_homepage_url" column="T_HOMEPAGE_URL" />
+		<result property="t_capacity" column="T_CAPACITY" />
+		<result property="t_babvcarryinfo" column="T_BABVCARRYINFO" />
+		<result property="t_creditinfo" column="T_CREDITINFO" />
+		<result property="t_petinfo" column="T_PETINFO" />
+		<result property="t_kidscafe" column="T_KIDSCAFE" />
+		<result property="t_exrate" column="T_EXRATE" />
+		<result property="t_exguide" column="T_EXGUIDE" />
+		<result property="t_heritage1" column="T_HERITAGE1" />
+		<result property="t_heritage2" column="T_HERITAGE2" />
+		<result property="t_heritage3" column="T_HERITAGE3" />
+		<result property="t_infocenter" column="T_INFOCENTER" />
+		<result property="t_scale" column="T_SCALE" />
+		<result property="t_parking_info" column="T_PARKING_INFO" />
+		<result property="t_parking_cost" column="T_PARKING_COST" />
+		<result property="t_restdate" column="T_RESTDATE" />
+		<result property="t_usetime" column="T_USETIME" />
+		<result property="t_useseason" column="T_USESEASON" />
+		<result property="t_cur_cost" column="T_CUR_COST" />
+		<result property="t_use_cost" column="T_USE_COST" />
+		<result property="t_review_rate" column="T_REVIEW_RATE" />
+		<result property="t_infotitle" column="T_INFOTITLE" />
+		<result property="t_infotext" column="T_INFOTEXT" />
+		<result property="t_cur_date" column="T_CUR_DATE" />
+	</resultMap>
+	
+	<resultMap type="TourImage" id="tourimageResultMap">
+		<result property="t_i_no" column="T_I_NO" />
+		<result property="t_content_id" column="T_CONTENT_ID" />
+		<result property="t_image_src" column="T_IMAGE_SRC" />
+		<result property="t_image_th_src" column="T_IMAGE_TH_SRC" />
+		<result property="t_image_url" column="T_IMAGE_URL" />
+		<result property="t_image_th_url" column="T_IMAGE_TH_URL" />
+		<result property="t_date" column="T_DATE" />
+	</resultMap>
+	
+	<resultMap type="TourWeather" id="tourweatherResultMap">
+		<result property="r_wno" column="R_WNO" />
+		<result property="weather_stts" column="WEATHER_STTS" />
+		<result property="temp" column="TEMP" />
+		<result property="sensible_temp" column="SENSIBLE_TEMP" />
+		<result property="max_temp" column="MAX_TEMP" />
+		<result property="min_temp" column="MIN_TEMP" />
+		<result property="humidity" column="HUMIDITY" />
+		<result property="wind_dirct" column="WIND_DIRCT" />
+		<result property="wind_spd" column="WIND_SPD" />
+		<result property="precipitation" column="PRECIPITATION" />
+		<result property="precpt_type" column="PRECPT_TYPE" />
+		<result property="pcp_msg" column="PCP_MSG" />
+		<result property="sunrise" column="SUNRISE" />
+		<result property="sunset" column="SUNSET" />
+		<result property="uv_index_lvl" column="UV_INDEX_LVL" />
+		<result property="uv_index" column="UV_INDEX" />
+		<result property="uv_msg" column="UV_MSG" />
+		<result property="pm25_index" column="PM25_INDEX" />
+		<result property="pm25" column="PM25" />
+		<result property="pm10_index" column="PM10_INDEX" />
+		<result property="pm10" column="PM10" />
+		<result property="air_idx" column="AIR_IDX" />
+		<result property="air_idx_mvl" column="AIR_IDX_MVL" />
+		<result property="air_idx_main" column="AIR_IDX_MAIN" />
+		<result property="air_msg" column="AIR_MSG" />
+		<result property="weather_time" column="WEATHER_TIME" />
+		<result property="news_list" column="NEWS_LIST" />
+		<result property="fcst24hours" column="FCST24HOURS" />
+		<result property="r_datetime" column="R_DATETIME" />
+	</resultMap>
+	
+	<resultMap type="TourPeople" id="tourpeopleResultMap">
+		<result property="r_pno" column="R_PNO" />
+		<result property="area_nm" column="AREA_NM" />
+		<result property="area_cd" column="AREA_CD" />
+		<result property="live_ppltn_stts" column="LIVE_PPLTN_STTS" />
+		<result property="area_congest_lvl" column="AREA_CONGEST_LVL" />
+		<result property="area_congest_msg" column="AREA_CONGEST_MSG" />
+		<result property="area_ppltn_min" column="AREA_PPLTN_MIN" />
+		<result property="area_ppltn_max" column="AREA_PPLTN_MAX" />
+		<result property="road_addr" column="ROAD_ADDR" />
+		<result property="address" column="ADDRESS" />
+		<result property="lat" column="LAT" />
+		<result property="lng" column="LNG" />
+		<result property="r_datetime" column="R_DATETIME" />
+	</resultMap>
+	
+	<resultMap type="TourBoardTour" id="boardResultMap">
+		<result property="bno" column="BNO"/>
+		<result property="mno" column="MNO"/>
+		<result property="tname" column="T_TITLE"/>
+		<result property="title" column="TITLE"/>
+		<result property="content" column="CONTENT"/>
+		<result property="memberId" column="ID"/>
+		<result property="memberName" column="NAME"/>
+		<result property="attachCount" column="ATTACHCOUNT"/>
+		<result property="readCount" column="READCOUNT"/>
+		<result property="replyCount" column="REPLYCOUNT"/>
+		<result property="status" column="STATUS"/>
+		<result property="createDate" column="CREATE_DATE"/>
+		<result property="modifyDate" column="MODIFY_DATE"/>
+	</resultMap>
+	
+	<resultMap type="TourBookMark" id="TourBookMarkResultMap">
+		<result property="mno" column="mNO"/>
+		<result property="t_content_id" column="T_CONTENT_ID" />
+		<result property="prfbookmarkdate" column="PRFBOOKMARKDATE" />
+	</resultMap>
+	
+	<select id="selectTEST" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT * 
+		FROM TOUR 
+		ORDER BY T_CONTENT_ID LIMIT 10 OFFSET 0;
+	</select>
+
+
+	<select id="selectTourBest4List" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		ORDER BY T.T_REVIEW_RATE,T.T_VIEWS DESC LIMIT 4 OFFSET 0;
+		<!--  ORDER BY T.T_REVIEW_RATE,T.T_VIEWS, T.BNO DESC LIMIT ${limit} OFFSET ${offset}-->
+	</select>
+	
+	<select id="selectTourReconList" parameterType="TourParam" resultMap="tourResultMap">
+			SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		ORDER BY T.T_REVIEW_RATE,T.T_VIEWS DESC LIMIT 3 OFFSET 0;
+		<!--  ORDER BY T.T_REVIEW_RATE,T.T_VIEWS, T.BNO DESC LIMIT ${limit} OFFSET ${offset}-->
+	</select>
+	
+	<select id="selectTourHotList" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		ORDER BY T.T_REVIEW_RATE,T.T_VIEWS DESC LIMIT 8 OFFSET 0;
+		<!--  ORDER BY T.T_REVIEW_RATE,T.T_VIEWS, T.BNO DESC LIMIT ${limit} OFFSET ${offset}-->
+	</select>
+	
+	<select id="selectTourRandomList" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		ORDER BY T.T_REVIEW_RATE,T.T_VIEWS DESC LIMIT 3 OFFSET 0;
+		<!--  ORDER BY T.T_REVIEW_RATE,T.T_VIEWS, T.BNO DESC LIMIT ${limit} OFFSET ${offset}-->
+	</select>
+	
+	<select id="selectTourGeoList" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		WHERE T.T_CONTENTTYPE_ID = '14'
+		ORDER BY T.T_REVIEW_RATE,T.T_VIEWS DESC LIMIT 10 OFFSET 0;
+		<!--  ORDER BY T.T_REVIEW_RATE,T.T_VIEWS, T.BNO DESC LIMIT ${limit} OFFSET ${offset}-->
+	</select>
+
+	<select id="selectTourList" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		<!-- JOIN TOUR_BOOKMARK B ON (T.T_CONTENT_ID = M.T_CONTENT_ID) -->
+		<!-- JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)-->
+		WHERE 
+			1=1
+			<if test="areaCodeValue != null">
+				AND T.T_CITYCODE = '${areaCodeValue}'
+			</if>
+			<if test="searchValue != null">
+				 AND T.T_TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchValue == null">
+				 AND T.T_TITLE LIKE '%서울%' 
+			</if>
+			ORDER BY T.T_MODI_DATE DESC LIMIT ${limit} OFFSET ${offset};
+	</select>
+	
+	<select id="selectTourCount" parameterType="TourParam" resultType="int">
+		SELECT  
+			COUNT(*)
+		FROM TOUR T
+		<!-- JOIN TOUR_BOOKMARK B ON (T.T_CONTENT_ID = M.T_CONTENT_ID) -->
+		<!-- JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)-->
+		WHERE 
+			1=1
+			<if test="areaCodeValue != null">
+				AND T.T_CITYCODE = '${areaCodeValue}'
+			</if>
+			<if test="searchValue != null">
+				 AND T.T_TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchValue == null">
+				 AND T.T_TITLE LIKE '%서울%' 
+			</if>
+	</select>
+	
+	<select id="selectSearchTourList" parameterType="TourParam" resultMap="tourResultMap">
+		SELECT  
+			T.T_CONTENT_ID,
+			T.T_CONTENTTYPE_ID,
+			T.T_TITLE,
+			T.T_CREATE_DATE,
+			T.T_MODI_DATE,
+			T.T_ADDR,
+			T.T_DETAIL_ADDR,
+			T.T_IMAGE_MAIN,
+			T.T_IMAGE_TH,
+			T.T_IMAGE_MAIN_SRC,
+			T.T_IMAGE_TH_SRC,
+			T.T_REVIEW_RATE
+		FROM TOUR T
+		<!-- JOIN TOUR_BOOKMARK B ON (T.T_CONTENT_ID = M.T_CONTENT_ID) -->
+		<!-- JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)-->
+		WHERE 
+			1=1
+			<if test="areaCodeValue != null">
+				AND T.T_CITYCODE = '${areaCodeValue}'
+			</if>
+			<if test="searchValue != null">
+				 AND T.T_TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchValue == null">
+				 AND T.T_TITLE LIKE '%서울%' 
+			</if>
+			
+			<!-- 최신순 정렬 -->
+			<if test="searchType == 'modis'">
+				ORDER BY T.T_MODI_DATE DESC LIMIT ${limit} OFFSET ${offset};
+			</if>
+			<!-- 조회순 정렬 -->
+			<if test="searchType == 'views'">
+				ORDER BY T.T_MODI_DATE DESC LIMIT ${limit} OFFSET ${offset};
+			</if>
+			<!-- 평점순 정렬 -->
+			<if test="searchType == 'rates'">
+				ORDER BY T.T_REVIEW_RATE DESC LIMIT ${limit} OFFSET ${offset};
+			</if>
+	</select>
+	
+	<select id="selectSearchTourCount" parameterType="TourParam" resultType="int">
+		SELECT  
+			COUNT(*)
+		FROM TOUR T
+		<!-- JOIN TOUR_BOOKMARK B ON (T.T_CONTENT_ID = M.T_CONTENT_ID) -->
+		<!-- JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)-->
+		WHERE 
+			1=1
+			<if test="areaCodeValue != null">
+				AND T.T_CITYCODE = '${areaCodeValue}'
+			</if>
+			<if test="searchValue != null">
+				 AND T.T_TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchValue == null">
+				 AND T.T_TITLE LIKE '%서울%' 
+			</if>
+	</select>
+	
+	
+	<select id="selectImageList" parameterType="TourParam" resultType="int">
+		SELECT  
+			COUNT(*)
+		FROM TOUR T
+		<!-- JOIN TOUR_BOOKMARK B ON (T.T_CONTENT_ID = M.T_CONTENT_ID) -->
+		<!-- JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)-->
+		WHERE 
+			1=1
+			<if test="areaCodeValue != null">
+				AND T.T_CITYCODE = '${areaCodeValue}'
+			</if>
+			<if test="searchValue != null">
+				 AND T.T_TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchValue == null">
+				 AND T.T_TITLE LIKE '%서울%' 
+			</if>
+	</select>
+	
+	<select id="selectBoardCount" parameterType="TourParam" resultType="int">
+		SELECT COUNT(*)
+		FROM TOUR T
+		<!-- 
+		JOIN MEMBER M ON (B.MNO = M.MNO)
+		JOIN BOARD_CATEGORY C ON (B.TYPE = C.TYPE)
+		 -->
+		WHERE 
+			1=1 <!-- 1=1을 사용해도 무관  -->
+			<if test="typeList != null">
+				 AND B.TYPE IN 
+				<foreach  item="item" collection="typeList" open="(" separator="," close=")">
+				    #{item}
+				</foreach>
+			</if>
+			<if test="searchType == 'writer'">
+			    AND M.ID LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchType == 'title'">
+			    AND B.TITLE LIKE '%${searchValue}%' 
+			</if>
+			<if test="searchType == 'content'">
+			    AND B.CONTENT LIKE '%${searchValue}%' 
+			</if>
+	</select>
+	 
+	 <!-- 상세보기 용도, 모든 인자를 가져와야한다. -->
+	<select id="selectTourByNo" parameterType="Map" resultMap="tourResultMap">
+		SELECT  
+			*
+		FROM TOUR T
+		WHERE T.T_CONTENT_ID= #{no}
+	</select>
+	
+	<!-- 이미지정보가져오기 -->
+	<select id="selectTourByNoImage" parameterType="Map" resultMap="tourimageResultMap">
+		SELECT  
+			*
+		FROM TOUR_IMAGE T
+		WHERE T.T_CONTENT_ID= #{no}
+	</select>
+	
+	
+	<!-- 모든 즐겨찾기 찾기 -->
+	<select id="selectBookMarkALLTour" parameterType="Map" resultMap="tourResultMap">
+		SELECT T_CONTENT_ID 
+		FROM tour_bookmark
+		WHERE T_CONTENT_ID=#{no} 		
+	</select>
+	
+	<!-- 투어 조회시 readCount 갱신용 -->
+	<update id="updateTourViewCount" parameterType="Map">
+		UPDATE TOUR SET 
+			T_VIEWS = T_VIEWS +1
+		WHERE T_CONTENT_ID = #{no}
+	</update>
+	
+	<!-- 이미지정보가져오기 -->
+	<select id="selectTourRealPeople" parameterType="Map" resultMap="tourpeopleResultMap">
+		SELECT   *
+		FROM real_people
+		<!-- WHERE R_DATETIME= #{cur_date}  -->
+	</select>
+	
+	<!-- 이미지정보가져오기 -->
+	<select id="selectTourRealWeather" parameterType="Map" resultMap="tourweatherResultMap">
+		SELECT   *
+		FROM real_weather
+		<!--  WHERE R_DATETIME= #{cur_date}-->
+	</select>
+	
+	
+	<!-- 즐겨찾기 추가-->
+	<insert id="insertTourBookMark" parameterType="Map">
+		INSERT INTO TOUR_BOOKMARK
+		(mNO,
+		T_CONTENT_ID,
+		PRFBOOKMARKDATE)
+		VALUES
+		(#{mno},
+		#{t_content_id},
+		default
+		);
+	</insert>
+	
+	<!-- 즐겨찾기 삭제 -->
+	<delete id="deleteTourBookMark" parameterType="Map">
+		DELETE FROM tour_bookmark WHERE mNo = #{no}
+	</delete>
+	 
+</mapper>
