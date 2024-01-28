@@ -42,10 +42,10 @@
               공연
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="show-search-1" style="font-size: 18px;">공연 검색</a>
-              <a class="dropdown-item" href="show-inform" style="font-size: 18px;">공연 정보</a>
-              <a class="dropdown-item" href="show-recommendations?mno=${loginMember.mno }" style="font-size: 18px;">공연 추천</a>
-              <a class="dropdown-item" href="show-award" style="font-size: 18px;">수상작</a>
+              <a class="dropdown-item" href="${path}/show-search-1" style="font-size: 18px;">공연 검색</a>
+              <a class="dropdown-item" href="${path}/show-inform" style="font-size: 18px;">공연 정보</a>
+              <a class="dropdown-item" href="${path}/show-recommendations?mno=${loginMember.mno }" style="font-size: 18px;">공연 추천</a>
+              <a class="dropdown-item" href="${path}/show-award" style="font-size: 18px;">수상작</a>
             </div>
           </li>
           <!-- 공연 끝 -->
