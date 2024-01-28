@@ -159,7 +159,7 @@
                 </div>
                 <div class="form-check-inline">
                   <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre6" type="checkbox" value="무용(서양/한국무용" onclick="checkcount(this);">
-                  <label class="form-check-label" for="loginFavoriteGenre6"> 무용(서양/한국무용</label>
+                  <label class="form-check-label" for="loginFavoriteGenre6"> 무용(서양/한국무용)</label>
                 </div>
                 <div class="form-check-inline">
                   <input class="form-check-input" name="favoriteGenre" id="loginFavoriteGenre7" type="checkbox" value="대중무용" onclick="checkcount(this);">
