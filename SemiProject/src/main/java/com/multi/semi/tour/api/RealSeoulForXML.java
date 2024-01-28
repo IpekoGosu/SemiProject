@@ -179,7 +179,7 @@ public class RealSeoulForXML {
 				//System.out.println("ResponseCode : " + code);
 
 				if (code < 200 || code > 300) {
-					//System.out.println("페이지가 잘못되었습니다.");
+					System.out.println("페이지가 잘못되었습니다.");
 					return null;
 				}
 
@@ -872,6 +872,10 @@ public class RealSeoulForXML {
 	        pstmt.setString(cnt++, weatherUpdate.getWEATHER_TIME());
 	        pstmt.setString(cnt++, weatherUpdate.getNEWS_LIST());
 	        pstmt.setString(cnt++, weatherUpdate.getFCST24HOURS());
+	        Date now = new Date();
+	        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:00:00");
+	        String formatedNow = formatter.format(now);
+	        pstmt.setString(cnt++, formatedNow);// R_DATETIME
 
 	        // Set the R_WNO for the WHERE clause
 	        //pstmt.setInt(cnt++, weatherUpdate.getR_WNO());
