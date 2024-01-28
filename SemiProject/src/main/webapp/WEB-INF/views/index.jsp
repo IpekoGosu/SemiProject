@@ -991,7 +991,7 @@
     <section class="mb-0">
       <div class="container-fluid px-0 mt-5">
         <div class="swiper-container instagram-slider">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" style="height: auto">
             <div class="swiper-slide overflow-hidden"><a href="tour-detail.html"><img class="img-fluid hover-scale" src="${path}/resources/img/instagram/instagram-1.jpg" alt=" "></a></div>
             <div class="swiper-slide overflow-hidden"><a href="tour-detail.html"><img class="img-fluid hover-scale" src="${path}/resources/img/instagram/instagram-2.jpg" alt=" "></a></div>
             <div class="swiper-slide overflow-hidden"><a href="tour-detail.html"><img class="img-fluid hover-scale" src="${path}/resources/img/instagram/instagram-3.jpg" alt=" "></a></div>
