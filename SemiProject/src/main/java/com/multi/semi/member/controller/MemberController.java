@@ -74,7 +74,7 @@ public class MemberController {
 	}
 	@PostMapping("/member/enroll")
 	public String enroll(Model model, Member member) {
-		String seoul = "서울 ";
+		String seoul = "서울특별시 ";
 		member.setAddress(seoul + member.getAddress());
 		log.debug("회원가입 요청 member : " + member.toString());
 		int result = 0;
