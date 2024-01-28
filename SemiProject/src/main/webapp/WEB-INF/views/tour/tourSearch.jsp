@@ -284,7 +284,6 @@
                   </div>
                   <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" 
                     href="${path}/tour/searchdetail?searchValue=${searchValue}&areaCodeValue=${areaCodeValue}">
-
                     더 둘러보기<i class="fas fa-angle-double-right ms-2" aria-hidden="true"></i></a></div>
                 </div>
               </div>
@@ -360,7 +359,7 @@
                       오늘의 추천 관광지 입니다.
                     </p>
                   </div>
-                  <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="${path}/tour/searchdetail">
+                  <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="${path}/tour/best">
                     더 둘러보기<i class="fas fa-angle-double-right ms-2" aria-hidden="true"></i></a></div>
                 </div>
 
@@ -426,12 +425,16 @@
                                     font-family: GmarketSansMedium, sans-serif;
                                     font-weight: bold;
                                   ">
-                    서울 탐색
+                    서울의 명소
                   </h2>
                   <p class="subtitle" style="font-size: 20px">
-                    현재 나의 위치를 기반으로
+                    명소를 추천드립니다.
                   </p>
                 </div>
+                <!--
+                <div class="col-md-4 d-lg-flex align-items-center justify-content-end"><a class="text-muted text-sm" href="category-food.html">
+                  더 둘러보기<i class="fas fa-angle-double-right ms-2" aria-hidden="true"></i></a></div>
+                  -->
               </div>
               <!-- Slider main container-->
               <div class="swiper-container swiper-container-mx-negative swiper-init pt-3 swiper-container-horizontal" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
@@ -440,9 +443,9 @@
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="http://hanoknews.kr/data/tmp/2001/20200115123811_rvnhqagv.png" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -466,7 +469,7 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -484,50 +487,27 @@
                         </div>
                       </div>
                     </div>
-                  </div><div class="swiper-slide h-auto px-2 swiper-slide-duplicate swiper-slide-prev" data-swiper-slide-index="4" style="width: 312px; margin-right: 20px;">
-                    <!-- place item-->
-                    <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                      <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
-      
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
-                              <svg class="svg-icon text-white">
-                                <use xlink:href="#heart-1"> </use>
-                              </svg></a></div> -->
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                          <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">노란 상소 갈비</a></h6>
-                            <div class="d-flex card-subtitle mb-3">
-                              <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">역삼동 테헤란로8길</p>
-                              <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
-                              </p>
-                            </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">이집은 가성비 맛집입니다.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div><div class="swiper-slide h-auto px-2 swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="5" style="width: 312px; margin-right: 20px;">
+                  </div>
+                  <div class="swiper-slide h-auto px-2 swiper-slide-duplicate swiper-slide-active" data-swiper-slide-index="5" style="width: 312px; margin-right: 20px;">
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://lh3.googleusercontent.com/p/AF1QipNG4IZ29enVbadoJTtyg9NCU0Dp2dJXqLQ-OpMO=s680-w680-h510" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex align-items-center">
                           <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">동화고옥</a></h6>
+                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">북한산국립공원</a></h6>
                             <div class="d-flex card-subtitle mb-3">
                               <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">테헤란로 129</p>
                               <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
                               </p>
                             </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">강남의 새로운 형태의 맛집 경험</p>
+                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">국립공원</p>
                           </div>
                         </div>
                       </div>
@@ -538,15 +518,15 @@
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://www.snkpress.kr/news/photo/202205/546_764_3429.png" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">창고 43</a></h6>
+                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">남대문</a></h6>
                             <div class="d-flex card-subtitle mb-3">
                               <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">강남대로 362</p>
                               <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i><i class="fa fa-star text-gray-300">                                  </i>
@@ -562,8 +542,8 @@
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://a.cdn-hotels.com/gdcs/production142/d123/10ec894d-089c-41f5-bddb-8d603a4545d0.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -586,9 +566,9 @@
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="http://hanoknews.kr/data/tmp/2001/20200115123811_rvnhqagv.png" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -607,51 +587,26 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide h-auto px-2" data-swiper-slide-index="3" style="width: 312px; margin-right: 20px;">
-                    <!-- place item-->
-                    <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
-                      <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
-      
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
-                              <svg class="svg-icon text-white">
-                                <use xlink:href="#heart-1"> </use>
-                              </svg></a></div> -->
-                        </div>
-                        <div class="card-body d-flex">
-                          <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">청계천</a></h6>
-                            <div class="d-flex card-subtitle mb-3">
-                              <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">서울 특별시 종로구</p>
-                              <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
-                              </p>
-                            </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">복원된 개울이 있는 도시 공원 공간</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="swiper-slide h-auto px-2 swiper-slide-duplicate-prev" data-swiper-slide-index="4" style="width: 312px; margin-right: 20px;">
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://i.namu.wiki/i/WffBmOkLPosp-Idoc_ABKre-g5qbyUFVjK78m4YD8OixVG_IVlKpr_wQzrF6PRHrV4hL6qwQTQnvOVoPrOdF_EmTVF2wlfEnvVVDgZsvR9cE8b0LIcVQU3SEBViF3-vxPyAhcFin0O329uy8gstVVA.webp" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">노란 상소 갈비</a></h6>
+                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">롯데월드</a></h6>
                             <div class="d-flex card-subtitle mb-3">
                               <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">역삼동 테헤란로8길</p>
                               <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i>
                               </p>
                             </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">이집은 가성비 맛집입니다.</p>
+                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">즐거운 환상의 나라</p>
                           </div>
                         </div>
                       </div>
@@ -661,22 +616,22 @@
                     <!-- place item-->
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                       <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://i.namu.wiki/i/5qsp5KWpAI6N0KEFZ09MHWPHaj4hTEvH2nUQL-puJVwF361RTAo7S3bZVww8n08U-XwhpOhdlpFjBTWkTQ6TRV_ZFVVMiGGX7lrXFZ1CBEeiZEK9xuk41fkEkp611PorVhvnLg5axRvsWxb3JHL5og.webp" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">동화고옥</a></h6>
+                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="#">덕수궁</a></h6>
                             <div class="d-flex card-subtitle mb-3">
                               <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">테헤란로 129</p>
                               <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i>
                               </p>
                             </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">강남의 새로운 형태의 맛집 경험</p>
+                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">과거의 유산</p>
                           </div>
                         </div>
                       </div>
@@ -687,20 +642,20 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
-                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="detail-rooms.html">창고 43</a></h6>
+                            <h6 class="card-title" style="font-family :GmarketSansMedium;"><a class="text-decoration-none text-dark" href="https://cdn.lecturernews.com/news/photo/202310/138730_384980_5222.png">남산 공원</a></h6>
                             <div class="d-flex card-subtitle mb-3">
                               <p class="flex-grow-1 mb-0 text-muted text-sm" style="font-family :GmarketSansMedium;">강남대로 362</p>
                               <p class="flex-shrink-1 mb-0 card-stars text-xs text-end"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300">                                  </i><i class="fa fa-star text-gray-300">                                  </i>
                               </p>
                             </div>
-                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">과거의 건축이 그대로남아있는곳</p>
+                            <p class="card-text text-muted" style="font-family :GmarketSansMedium;">싱그러운 자연의 향기</p>
                           </div>
                         </div>
                       </div>
@@ -710,7 +665,7 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -734,7 +689,7 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
@@ -758,7 +713,7 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                              <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
                               </svg></a></div> -->
