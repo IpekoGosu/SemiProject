@@ -306,12 +306,12 @@
                                           width: 100%;
                                           height: 100%;" class="img-fluid" src="${item.t_image_main}" alt="Modern, Well-Appointed Room">
                 </c:if><a class="tile-link" href="${path}/tour/tourdetail?no=${item.t_content_id}"></a>
-                <div class="card-img-overlay-top text-end">
+                <!-- <div class="card-img-overlay-top text-end">
                   <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                     <svg class="svg-icon text-white">
                       <use xlink:href="#heart-1"></use>
                     </svg></a>
-                </div>
+                </div> -->
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">

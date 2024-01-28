@@ -210,7 +210,7 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 	mapOption = { 
 	    center: new kakao.maps.LatLng(37.572087, 126.985443), // 지도의 중심좌표
-	    level: 9 // 지도의 확대 레벨
+	    level: 8 // 지도의 확대 레벨
 	};
 	
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -219,40 +219,76 @@
 	var positions = [
 		<c:forEach var="map" items="${tourPeople}" >
 			{
-			    content: '<div>지역 이름 : ${map.area_nm}<br/> 정도 : ${map.area_congest_lvl}<br/>메세지 : ${map.area_congest_msg}</div>', 
-			    latlng: new kakao.maps.LatLng(${map.lat}, ${map.lng})
+			    content: '<div style="padding: 1em;"><p style="font-weight: bold;">${map.area_nm}</p><br/> 정도 : ${map.area_congest_lvl}<br/>메세지 : ${map.area_congest_msg}</div>', 
+			    latlng: new kakao.maps.LatLng(${map.lat}, ${map.lng}),
+          setData: '${map.area_congest_lvl}'
 			},
 		</c:forEach>
 	];
 	
-  var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
-  imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-  imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+  var imageSrc1 = '${path}/resources/img/tour/marker_red.png', // 마커이미지의 주소입니다    
+  imageSize1 = new kakao.maps.Size(36, 36), // 마커이미지의 크기입니다
+  imageOption1 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+  var imageSrc2 = '${path}/resources/img/tour/marker_orenge.png', // 마커이미지의 주소입니다    
+  imageSize2 = new kakao.maps.Size(36, 36), // 마커이미지의 크기입니다
+  imageOption2 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+  var imageSrc3 = '${path}/resources/img/tour/marker_yellow.png', // 마커이미지의 주소입니다    
+  imageSize3 = new kakao.maps.Size(36, 36), // 마커이미지의 크기입니다
+  imageOption3 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+  var imageSrc4 = '${path}/resources/img/tour/marker_green.png', // 마커이미지의 주소입니다    
+  imageSize4 = new kakao.maps.Size(36, 36), // 마커이미지의 크기입니다
+  imageOption4 = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.   
 
   //붐빔, 약간 붐빔, 보통, 여유
-  var markerImage1 = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-  var markerImage2 = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-  var markerImage3 = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-  var markerImage4 = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+  var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1, imageOption1);
+  var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption2)
+  var markerImage3 = new kakao.maps.MarkerImage(imageSrc3, imageSize3, imageOption3)
+  var markerImage4 = new kakao.maps.MarkerImage(imageSrc4, imageSize4, imageOption4)
 
 	for (var i = 0; i < positions.length; i ++) {
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
+
+    var marker = null;
+    console.log("setData:", positions[i].setData);
+    if (positions[i].setData == '붐빔') {
+      // 마커를 생성합니다
+      marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: positions[i].latlng, // 마커의 위치
-        //image: markerImage1
-	});
-	
-	// 마커에 표시할 인포윈도우를 생성합니다 
-	var infowindow = new kakao.maps.InfoWindow({
-	    content: positions[i].content // 인포윈도우에 표시할 내용
-	});
-	
-	// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-	// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-	// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-	kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-	kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        image: markerImage1
+      });
+    } else if (positions[i].setData == '약간 붐빔') {
+      marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커의 위치
+        image: markerImage2
+      });
+    } else if (positions[i].setData == '보통') {
+      marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커의 위치
+        image: markerImage3
+      });
+    } else if (positions[i].setData == '여유') {
+      marker = new kakao.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커의 위치
+        image: markerImage4
+      });
+    }
+
+    // 마커에 표시할 인포윈도우를 생성합니다 
+    var infowindow = new kakao.maps.InfoWindow({
+        content: positions[i].content // 인포윈도우에 표시할 내용
+    });
+    
+    // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+    // 이벤트 리스너로는 클로저를 만들어 등록합니다 
+    // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
 	}
 	
 	//인포윈도우를 표시하는 클로저를 만드는 함수입니다 

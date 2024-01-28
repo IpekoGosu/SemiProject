@@ -442,12 +442,12 @@
                                           width: 100%;
                                           height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/16/3075616_image2_1.jpg" alt="Modern, Well-Appointed Room">
                 <a class="tile-link" href="/semi/tour/tourdetail?no=3075640"></a>
-                <div class="card-img-overlay-top text-end">
+                <!-- <div class="card-img-overlay-top text-end">
                   <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                     <svg class="svg-icon text-white">
                       <use xlink:href="#heart-1"></use>
                     </svg></a>
-                </div>
+                </div> -->
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
@@ -487,12 +487,12 @@
                                           width: 100%;
                                           height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/94/2031894_image2_1.jpg" alt="Modern, Well-Appointed Room">
                 <a class="tile-link" href="/semi/tour/tourdetail?no=479778"></a>
-                <div class="card-img-overlay-top text-end">
+                <!-- <div class="card-img-overlay-top text-end">
                   <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                     <svg class="svg-icon text-white">
                       <use xlink:href="#heart-1"></use>
                     </svg></a>
-                </div>
+                </div> -->
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
@@ -532,12 +532,12 @@
                                           width: 100%;
                                           height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/23/2714023_image2_1.jpg" alt="Modern, Well-Appointed Room">
                 <a class="tile-link" href="/semi/tour/tourdetail?no=2714028"></a>
-                <div class="card-img-overlay-top text-end">
+                <!-- <div class="card-img-overlay-top text-end">
                   <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                     <svg class="svg-icon text-white">
                       <use xlink:href="#heart-1"></use>
                     </svg></a>
-                </div>
+                </div> -->
               </div>
               <div class="card-body d-flex align-items-center">
                 <div class="w-100">
@@ -645,10 +645,10 @@
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
 
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                        <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex align-items-center">
                     <div class="w-100">
@@ -669,10 +669,10 @@
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
 
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                        <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex align-items-center">
                     <div class="w-100">
@@ -693,10 +693,10 @@
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
 
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                        <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex align-items-center">
                     <div class="w-100">
@@ -717,10 +717,10 @@
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
 
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                                        <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex align-items-center">
                     <div class="w-100">
@@ -742,10 +742,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -766,10 +766,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -790,11 +790,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -815,11 +814,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -840,11 +838,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -865,11 +862,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -890,10 +886,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -913,10 +909,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -936,11 +932,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">
@@ -960,11 +955,10 @@
               <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
                 <div class="card h-100 border-0 shadow">
                   <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
-
-                    <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                    <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                         <svg class="svg-icon text-white">
                           <use xlink:href="#heart-1"> </use>
-                        </svg></a></div>
+                        </svg></a></div> -->
                   </div>
                   <div class="card-body d-flex">
                     <div class="w-100">

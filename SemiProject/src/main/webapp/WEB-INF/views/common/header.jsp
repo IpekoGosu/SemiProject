@@ -28,10 +28,10 @@
               관광지
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="docsDropdownMenuLink">
-              <a class="dropdown-item" href="tour-search.html" style="font-size: 18px;">관광지</a>
-              <a class="dropdown-item" href="#" style="font-size: 18px;">맛집</a>
-              <a class="dropdown-item" href="tour-best.html" style="font-size: 18px;">관광지 추천</a>
-              <a class="dropdown-item" href="tour-realtime.html" style="font-size: 18px;">도시 데이터</a>
+              <a class="dropdown-item" href="${path}/tour/search" style="font-size: 18px;">관광지</a>
+              <!--  <a class="dropdown-item" href="#" style="font-size: 18px;">맛집</a>-->
+              <a class="dropdown-item" href="${path}/tour/best" style="font-size: 18px;">관광지 추천</a>
+              <a class="dropdown-item" href="${path}/tour/realtime" style="font-size: 18px;">도시 데이터</a>
             </div>
           </li>
           <!-- 관광지 끝 -->

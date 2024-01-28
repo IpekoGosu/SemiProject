@@ -300,12 +300,12 @@
                       <c:if test="${not empty item.t_image_th}">
                         <img style="position: absolute; top:0; left: 0;width: 100%;height: 100%;" class="img-fluid" src="${item.t_image_main}" alt="Modern, Well-Appointed Room">
                       </c:if><a class="tile-link" href="${path}/tour/tourdetail?no=${item.t_content_id}"></a>
-                      <div class="card-img-overlay-top text-end">
+                      <!-- <div class="card-img-overlay-top text-end">
                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                           <svg class="svg-icon text-white">
                             <use xlink:href="#heart-1"></use>
                           </svg></a>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="card-body d-flex align-items-center">
                       <div class="w-100">
@@ -374,38 +374,42 @@
               </div>
               <div class="row">
                 <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-                  <div class="card shadow-lg border-0 w-100 border-0 hover-animate"
-                    style="background: center center url(https://gocamping.or.kr/upload/camp/3353/thumb/thumb_720_3233c4IhyPbzG49c42NBshTq.jpg) no-repeat; background-size: cover;">
-                    <a class="tile-link" href="campingDetail.html"> </a>
-                    <h2 class="text-shadow text-white pt-3" style="margin-left: 20px; font-family :GmarketSansMedium">
-                      자차로 1시간 거리의</h2>
-                    <h2 class="text-shadow text-white" style="margin-left: 20px; font-family :GmarketSansMedium">하늘연 캠핑장
-                    </h2>
-                    <h3 class="text-shadow text-mutedCustom"
-                      style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#파주#글램핑</h3>
-                    <div class="d-flex h-100 text-white justify-content-around py-6 py-lg-7 mb-10">
+                   <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(http://www.sangjomagazine.com/imgdata/sangjomagazine_com/201811/2018111017584296.jpg) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="campingDetail.html"> </a>
+                        <h2 class="text-shadow text-white pt-3" style="margin-left: 20px; font-family :GmarketSansMedium">서울의 상징</h2>
+                        <h2 class="text-shadow text-white" style="margin-left: 20px; font-family :GmarketSansMedium">남산 타워</h2>
+                        <h3 class="text-shadow text-mutedCustom" style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#명소 #랜드마크</h3>
+                        <div class="d-flex h-100 text-white justify-content-around py-6 py-lg-7 mb-10">
+                        </div>
                     </div>
-                  </div>
+                    <!-- <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://gocamping.or.kr/upload/camp/3353/thumb/thumb_720_3233c4IhyPbzG49c42NBshTq.jpg) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="campingDetail.html"> </a>
+                        <h2 class="text-shadow text-white pt-3" style="margin-left: 20px; font-family :GmarketSansMedium">자차로 1시간 거리의</h2>
+                        <h2 class="text-shadow text-white" style="margin-left: 20px; font-family :GmarketSansMedium">하늘연 캠핑장</h2>
+                        <h3 class="text-shadow text-mutedCustom" style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#파주#글램핑</h3>
+                        <div class="d-flex h-100 text-white justify-content-around py-6 py-lg-7 mb-10">
+                        </div>
+                    </div> -->
                 </div>
+                
                 <div class="mb-4 col-lg-4">
-                  <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate"
-                    style="background: center center url(https://gocamping.or.kr/upload/camp/7707/thumb/thumb_720_8592aNVHM8XTABlndiDfBnhS.jpg) no-repeat; background-size: cover;">
+                  <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(https://mediahub.seoul.go.kr/uploads/mediahub/2022/08/gAlWJGXGNDYOAhIqfwpniAOxkmgqqbpM.png) no-repeat; background-size: cover;">
                     <a class="tile-link" href="campingDetail.html"> </a>
-                    <h3 class="text-shadow text-white"
-                      style="margin-left: 20px; padding-top:110px; font-family :GmarketSansMedium">더스트림 카라반</h3>
-                    <h4 class="text-shadow text-mutedCustom"
-                      style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#영덕#해변</h4>
+                    <h3 class="text-shadow text-white" style="margin-left: 20px; padding-top:110px; font-family :GmarketSansMedium">청계천</h3>
+                    <h4 class="text-shadow text-mutedCustom" style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#서울의흐름</h4>
                   </div>
-                  <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-5"
-                    style="background: center center url(https://media.istockphoto.com/id/1327824636/ko/%EC%82%AC%EC%A7%84/%EA%B2%BD%EB%B3%B5%EA%B6%81%EC%97%90%EC%84%9C-%EB%B4%84%EB%B2%9A%EA%BD%83.jpg?s=2048x2048&w=is&k=20&c=FBqsoky4RHxGe7WDnPFvXVqwaY9WdNrCuqy6B8_AmJ0=) no-repeat; background-size: cover;">
+                  <!-- <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(https://gocamping.or.kr/upload/camp/7707/thumb/thumb_720_8592aNVHM8XTABlndiDfBnhS.jpg) no-repeat; background-size: cover;">
                     <a class="tile-link" href="campingDetail.html"> </a>
-                    <h3 class="text-shadow text-white"
-                      style="margin-left: 20px; padding-top:110px;font-family :GmarketSansMedium">경복궁</h3>
-                    <h4 class="text-shadow text-mutedCustom"
-                      style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#서울#종로구</h4>
+                    <h3 class="text-shadow text-white" style="margin-left: 20px; padding-top:110px; font-family :GmarketSansMedium">더스트림 카라반</h3>
+                    <h4 class="text-shadow text-mutedCustom" style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#영덕#해변</h4>
+                  </div> -->
+                  <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-5" style="background: center center url(https://media.istockphoto.com/id/1327824636/ko/%EC%82%AC%EC%A7%84/%EA%B2%BD%EB%B3%B5%EA%B6%81%EC%97%90%EC%84%9C-%EB%B4%84%EB%B2%9A%EA%BD%83.jpg?s=2048x2048&w=is&k=20&c=FBqsoky4RHxGe7WDnPFvXVqwaY9WdNrCuqy6B8_AmJ0=) no-repeat; background-size: cover;">
+                      <a class="tile-link" href="campingDetail.html"> </a>
+                      <h3 class="text-shadow text-white" style="margin-left: 20px; padding-top:110px;font-family :GmarketSansMedium">경복궁</h3>
+                      <h4 class="text-shadow text-mutedCustom" style="margin-left: 20px;color:#f3798d;  font-family :GmarketSansMedium">#문화유산</h4>
                   </div>
-                </div>
               </div>
+            </div>
             </div>
             <!-- <div class="col-md-12">
           <div class="col text-center">
@@ -438,10 +442,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex align-items-center">
                           <div class="w-100">
@@ -462,10 +466,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex align-items-center">
                           <div class="w-100">
@@ -486,10 +490,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex align-items-center">
                           <div class="w-100">
@@ -510,10 +514,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex align-items-center">
                           <div class="w-100">
@@ -535,10 +539,10 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -559,10 +563,10 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -584,10 +588,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -609,10 +613,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -634,10 +638,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -659,10 +663,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -683,10 +687,10 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!"><a class="tile-link" href="detail-rooms.html"></a>
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -706,10 +710,10 @@
                     <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment"><a class="tile-link" href="detail-rooms.html"></a>
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -730,10 +734,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -754,10 +758,10 @@
                       <div class="card h-100 border-0 shadow">
                         <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="${path}/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan"><a class="tile-link" href="detail-rooms.html"></a>
       
-                          <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
+                          <!-- <div class="card-img-overlay-top text-end"><a class="card-fav-icon position-relative z-index-40" href="javascript: void();"> 
                               <svg class="svg-icon text-white">
                                 <use xlink:href="#heart-1"> </use>
-                              </svg></a></div>
+                              </svg></a></div> -->
                         </div>
                         <div class="card-body d-flex">
                           <div class="w-100">
@@ -815,12 +819,12 @@
                                                 width: 100%;
                                                 height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/16/3075616_image2_1.jpg" alt="Modern, Well-Appointed Room">
                       <a class="tile-link" href="/semi/tour/tourdetail?no=3075640"></a>
-                      <div class="card-img-overlay-top text-end">
+                      <!-- <div class="card-img-overlay-top text-end">
                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                           <svg class="svg-icon text-white">
                             <use xlink:href="#heart-1"></use>
                           </svg></a>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="card-body d-flex align-items-center">
                       <div class="w-100">
@@ -860,12 +864,12 @@
                                                 width: 100%;
                                                 height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/94/2031894_image2_1.jpg" alt="Modern, Well-Appointed Room">
                       <a class="tile-link" href="/semi/tour/tourdetail?no=479778"></a>
-                      <div class="card-img-overlay-top text-end">
+                      <!-- <div class="card-img-overlay-top text-end">
                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                           <svg class="svg-icon text-white">
                             <use xlink:href="#heart-1"></use>
                           </svg></a>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="card-body d-flex align-items-center">
                       <div class="w-100">
@@ -905,12 +909,12 @@
                                                 width: 100%;
                                                 height: 100%;" class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/23/2714023_image2_1.jpg" alt="Modern, Well-Appointed Room">
                       <a class="tile-link" href="/semi/tour/tourdetail?no=2714028"></a>
-                      <div class="card-img-overlay-top text-end">
+                      <!-- <div class="card-img-overlay-top text-end">
                         <a class="card-fav-icon position-relative z-index-40" href="javascript: void();">
                           <svg class="svg-icon text-white">
                             <use xlink:href="#heart-1"></use>
                           </svg></a>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="card-body d-flex align-items-center">
                       <div class="w-100">
