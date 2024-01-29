@@ -81,21 +81,21 @@
     <div id="banner" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="${path}/resources/img/myImages/award1.png" class="img-fluid" alt="">
+                <img src="${path}/resources/img/myImages/award1.png" style="width: 100%" class="img-fluid" alt="">
                 <div class="carousel-caption">
                     <h5>공연 수상작</h5>
                     <p>드라큘라</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="${path}/resources/img/myImages/award2.png" class="img-fluid" alt="">
+                <img src="${path}/resources/img/myImages/award2.png" style="width: 100%" class="img-fluid" alt="">
                 <div class="carousel-caption">
                     <h5>공연 수상작</h5>
                     <p>오페라의 유령</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="${path}/resources/img/myImages/award3.png" class="img-fluid" alt="">
+                <img src="${path}/resources/img/myImages/award3.png" style="width: 100%" class="img-fluid" alt="">
                 <div class="carousel-caption">
                     <h5>공연 수상작</h5>
                     <p>노트르담 드 파리</p>
@@ -129,8 +129,8 @@
             <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=뮤지컬">뮤지컬</a></li>
             <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=연극" style="border: none;">연극</a></li>
             <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=대중음악" style="border: none;">대중음악</a></li>
-            <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=클래식" style="border: none;">클래식</a></li>
-            <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=무용" style="border: none;">무용</a></li>
+            <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=서양음악(클래식)" style="border: none;">클래식</a></li>
+            <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=무용(서양/한국무용)" style="border: none;">무용</a></li>
             <li class="nav-item"><a class="nav-link" href="${path}/show-award?genre=서커스/마술" style="border: none;">서커스</a></li>
         </ul>
     </div>

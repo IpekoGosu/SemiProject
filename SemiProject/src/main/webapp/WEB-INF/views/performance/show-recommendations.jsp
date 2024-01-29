@@ -432,6 +432,7 @@
 	                    <div class="col-md-6">
 	                        <div class="card-body">
 	                            <h5 class="card-title" style="font-family: GmarketSansMedium, sans-serif; font-weight: bold;">${item.pname }</h5>
+	                            <p class="text-md mb-2 text-muted text-uppercase text-dark">${item.fname}</p>
 	                            <p class="text-md mb-2"><a class="me-1" href="#">${item.pfrom} ~ </a><a class="me-1" href="#">${item.pto}</a></p>
 	                            <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">${item.price}</a></p>
 	                            <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
@@ -475,7 +476,7 @@
 	                    class="img-fluid"
 	                    src="${item.poster}"
 	                    alt="Modern, Well-Appointed Room"
-	                  /><a class="tile-link" href="detail-rooms.html"></a>
+	                  /><a class="tile-link" href="${path}/boardPrf/view?no=${item.bno}"></a>
 	                </div>
 	                <div class="card-body d-flex align-items-center">
 	                  <div class="w-100">
@@ -495,8 +496,7 @@
 	                      </p>
 	                    </div>
 	                    <p class="card-text text-muted">
-	                      너무 감동적이고 보는 내내 집중 할 수 있는 무대였어요
-	                      최고예요!!!
+	                      ${item.content}
 	                    </p>
 	                  </div>
 	                </div>
