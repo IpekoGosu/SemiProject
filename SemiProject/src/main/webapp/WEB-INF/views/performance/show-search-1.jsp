@@ -84,7 +84,7 @@
 </head>
 <body class="reward" style="padding-top: 90px;">
 <!-- 공연 검색 폼 영역 시작 -->
-<img src="${path}/resources/img/myImages/broadway.jpg" alt="" style="object-fit: cover; width: 1920px; height: 300px;">
+<img src="${path}/resources/img/myImages/broadway.jpg" alt="" style="object-fit: cover; width: 100%; height: 300px;">
 <form name="searchPrfForm" action="${path}/show-search-1" method="get" >
 <div class="container">
   <div class="search-bar rounded p-4 mt-n6 position-relative z-index-20">
