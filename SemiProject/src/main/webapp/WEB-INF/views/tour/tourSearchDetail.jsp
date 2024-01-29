@@ -299,7 +299,8 @@
             <div class="card h-100 border-0 shadow">
               <div class="selector card-img-top overflow-hidden gradient-overlay" style="width:416px;height:277px;">
                 <c:if test="${empty item.t_image_main}">
-                  <img class="img-fluid" src="${path}/resources/img/yja/i.jpg" alt="Modern, Well-Appointed Room">
+                  <!-- <img class="img-fluid" src="${path}/resources/img/yja/i.jpg" alt="Modern, Well-Appointed Room"> -->
+                  <img class="img-fluid" src="https://a.cdn-hotels.com/gdcs/production195/d158/5430f599-4c72-4d16-b597-c2f33670c781.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" alt="Modern, Well-Appointed Room">
                 </c:if>
                 <c:if test="${not empty item.t_image_main}">
                   <img style="position: absolute; top:0; left: 0;
