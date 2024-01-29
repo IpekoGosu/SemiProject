@@ -80,7 +80,9 @@
       >
         <div class="show-banner">
           <div class="show-bannerimg">
-            <img src="${path}/resources/img/yja/showbanner.png" style="width: 300px" />
+            <!--  <img src="${path}/resources/img/yja/showbanner.png" style="width: 300px" />-->
+            <img src="https://acting.kr/data/thumb/poster/PF232700.png" style="width: 300px" />
+            
           </div>
           <div class="show-bannertext">
             <p style="font-size: 35px">환상적인 라이브와 함께하는 연말!</p>
