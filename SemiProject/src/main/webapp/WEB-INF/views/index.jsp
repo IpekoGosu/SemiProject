@@ -202,7 +202,7 @@
                 <div class="card-body d-flex align-items-center" style="height: 142px;">
                   <div class="w-100">
                     <h6 class="card-title">
-                      <a class="text-decoration-none text-dark" href="tour-detail.html" style="font-family: GmarketSansMedium, sans-serif; font-weight: bold;">
+                      <a class="text-decoration-none text-dark" href="tour-detail" style="font-family: GmarketSansMedium, sans-serif; font-weight: bold;">
                         ${items[0].pname}
                       </a>
                     </h6>
@@ -252,7 +252,7 @@
 	                        <h6 class="card-title">
 	                          <a
 	                            class="text-decoration-none text-dark"
-	                            href="show-detail.html"
+	                            href="show-detail"
 	                            style="
 	                              font-size: 15px;
 	                              font-family: GmarketSansMedium, sans-serif;
@@ -330,7 +330,7 @@
               <p>
                 <a
                   class="btn btn-lg btn-primary"
-                  href="tour-search.html"
+                  href="${path}/tour/search"
                   style="background-color: #ef4562; border: none"
                   >관광지 검색</a
                 >
@@ -374,7 +374,7 @@
               <p>
                 <a
                   class="btn btn-lg btn-primary"
-                  href="tour-best.html"
+                  href="${path}/tour/best"
                   style="background-color: #ef4562; border: none"
                   >관광지 추천</a
                 >
@@ -585,7 +585,7 @@
       </div>
       <div class="tour-board__etc">
         <div class="etc__tour etc">
-          <a href="tour-search.html">
+          <a href="${path}/tour/search">
             <img class="tour-img scale-img" src="${path}/resources/img/yja/j.jpg" width="230px" height="210px" style="object-fit: cover"/>
             <span>관광지 검색</span>
             <img class="etc__search-img" src="${path}/resources/img/yja/search.svg" />
@@ -599,7 +599,7 @@
           </a>
         </div>
         <div class="etc__food etc">
-          <a href="tour-best.html">
+          <a href="${path}/tour/best">
             <img class="best-img scale-img" src="${path}/resources/img/yja/l.jpg" width="230px" height="210px" style="object-fit: cover"/>
             <span>관광지 추천</span>
             <img class="etc__best-img" src="${path}/resources/img/yja/smile-beam-solid.svg" />
