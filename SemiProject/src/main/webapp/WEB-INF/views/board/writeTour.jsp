@@ -79,7 +79,7 @@
     <!-- 후기 작성란 -->
     <section>
       <div class="container">
-        <form action="${path}/boardTour/update" method="post" enctype="multipart/form-data">
+        <form action="${path}/boardTour/write" method="post" enctype="multipart/form-data">
         <!-- 이거 없으면 에러남 -->
         <input type="hidden" name="tid" value="${tid}">
         <input type="hidden" name="memberId" value="${board.memberId}">

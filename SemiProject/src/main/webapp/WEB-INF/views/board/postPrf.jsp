@@ -166,10 +166,10 @@
         </div>
         <c:if test="${not empty board.attachFiles}">
 	        <div class="row mb-5">
-	        	<div>
-	        		첨부파일 목록
+	        	<div class="col-sm">
 	        	</div>
-        		<div>
+        		<div class="col-sm">
+	        		<div style="text-align: center">첨부파일 목록</div>	
 	        	<c:forEach var="item" items="${board.attachFiles}">
 	        			<img alt="" src="${path}/resources/img/myImages/iconfiledown.png">
 		        		<a href="javascript:fileDownload('${item.fno}');">
@@ -177,6 +177,8 @@
 		        		</a>
 	        	</c:forEach>
         		</div>
+	        	<div class="col-sm">
+	        	</div>
 	        </div>
         </c:if>
         

@@ -149,7 +149,7 @@
 	<!-- 게시물 작성/삭제시 공연의 평균평점 갱신 -->
 	<update id="updateTourRate">
 		UPDATE TOUR 
-			SET RATE = (SELECT AVG(RATINGS) FROM PRFBOARD WHERE T_CONTENT_ID = #{tid}) 
+			SET T_REVIEW_RATE = (SELECT AVG(RATINGS) FROM PRFBOARD WHERE T_CONTENT_ID = #{tid}) 
 			WHERE T_CONTENT_ID = #{tid};
 	</update>
 	

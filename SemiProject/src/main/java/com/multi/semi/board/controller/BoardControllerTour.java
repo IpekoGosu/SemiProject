@@ -97,15 +97,8 @@ public class BoardControllerTour {
 			@ModelAttribute BoardTour board,
 			@RequestParam(name="upfiles", required = false) List<MultipartFile> upfiles
 			) {
-		log.debug("board write 요청, board : " + board +", upfiles : " + upfiles +", " + upfiles.size());
-		
-		// 보안코드나 파라메터 검사 예시
-		if(loginMember == null || loginMember.getId().equals(board.getMemberId()) == false) {
-			model.addAttribute("msg","잘못된 접근 입니다.");
-			model.addAttribute("location", "/");
-			return "common/msg";
-		}
 		board.setMno(loginMember.getMno());
+		log.debug("board write 요청, board : " + board +", upfiles : " + upfiles +", " + upfiles.size());
 
 		// 파일처리부
 		String rootPath = session.getServletContext().getRealPath("resources");

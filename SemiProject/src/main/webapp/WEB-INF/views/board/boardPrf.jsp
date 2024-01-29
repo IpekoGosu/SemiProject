@@ -283,7 +283,7 @@
 
         
         <!-- 페이지네이션 영역 시작 -->
-    <div class="mt-5 mb-5">
+    <div class="mt-3 mb-1">
       <nav aria-label="Page navigation example">
           <ul class="pagination pagination-template d-flex justify-content-center mt-3">
               <li class="page-item page-link" onclick="movePage(1);"  style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
