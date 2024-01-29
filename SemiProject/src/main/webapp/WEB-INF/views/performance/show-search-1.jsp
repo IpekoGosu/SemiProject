@@ -237,6 +237,7 @@
 	                        <div class="card-body">
 	                            <h5 class="card-title">${item.pname }</h5>
 	                            <p class="text-md mb-2"><a class="me-1" href="#">${item.pfrom} ~ </a><a class="me-1" href="#">${item.pto}</a></p>
+	                            <p class="text-md mb-2 text-muted text-uppercase text-dark">${item.fname}</p>
 	                            <p class="text-md mb-2 text-muted text-uppercase">Price <a href="#" class="text-dark">${item.price}</a></p>
 	                            <p class="text-xs mb-2"><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-warning"></i><i class="fa fa-star text-gray-300"> </i></p>
 	                        </div>
