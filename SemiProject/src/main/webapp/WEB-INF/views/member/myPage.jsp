@@ -253,7 +253,7 @@
                                     <label for="inputPassword2" class="col-form-label">변경할 비밀번호</label>
                                   </div>
                                   <div class="col-5">
-                                    <input type="password" name="newPassword" id="inputPassword2" class="form-control" aria-describedby="passwordHelpInline" placeholder="8자 이상 20자 이하">
+                                    <input type="password" name="newPassword2" id="inputPassword2" class="form-control" aria-describedby="passwordHelpInline" placeholder="8자 이상 20자 이하">
                                   </div>
                                   <div class="col-4">
                                     <span id="passwordHelpInline" class="form-text">

@@ -80,7 +80,7 @@ public class BoardServicePrf {
 		int result = 0;
 		if(board.getBno() == 0) { // insert
 			result = mapper.insertBoardPrf(board);
-			mapper.updatePrfRate(board.getPid());
+			mapper.updatePrfRate(board.getPid()); // 평점 update
 			if(result <= 0) {
 				throw new Exception("Board insert error!");
 			}
