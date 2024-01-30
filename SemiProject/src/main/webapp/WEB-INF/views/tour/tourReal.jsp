@@ -104,7 +104,7 @@
               <!-- <li class="nav-item"><a class="nav-link active" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날씨&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li> -->
               <li class="nav-item"><a class="nav-link" style="font-family: GmarketSansMedium;background-color:white; border: none;" href="#weather">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날씨&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
               <li class="nav-item"><a class="nav-link" style="font-family: GmarketSansMedium;background-color:white; border: none;" href="#population">&nbsp;&nbsp;&nbsp;유동인구&nbsp;&nbsp;&nbsp;</a></li>
-              <li class="nav-item"><a class="nav-link" style="font-family: GmarketSansMedium;background-color:white; border: none;" href="#event-now">문화행사현황</a></li>
+              <!-- <li class="nav-item"><a class="nav-link" style="font-family: GmarketSansMedium;background-color:white; border: none;" href="#event-now">문화행사현황</a></li> -->
             </ul>
           </div>
         </div>
@@ -219,7 +219,9 @@
 	var positions = [
 		<c:forEach var="map" items="${tourPeople}" >
 			{
-			    content: '<div style="padding: 1em;"><p style="font-weight: bold;">${map.area_nm}</p><br/> 정도 : ${map.area_congest_lvl}<br/>메세지 : ${map.area_congest_msg}</div>', 
+			    content: '<div style="padding: 1em;"><p style="font-weight: bold;">${map.area_nm}</p><br/> 정도 : ${map.area_congest_lvl}<br/>메세지 : ${map.area_congest_msg}</div>',
+			    //link : '<a href="https://map.kakao.com/link/map/${map.lat}, ${map.lng}" target="_blank">',
+			    link : 'https://map.kakao.com/link/map/${map.area_nm},${map.lat}, ${map.lng}',
 			    latlng: new kakao.maps.LatLng(${map.lat}, ${map.lng}),
           setData: '${map.area_congest_lvl}'
 			},
@@ -278,31 +280,41 @@
         image: markerImage4
       });
     }
-
+    
     // 마커에 표시할 인포윈도우를 생성합니다 
     var infowindow = new kakao.maps.InfoWindow({
         content: positions[i].content // 인포윈도우에 표시할 내용
     });
+    
+    var link = positions[i].link;
     
     // 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
     // 이벤트 리스너로는 클로저를 만들어 등록합니다 
     // for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
     kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
     kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+    kakao.maps.event.addListener(marker, 'click', makeClickListener(link));
 	}
 	
 	//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 	function makeOverListener(map, marker, infowindow) {
-	return function() {
-	    infowindow.open(map, marker);
-	};
+		return function() {
+		    infowindow.open(map, marker);
+		};
+	}
+	
+	//인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+	function makeClickListener(link) {
+		return function() {
+			window.open(link);
+		};
 	}
 	
 	//인포윈도우를 닫는 클로저를 만드는 함수입니다 
 	function makeOutListener(infowindow) {
-	return function() {
-	    infowindow.close();
-	};
+		return function() {
+		    infowindow.close();
+		};
 	}
 </script>
 
